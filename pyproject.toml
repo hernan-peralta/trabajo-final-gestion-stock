@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "trabajo-final"
+version = "0.1.0"
+description = ""
+authors = ["Hernán Peralta <alegodemencia@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mysql-connector-python = "^8.0.28"
+pyqt5 = "^5.15.6"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.12.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
