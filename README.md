@@ -12,8 +12,8 @@ Sistema de gestión de stock de productos, proveedores y clientes escrito en Pyt
 ## Instalación y ejecución:
 1) Ejecutar `poetry install` para instalar dependencias
 2) Ejecutar `docker-compose up` en el directorio raíz del proyecto
-3) Ejecutar `python3 TrabajoFinal/Infraestructura/Mysql/Setup/SetupDB.py`
-4) Ejecutar `python3 TrabajoFinal/Infraestructura/Mysql/Setup/SeedDB.py` (Opcional)
+3) Ejecutar `python3 Infraestructura/Mysql/Setup/SetupDB.py`
+4) Ejecutar `python3 Infraestructura/Mysql/Setup/SeedDB.py` (Opcional)
 5) Ejecutar `python3 bootstrap.py`
 
 ## Diagramas
