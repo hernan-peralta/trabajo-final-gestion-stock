@@ -1,11 +1,15 @@
 from Aplicacion.Producto.producto_dto import ProductoDTO
+from Dominio.producto import Producto
 
 
 class ServicioProducto:
     def __init__(self, repositorio_producto):
         self.repositorioProducto = repositorio_producto
 
-    def guardar(self, producto):
+    def guardar(self, producto_request):
+        producto = Producto(producto_request["nombre"], producto_request["marca"], producto_request["precio_unitario"],
+                            producto_request["unidades_stock"], producto_request["descripcion"],
+                            producto_request["observaciones"])
         return self.repositorioProducto.guardar(producto)
 
     def obtener_todos(self):
