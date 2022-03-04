@@ -1,0 +1,1033 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'untitled.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    cantidad_filas = 10
+    cantidad_elementos_productoDto = 7
+    cantidad_elementos_clienteDto = 8
+    cantidad_elementos_proveedorDto = 12
+    cantidad_elementos_categoriaDto = 3
+
+    def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1033, 716)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.tabWidgetAplicacion = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidgetAplicacion.setGeometry(QtCore.QRect(0, 0, 1031, 681))
+        self.tabWidgetAplicacion.setObjectName("tabWidgetAplicacion")
+        self.tab_producto = QtWidgets.QWidget()
+        self.tab_producto.setObjectName("tab_producto")
+        self.tabWidgetProducto = QtWidgets.QTabWidget(self.tab_producto)
+        self.tabWidgetProducto.setGeometry(QtCore.QRect(0, 0, 1011, 631))
+        self.tabWidgetProducto.setObjectName("tabWidgetProducto")
+        self.tab_listado_producto = QtWidgets.QWidget()
+        self.tab_listado_producto.setObjectName("tab_listado_producto")
+        self.frame_buscar_producto = QtWidgets.QFrame(self.tab_listado_producto)
+        self.frame_buscar_producto.setGeometry(QtCore.QRect(60, 10, 861, 101))
+        self.frame_buscar_producto.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_producto.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_producto.setObjectName("frame_buscar_producto")
+        self.comboBox_atributo_busqueda_producto = QtWidgets.QComboBox(self.frame_buscar_producto)
+        self.comboBox_atributo_busqueda_producto.setGeometry(QtCore.QRect(70, 30, 106, 28))
+        self.comboBox_atributo_busqueda_producto.setObjectName("comboBox_atributo_busqueda_producto")
+        self.comboBox_atributo_busqueda_producto.addItem("")
+        self.comboBox_atributo_busqueda_producto.addItem("")
+        self.comboBox_atributo_busqueda_producto.addItem("")
+        self.comboBox_atributo_busqueda_producto.addItem("")
+        self.btn_buscar_producto = QtWidgets.QPushButton(self.frame_buscar_producto)
+        self.btn_buscar_producto.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_producto.setObjectName("btn_buscar_producto")
+        self.lineEdit_buscar_producto = QtWidgets.QLineEdit(self.frame_buscar_producto)
+        self.lineEdit_buscar_producto.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_producto.setObjectName("lineEdit_buscar_producto")
+        self.tableResultadoBusquedaProducto = QtWidgets.QTableWidget(self.tab_listado_producto)
+        self.tableResultadoBusquedaProducto.setEnabled(True)
+        self.tableResultadoBusquedaProducto.setGeometry(QtCore.QRect(20, 190, 961, 351))
+        self.tableResultadoBusquedaProducto.setAcceptDrops(False)
+        self.tableResultadoBusquedaProducto.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableResultadoBusquedaProducto.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableResultadoBusquedaProducto.setLineWidth(1)
+        self.tableResultadoBusquedaProducto.setMidLineWidth(0)
+        self.tableResultadoBusquedaProducto.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableResultadoBusquedaProducto.setShowGrid(True)
+        self.tableResultadoBusquedaProducto.setWordWrap(True)
+        self.tableResultadoBusquedaProducto.setCornerButtonEnabled(True)
+        self.tableResultadoBusquedaProducto.setRowCount(10)
+        self.tableResultadoBusquedaProducto.setObjectName("tableResultadoBusquedaProducto")
+        self.tableResultadoBusquedaProducto.setColumnCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableResultadoBusquedaProducto.setHorizontalHeaderItem(8, item)
+        self.tableResultadoBusquedaProducto.horizontalHeader().setCascadingSectionResizes(False)
+        self.btn_mostrar_todos_productos = QtWidgets.QPushButton(self.tab_listado_producto)
+        self.btn_mostrar_todos_productos.setGeometry(QtCore.QRect(250, 140, 552, 28))
+        self.btn_mostrar_todos_productos.setObjectName("btn_mostrar_todos_productos")
+        self.tabWidgetProducto.addTab(self.tab_listado_producto, "")
+        self.tab_agregar_modificar_producto = QtWidgets.QWidget()
+        self.tab_agregar_modificar_producto.setObjectName("tab_agregar_modificar_producto")
+        self.frame = QtWidgets.QFrame(self.tab_agregar_modificar_producto)
+        self.frame.setGeometry(QtCore.QRect(110, 40, 821, 481))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.formLayout = QtWidgets.QFormLayout(self.frame)
+        self.formLayout.setObjectName("formLayout")
+        self.label_agregar_producto_nombre = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_nombre.setObjectName("label_agregar_producto_nombre")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_nombre)
+        self.label_agregar_producto_categoria = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_categoria.setObjectName("label_agregar_producto_categoria")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_categoria)
+        self.label_agregar_producto_precio_unitario = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_precio_unitario.setObjectName("label_agregar_producto_precio_unitario")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_precio_unitario)
+        self.pushButton_agregar_producto_guardar = QtWidgets.QPushButton(self.frame)
+        self.pushButton_agregar_producto_guardar.setObjectName("pushButton_agregar_producto_guardar")
+        self.formLayout.setWidget(13, QtWidgets.QFormLayout.FieldRole, self.pushButton_agregar_producto_guardar)
+        self.pushButton_agregar_producto_borrar = QtWidgets.QPushButton(self.frame)
+        self.pushButton_agregar_producto_borrar.setObjectName("pushButton_agregar_producto_borrar")
+        self.formLayout.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.pushButton_agregar_producto_borrar)
+        self.comboBox_atributo_busqueda_producto_categoria = QtWidgets.QComboBox(self.frame)
+        self.comboBox_atributo_busqueda_producto_categoria.setObjectName(
+            "comboBox_atributo_busqueda_producto_categoria")
+        self.comboBox_atributo_busqueda_producto_categoria.addItem("")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole,
+                                  self.comboBox_atributo_busqueda_producto_categoria)
+        self.lineEdit_agregar_producto_nombre = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_nombre.setObjectName("lineEdit_agregar_producto_nombre")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_nombre)
+        self.lineEdit_agregar_producto_precio_unitario = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_precio_unitario.setObjectName("lineEdit_agregar_producto_precio_unitario")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_precio_unitario)
+        self.label_agregar_producto_proveedor = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_proveedor.setObjectName("label_agregar_producto_proveedor")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_proveedor)
+        self.comboBox_atributo_busqueda_producto_proveedor = QtWidgets.QComboBox(self.frame)
+        self.comboBox_atributo_busqueda_producto_proveedor.setObjectName(
+            "comboBox_atributo_busqueda_producto_proveedor")
+        self.comboBox_atributo_busqueda_producto_proveedor.addItem("")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.FieldRole,
+                                  self.comboBox_atributo_busqueda_producto_proveedor)
+        self.label_agregar_producto_marca = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_marca.setObjectName("label_agregar_producto_marca")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_marca)
+        self.lineEdit_agregar_producto_marca = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_marca.setObjectName("lineEdit_agregar_producto_marca")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_marca)
+        self.label_agregar_producto_descripcion = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_descripcion.setObjectName("label_agregar_producto_descripcion")
+        self.formLayout.setWidget(10, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_descripcion)
+        self.lineEdit_agregar_producto_descripcion = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_descripcion.setObjectName("lineEdit_agregar_producto_descripcion")
+        self.formLayout.setWidget(10, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_descripcion)
+        self.label_agregar_producto_observaciones = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_observaciones.setObjectName("label_agregar_producto_observaciones")
+        self.formLayout.setWidget(12, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_observaciones)
+        self.lineEdit_agregar_producto_observaciones = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_observaciones.setObjectName("lineEdit_agregar_producto_observaciones")
+        self.formLayout.setWidget(12, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_observaciones)
+        self.label_agregar_producto_precio_unitario_2 = QtWidgets.QLabel(self.frame)
+        self.label_agregar_producto_precio_unitario_2.setObjectName("label_agregar_producto_precio_unitario_2")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_agregar_producto_precio_unitario_2)
+        self.lineEdit_agregar_producto_precio_unitario_2 = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_agregar_producto_precio_unitario_2.setObjectName("lineEdit_agregar_producto_precio_unitario_2")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_agregar_producto_precio_unitario_2)
+        self.tabWidgetProducto.addTab(self.tab_agregar_modificar_producto, "")
+        self.tabWidgetAplicacion.addTab(self.tab_producto, "")
+        self.tab_cliente = QtWidgets.QWidget()
+        self.tab_cliente.setObjectName("tab_cliente")
+        self.tabWidgetCliente = QtWidgets.QTabWidget(self.tab_cliente)
+        self.tabWidgetCliente.setGeometry(QtCore.QRect(0, 0, 1001, 641))
+        self.tabWidgetCliente.setObjectName("tabWidgetCliente")
+        self.tab_listado_cliente = QtWidgets.QWidget()
+        self.tab_listado_cliente.setObjectName("tab_listado_cliente")
+        self.tableListaCliente = QtWidgets.QTableWidget(self.tab_listado_cliente)
+        self.tableListaCliente.setEnabled(True)
+        self.tableListaCliente.setGeometry(QtCore.QRect(10, 190, 971, 341))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableListaCliente.sizePolicy().hasHeightForWidth())
+        self.tableListaCliente.setSizePolicy(sizePolicy)
+        self.tableListaCliente.setAcceptDrops(False)
+        self.tableListaCliente.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableListaCliente.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableListaCliente.setLineWidth(1)
+        self.tableListaCliente.setMidLineWidth(0)
+        self.tableListaCliente.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableListaCliente.setShowGrid(True)
+        self.tableListaCliente.setWordWrap(True)
+        self.tableListaCliente.setCornerButtonEnabled(True)
+        self.tableListaCliente.setRowCount(10)
+        self.tableListaCliente.setColumnCount(10)
+        self.tableListaCliente.setObjectName("tableListaCliente")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCliente.setHorizontalHeaderItem(9, item)
+
+        self.tableListaCliente.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_cliente = QtWidgets.QFrame(self.tab_listado_cliente)
+        self.frame_buscar_cliente.setGeometry(QtCore.QRect(60, 10, 811, 111))
+        self.frame_buscar_cliente.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_cliente.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_cliente.setObjectName("frame_buscar_cliente")
+        self.comboBox_atributo_busqueda_cliente = QtWidgets.QComboBox(self.frame_buscar_cliente)
+        self.comboBox_atributo_busqueda_cliente.setGeometry(QtCore.QRect(70, 30, 106, 28))
+        self.comboBox_atributo_busqueda_cliente.setObjectName("comboBox_atributo_busqueda_cliente")
+        self.comboBox_atributo_busqueda_cliente.addItem("")
+        self.comboBox_atributo_busqueda_cliente.addItem("")
+        self.comboBox_atributo_busqueda_cliente.addItem("")
+        self.comboBox_atributo_busqueda_cliente.addItem("")
+        self.btn_buscar_cliente = QtWidgets.QPushButton(self.frame_buscar_cliente)
+        self.btn_buscar_cliente.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_cliente.setObjectName("btn_buscar_cliente")
+        self.lineEdit_buscar_cliente = QtWidgets.QLineEdit(self.frame_buscar_cliente)
+        self.lineEdit_buscar_cliente.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_cliente.setObjectName("lineEdit_buscar_cliente")
+        self.btn_mostrar_todos_clientes = QtWidgets.QPushButton(self.tab_listado_cliente)
+        self.btn_mostrar_todos_clientes.setGeometry(QtCore.QRect(250, 140, 552, 28))
+        self.btn_mostrar_todos_clientes.setObjectName("btn_mostrar_todos_clientes")
+        self.tabWidgetCliente.addTab(self.tab_listado_cliente, "")
+        self.tab_agregar_modificar_cliente = QtWidgets.QWidget()
+        self.tab_agregar_modificar_cliente.setObjectName("tab_agregar_modificar_cliente")
+        self.frame_2 = QtWidgets.QFrame(self.tab_agregar_modificar_cliente)
+        self.frame_2.setGeometry(QtCore.QRect(70, 10, 811, 501))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.frame_2)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.label_nombreCliente = QtWidgets.QLabel(self.frame_2)
+        self.label_nombreCliente.setObjectName("label_nombreCliente")
+        self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_nombreCliente)
+        self.lineEdit_nombreCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_nombreCliente.setObjectName("lineEdit_nombreCliente")
+        self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.lineEdit_nombreCliente)
+        self.label_apellidoCliente = QtWidgets.QLabel(self.frame_2)
+        self.label_apellidoCliente.setObjectName("label_apellidoCliente")
+        self.formLayout_2.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_apellidoCliente)
+        self.lineEdit_apellidoCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_apellidoCliente.setObjectName("lineEdit_apellidoCliente")
+        self.formLayout_2.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_apellidoCliente)
+        self.label_localidadCliente = QtWidgets.QLabel(self.frame_2)
+        self.label_localidadCliente.setObjectName("label_localidadCliente")
+        self.formLayout_2.setWidget(15, QtWidgets.QFormLayout.LabelRole, self.label_localidadCliente)
+        self.lineEdit_localidadCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_localidadCliente.setObjectName("lineEdit_localidadCliente")
+        self.formLayout_2.setWidget(15, QtWidgets.QFormLayout.FieldRole, self.lineEdit_localidadCliente)
+        self.label_telefonoCLiente = QtWidgets.QLabel(self.frame_2)
+        self.label_telefonoCLiente.setObjectName("label_telefonoCLiente")
+        self.formLayout_2.setWidget(19, QtWidgets.QFormLayout.LabelRole, self.label_telefonoCLiente)
+        self.lineEdit_telefonoCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_telefonoCliente.setObjectName("lineEdit_telefonoCliente")
+        self.formLayout_2.setWidget(19, QtWidgets.QFormLayout.FieldRole, self.lineEdit_telefonoCliente)
+        self.label_dniCLiente = QtWidgets.QLabel(self.frame_2)
+        self.label_dniCLiente.setObjectName("label_dniCLiente")
+        self.formLayout_2.setWidget(21, QtWidgets.QFormLayout.LabelRole, self.label_dniCLiente)
+        self.lineEdit_dniCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_dniCliente.setObjectName("lineEdit_dniCliente")
+        self.formLayout_2.setWidget(21, QtWidgets.QFormLayout.FieldRole, self.lineEdit_dniCliente)
+        self.pushButton_guardarCliente = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_guardarCliente.setObjectName("pushButton_guardarCliente")
+        self.formLayout_2.setWidget(23, QtWidgets.QFormLayout.FieldRole, self.pushButton_guardarCliente)
+        self.pushButton_borrarCliente = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_borrarCliente.setObjectName("pushButton_borrarCliente")
+        self.formLayout_2.setWidget(24, QtWidgets.QFormLayout.FieldRole, self.pushButton_borrarCliente)
+        self.lineEdit_direccionCliente = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit_direccionCliente.setObjectName("lineEdit_direccionCliente")
+        self.formLayout_2.setWidget(13, QtWidgets.QFormLayout.FieldRole, self.lineEdit_direccionCliente)
+        self.label_direccionCliente = QtWidgets.QLabel(self.frame_2)
+        self.label_direccionCliente.setObjectName("label_direccionCliente")
+        self.formLayout_2.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.label_direccionCliente)
+        self.tabWidgetCliente.addTab(self.tab_agregar_modificar_cliente, "")
+        self.tabWidgetAplicacion.addTab(self.tab_cliente, "")
+        self.tab_proveedor = QtWidgets.QWidget()
+        self.tab_proveedor.setObjectName("tab_proveedor")
+        self.tabWidgetProveedor = QtWidgets.QTabWidget(self.tab_proveedor)
+        self.tabWidgetProveedor.setGeometry(QtCore.QRect(0, 0, 1001, 621))
+        self.tabWidgetProveedor.setObjectName("tabWidgetProveedor")
+        self.tab_listado_proveedor = QtWidgets.QWidget()
+        self.tab_listado_proveedor.setObjectName("tab_listado_proveedor")
+        self.tableListaProveedor = QtWidgets.QTableWidget(self.tab_listado_proveedor)
+        self.tableListaProveedor.setEnabled(True)
+        self.tableListaProveedor.setGeometry(QtCore.QRect(10, 190, 961, 361))
+        self.tableListaProveedor.setAcceptDrops(False)
+        self.tableListaProveedor.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableListaProveedor.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableListaProveedor.setLineWidth(1)
+        self.tableListaProveedor.setMidLineWidth(0)
+        self.tableListaProveedor.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableListaProveedor.setShowGrid(True)
+        self.tableListaProveedor.setWordWrap(True)
+        self.tableListaProveedor.setCornerButtonEnabled(True)
+        self.tableListaProveedor.setRowCount(10)
+        self.tableListaProveedor.setColumnCount(12)
+        self.tableListaProveedor.setObjectName("tableListaProveedor")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(9, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(10, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(11, item)
+        self.tableListaProveedor.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_proveedor = QtWidgets.QFrame(self.tab_listado_proveedor)
+        self.frame_buscar_proveedor.setGeometry(QtCore.QRect(60, 10, 811, 111))
+        self.frame_buscar_proveedor.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_proveedor.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_proveedor.setObjectName("frame_buscar_proveedor")
+        self.comboBox_atributo_busqueda_proveedor = QtWidgets.QComboBox(self.frame_buscar_proveedor)
+        self.comboBox_atributo_busqueda_proveedor.setGeometry(QtCore.QRect(70, 30, 106, 28))
+        self.comboBox_atributo_busqueda_proveedor.setObjectName("comboBox_atributo_busqueda_proveedor")
+        self.comboBox_atributo_busqueda_proveedor.addItem("")
+        self.comboBox_atributo_busqueda_proveedor.addItem("")
+        self.comboBox_atributo_busqueda_proveedor.addItem("")
+        self.btn_buscar_proveedor = QtWidgets.QPushButton(self.frame_buscar_proveedor)
+        self.btn_buscar_proveedor.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_proveedor.setObjectName("btn_buscar_proveedor")
+        self.lineEdit_buscar_proveedor = QtWidgets.QLineEdit(self.frame_buscar_proveedor)
+        self.lineEdit_buscar_proveedor.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_proveedor.setObjectName("lineEdit_buscar_proveedor")
+        self.btn_mostrar_todos_proveedores = QtWidgets.QPushButton(self.tab_listado_proveedor)
+        self.btn_mostrar_todos_proveedores.setGeometry(QtCore.QRect(250, 140, 552, 28))
+        self.btn_mostrar_todos_proveedores.setObjectName("btn_mostrar_todos_proveedores")
+        self.tabWidgetProveedor.addTab(self.tab_listado_proveedor, "")
+        self.tab_agregar_modificar_proveedor = QtWidgets.QWidget()
+        self.tab_agregar_modificar_proveedor.setObjectName("tab_agregar_modificar_proveedor")
+        self.frame_5 = QtWidgets.QFrame(self.tab_agregar_modificar_proveedor)
+        self.frame_5.setGeometry(QtCore.QRect(50, 10, 841, 521))
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.formLayout_4 = QtWidgets.QFormLayout(self.frame_5)
+        self.formLayout_4.setObjectName("formLayout_4")
+        self.label_nombreProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_nombreProveedor.setObjectName("label_nombreProveedor")
+        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_nombreProveedor)
+        self.lineEdit_nombreProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_nombreProveedor.setObjectName("lineEdit_nombreProveedor")
+        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.lineEdit_nombreProveedor)
+        self.label_observacionesProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_observacionesProveedor.setObjectName("label_observacionesProveedor")
+        self.formLayout_4.setWidget(24, QtWidgets.QFormLayout.LabelRole, self.label_observacionesProveedor)
+        self.lineEdit_observacionesProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_observacionesProveedor.setObjectName("lineEdit_observacionesProveedor")
+        self.formLayout_4.setWidget(24, QtWidgets.QFormLayout.FieldRole, self.lineEdit_observacionesProveedor)
+        self.pushButton_guardarProveedor = QtWidgets.QPushButton(self.frame_5)
+        self.pushButton_guardarProveedor.setObjectName("pushButton_guardarProveedor")
+        self.formLayout_4.setWidget(35, QtWidgets.QFormLayout.FieldRole, self.pushButton_guardarProveedor)
+        self.pushButton_borrarProveedor = QtWidgets.QPushButton(self.frame_5)
+        self.pushButton_borrarProveedor.setObjectName("pushButton_borrarProveedor")
+        self.formLayout_4.setWidget(36, QtWidgets.QFormLayout.FieldRole, self.pushButton_borrarProveedor)
+        self.label_direccionComercialProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_direccionComercialProveedor.setObjectName("label_direccionComercialProveedor")
+        self.formLayout_4.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_direccionComercialProveedor)
+        self.lineEdit_direccionComercialProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_direccionComercialProveedor.setObjectName("lineEdit_direccionComercialProveedor")
+        self.formLayout_4.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_direccionComercialProveedor)
+        self.label_localidadProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_localidadProveedor.setObjectName("label_localidadProveedor")
+        self.formLayout_4.setWidget(8, QtWidgets.QFormLayout.LabelRole, self.label_localidadProveedor)
+        self.lineEdit_localidadProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_localidadProveedor.setObjectName("lineEdit_localidadProveedor")
+        self.formLayout_4.setWidget(8, QtWidgets.QFormLayout.FieldRole, self.lineEdit_localidadProveedor)
+        self.label_telefonoProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_telefonoProveedor.setObjectName("label_telefonoProveedor")
+        self.formLayout_4.setWidget(9, QtWidgets.QFormLayout.LabelRole, self.label_telefonoProveedor)
+        self.lineEdit_telefonoProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_telefonoProveedor.setObjectName("lineEdit_telefonoProveedor")
+        self.formLayout_4.setWidget(9, QtWidgets.QFormLayout.FieldRole, self.lineEdit_telefonoProveedor)
+        self.label_emailProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_emailProveedor.setObjectName("label_emailProveedor")
+        self.formLayout_4.setWidget(12, QtWidgets.QFormLayout.LabelRole, self.label_emailProveedor)
+        self.lineEdit_emailProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_emailProveedor.setObjectName("lineEdit_emailProveedor")
+        self.formLayout_4.setWidget(12, QtWidgets.QFormLayout.FieldRole, self.lineEdit_emailProveedor)
+        self.lineEdit_dniProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_dniProveedor.setObjectName("lineEdit_dniProveedor")
+        self.formLayout_4.setWidget(13, QtWidgets.QFormLayout.FieldRole, self.lineEdit_dniProveedor)
+        self.label_dniProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_dniProveedor.setObjectName("label_dniProveedor")
+        self.formLayout_4.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.label_dniProveedor)
+        self.label_cbuProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_cbuProveedor.setObjectName("label_cbuProveedor")
+        self.formLayout_4.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_cbuProveedor)
+        self.lineEdit_cbuProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_cbuProveedor.setObjectName("lineEdit_cbuProveedor")
+        self.formLayout_4.setWidget(16, QtWidgets.QFormLayout.FieldRole, self.lineEdit_cbuProveedor)
+        self.label_bancoCbuProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_bancoCbuProveedor.setObjectName("label_bancoCbuProveedor")
+        self.formLayout_4.setWidget(19, QtWidgets.QFormLayout.LabelRole, self.label_bancoCbuProveedor)
+        self.lineEdit_bancoCbuProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_bancoCbuProveedor.setObjectName("lineEdit_bancoCbuProveedor")
+        self.formLayout_4.setWidget(19, QtWidgets.QFormLayout.FieldRole, self.lineEdit_bancoCbuProveedor)
+        self.label_cuitProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_cuitProveedor.setObjectName("label_cuitProveedor")
+        self.formLayout_4.setWidget(20, QtWidgets.QFormLayout.LabelRole, self.label_cuitProveedor)
+        self.lineEdit_cuitProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_cuitProveedor.setObjectName("lineEdit_cuitProveedor")
+        self.formLayout_4.setWidget(20, QtWidgets.QFormLayout.FieldRole, self.lineEdit_cuitProveedor)
+        self.label_categoriaIvaProveedor = QtWidgets.QLabel(self.frame_5)
+        self.label_categoriaIvaProveedor.setObjectName("label_categoriaIvaProveedor")
+        self.formLayout_4.setWidget(23, QtWidgets.QFormLayout.LabelRole, self.label_categoriaIvaProveedor)
+        self.lineEdit_categoriaIvaProveedor = QtWidgets.QLineEdit(self.frame_5)
+        self.lineEdit_categoriaIvaProveedor.setObjectName("lineEdit_categoriaIvaProveedor")
+        self.formLayout_4.setWidget(23, QtWidgets.QFormLayout.FieldRole, self.lineEdit_categoriaIvaProveedor)
+        self.tabWidgetProveedor.addTab(self.tab_agregar_modificar_proveedor, "")
+        self.tabWidgetAplicacion.addTab(self.tab_proveedor, "")
+        self.tab_categoria = QtWidgets.QWidget()
+        self.tab_categoria.setObjectName("tab_categoria")
+        self.tabWidgetCliente_2 = QtWidgets.QTabWidget(self.tab_categoria)
+        self.tabWidgetCliente_2.setGeometry(QtCore.QRect(0, 0, 1001, 631))
+        self.tabWidgetCliente_2.setObjectName("tabWidgetCliente_2")
+        self.tab_listado_categoria = QtWidgets.QWidget()
+        self.tab_listado_categoria.setObjectName("tab_listado_categoria")
+        self.tableListaCategoria = QtWidgets.QTableWidget(self.tab_listado_categoria)
+        self.tableListaCategoria.setEnabled(True)
+        self.tableListaCategoria.setGeometry(QtCore.QRect(110, 200, 771, 341))
+        self.tableListaCategoria.setAcceptDrops(False)
+        self.tableListaCategoria.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableListaCategoria.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableListaCategoria.setLineWidth(1)
+        self.tableListaCategoria.setMidLineWidth(0)
+        self.tableListaCategoria.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableListaCategoria.setShowGrid(True)
+        self.tableListaCategoria.setWordWrap(True)
+        self.tableListaCategoria.setCornerButtonEnabled(True)
+        self.tableListaCategoria.setRowCount(10)
+        self.tableListaCategoria.setColumnCount(4)
+        self.tableListaCategoria.setObjectName("tableListaCategoria")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCategoria.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCategoria.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCategoria.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaCategoria.setHorizontalHeaderItem(3, item)
+        self.tableListaCategoria.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_categoria = QtWidgets.QFrame(self.tab_listado_categoria)
+        self.frame_buscar_categoria.setGeometry(QtCore.QRect(60, 10, 811, 111))
+        self.frame_buscar_categoria.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_categoria.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_categoria.setObjectName("frame_buscar_categoria")
+        self.btn_buscar_categoria = QtWidgets.QPushButton(self.frame_buscar_categoria)
+        self.btn_buscar_categoria.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_categoria.setObjectName("btn_buscar_categoria")
+        self.lineEdit_buscar_categoria = QtWidgets.QLineEdit(self.frame_buscar_categoria)
+        self.lineEdit_buscar_categoria.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_categoria.setObjectName("lineEdit_buscar_categoria")
+        self.btn_mostrar_todos_categorias = QtWidgets.QPushButton(self.tab_listado_categoria)
+        self.btn_mostrar_todos_categorias.setGeometry(QtCore.QRect(250, 140, 552, 28))
+        self.btn_mostrar_todos_categorias.setObjectName("btn_mostrar_todos_categorias")
+        self.tabWidgetCliente_2.addTab(self.tab_listado_categoria, "")
+        self.tab_agregar_modificar_categoria = QtWidgets.QWidget()
+        self.tab_agregar_modificar_categoria.setObjectName("tab_agregar_modificar_categoria")
+        self.frame_4 = QtWidgets.QFrame(self.tab_agregar_modificar_categoria)
+        self.frame_4.setGeometry(QtCore.QRect(50, 10, 811, 501))
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.formLayout_3 = QtWidgets.QFormLayout(self.frame_4)
+        self.formLayout_3.setObjectName("formLayout_3")
+        self.label_nombreCategoria = QtWidgets.QLabel(self.frame_4)
+        self.label_nombreCategoria.setObjectName("label_nombreCategoria")
+        self.formLayout_3.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_nombreCategoria)
+        self.lineEdit_nombreCategoria = QtWidgets.QLineEdit(self.frame_4)
+        self.lineEdit_nombreCategoria.setObjectName("lineEdit_nombreCategoria")
+        self.formLayout_3.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.lineEdit_nombreCategoria)
+        self.label_observacionesCategoria = QtWidgets.QLabel(self.frame_4)
+        self.label_observacionesCategoria.setObjectName("label_observacionesCategoria")
+        self.formLayout_3.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_observacionesCategoria)
+        self.lineEdit_observacionesCategoria = QtWidgets.QLineEdit(self.frame_4)
+        self.lineEdit_observacionesCategoria.setObjectName("lineEdit_observacionesCategoria")
+        self.formLayout_3.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_observacionesCategoria)
+        self.pushButton_guardarCategoria = QtWidgets.QPushButton(self.frame_4)
+        self.pushButton_guardarCategoria.setObjectName("pushButton_guardarCategoria")
+        self.formLayout_3.setWidget(18, QtWidgets.QFormLayout.FieldRole, self.pushButton_guardarCategoria)
+        self.pushButton_borrarCategoria = QtWidgets.QPushButton(self.frame_4)
+        self.pushButton_borrarCategoria.setObjectName("pushButton_borrarCategoria")
+        self.formLayout_3.setWidget(19, QtWidgets.QFormLayout.FieldRole, self.pushButton_borrarCategoria)
+        self.tabWidgetCliente_2.addTab(self.tab_agregar_modificar_categoria, "")
+        self.tabWidgetAplicacion.addTab(self.tab_categoria, "")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setEnabled(True)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1033, 25))
+        self.menubar.setObjectName("menubar")
+        self.acercaDe = QtWidgets.QMenu(self.menubar)
+        self.acercaDe.setObjectName("acercaDe")
+        MainWindow.setMenuBar(self.menubar)
+        self.actionAcerca_de = QtWidgets.QAction(MainWindow)
+        self.actionAcerca_de.setObjectName("actionAcerca_de")
+        self.acercaDe.addAction(self.actionAcerca_de)
+        self.menubar.addAction(self.acercaDe.menuAction())
+
+        self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria)
+        self.tabWidgetAplicacion.setCurrentIndex(0)
+        self.tabWidgetProducto.setCurrentIndex(0)
+        self.tabWidgetCliente.setCurrentIndex(0)
+        self.tabWidgetProveedor.setCurrentIndex(0)
+        self.tabWidgetCliente_2.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
+        self.comboBox_atributo_busqueda_producto.setItemText(1, _translate("MainWindow", "Marca"))
+        self.comboBox_atributo_busqueda_producto.setItemText(2, _translate("MainWindow", "Categoria"))
+        self.comboBox_atributo_busqueda_producto.setItemText(3, _translate("MainWindow", "Proveedor"))
+        self.btn_buscar_producto.setText(_translate("MainWindow", "Buscar"))
+        self.tableResultadoBusquedaProducto.setSortingEnabled(False)
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id producto"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Marca"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Precio unitario"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Unidades en stock"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Categoria"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(6)
+        item.setText(_translate("MainWindow", "Descripcion"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(7)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(8)
+        item.setText(_translate("MainWindow", "Acciones"))
+        self.btn_mostrar_todos_productos.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_listado_producto),
+                                          _translate("MainWindow", "Listado productos"))
+        self.label_agregar_producto_nombre.setText(_translate("MainWindow", "Nombre"))
+        self.label_agregar_producto_categoria.setText(_translate("MainWindow", "Categoria"))
+        self.label_agregar_producto_precio_unitario.setText(_translate("MainWindow", "Precio unitario"))
+        self.pushButton_agregar_producto_guardar.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_agregar_producto_borrar.setText(_translate("MainWindow", "Borrar"))
+        self.comboBox_atributo_busqueda_producto_categoria.setItemText(0, _translate("MainWindow",
+                                                                                     "CategoriaProductoAGenerarDinamicamente"))
+        self.label_agregar_producto_proveedor.setText(_translate("MainWindow", "Proveedor"))
+        self.comboBox_atributo_busqueda_producto_proveedor.setItemText(0, _translate("MainWindow",
+                                                                                     "ProveedorProductoAGenerarDinamicamente"))
+        self.label_agregar_producto_marca.setText(_translate("MainWindow", "Marca"))
+        self.label_agregar_producto_descripcion.setText(_translate("MainWindow", "Descripcion"))
+        self.label_agregar_producto_observaciones.setText(_translate("MainWindow", "Observaciones"))
+        self.label_agregar_producto_precio_unitario_2.setText(_translate("MainWindow", "Unidades en stock"))
+        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_agregar_modificar_producto),
+                                          _translate("MainWindow", "Agregar/Modificar/Eliminar producto"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_producto),
+                                            _translate("MainWindow", "Productos"))
+        self.tableListaCliente.setSortingEnabled(False)
+        item = self.tableListaCliente.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id cliente"))
+        item = self.tableListaCliente.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableListaCliente.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Apellido"))
+        item = self.tableListaCliente.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Direccion"))
+        item = self.tableListaCliente.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Localidad"))
+        item = self.tableListaCliente.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Telefono"))
+        item = self.tableListaCliente.horizontalHeaderItem(6)
+        item.setText(_translate("MainWindow", "Email"))
+        item = self.tableListaCliente.horizontalHeaderItem(7)
+        item.setText(_translate("MainWindow", "DNI"))
+        item = self.tableListaCliente.horizontalHeaderItem(8)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        item = self.tableListaCliente.horizontalHeaderItem(9)
+        item.setText(_translate("MainWindow", "Acciones"))
+        self.comboBox_atributo_busqueda_cliente.setItemText(0, _translate("MainWindow", "Nombre"))
+        self.comboBox_atributo_busqueda_cliente.setItemText(1, _translate("MainWindow", "Apellido"))
+        self.comboBox_atributo_busqueda_cliente.setItemText(2, _translate("MainWindow", "Localidad"))
+        self.comboBox_atributo_busqueda_cliente.setItemText(3, _translate("MainWindow", "Provincia"))
+        self.btn_buscar_cliente.setText(_translate("MainWindow", "Buscar"))
+        self.btn_mostrar_todos_clientes.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_listado_cliente),
+                                         _translate("MainWindow", "Listado clientes"))
+        self.label_nombreCliente.setText(_translate("MainWindow", "Nombre"))
+        self.label_apellidoCliente.setText(_translate("MainWindow", "Apellido"))
+        self.label_localidadCliente.setText(_translate("MainWindow", "Localidad"))
+        self.label_telefonoCLiente.setText(_translate("MainWindow", "Telefono"))
+        self.label_dniCLiente.setText(_translate("MainWindow", "DNI"))
+        self.pushButton_guardarCliente.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_borrarCliente.setText(_translate("MainWindow", "Borrar"))
+        self.label_direccionCliente.setText(_translate("MainWindow", "Direccion"))
+        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_agregar_modificar_cliente),
+                                         _translate("MainWindow", "Agregar/Modificar/Eliminar cliente"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_cliente),
+                                            _translate("MainWindow", "Clientes"))
+        self.tableListaProveedor.setSortingEnabled(False)
+        item = self.tableListaProveedor.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id proveedor"))
+        item = self.tableListaProveedor.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableListaProveedor.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Direccion comercial"))
+        item = self.tableListaProveedor.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Localidad"))
+        item = self.tableListaProveedor.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Telefono"))
+        item = self.tableListaProveedor.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Email"))
+        item = self.tableListaProveedor.horizontalHeaderItem(6)
+        item.setText(_translate("MainWindow", "DNI"))
+        item = self.tableListaProveedor.horizontalHeaderItem(7)
+        item.setText(_translate("MainWindow", "Banco CBU"))
+        item = self.tableListaProveedor.horizontalHeaderItem(8)
+        item.setText(_translate("MainWindow", "CUIT"))
+        item = self.tableListaProveedor.horizontalHeaderItem(9)
+        item.setText(_translate("MainWindow", "Categoria IVA"))
+        item = self.tableListaProveedor.horizontalHeaderItem(10)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        item = self.tableListaProveedor.horizontalHeaderItem(11)
+        item.setText(_translate("MainWindow", "Acciones"))
+        self.comboBox_atributo_busqueda_proveedor.setItemText(0, _translate("MainWindow", "Nombre"))
+        self.comboBox_atributo_busqueda_proveedor.setItemText(1, _translate("MainWindow", "Localidad"))
+        self.comboBox_atributo_busqueda_proveedor.setItemText(2, _translate("MainWindow", "Provincia"))
+        self.btn_buscar_proveedor.setText(_translate("MainWindow", "Buscar"))
+        self.btn_mostrar_todos_proveedores.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_listado_proveedor),
+                                           _translate("MainWindow", "Listado proveedores"))
+        self.label_nombreProveedor.setText(_translate("MainWindow", "Nombre"))
+        self.label_observacionesProveedor.setText(_translate("MainWindow", "Observaciones"))
+        self.pushButton_guardarProveedor.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_borrarProveedor.setText(_translate("MainWindow", "Borrar"))
+        self.label_direccionComercialProveedor.setText(_translate("MainWindow", "Direccion comercial"))
+        self.label_localidadProveedor.setText(_translate("MainWindow", "Localidad"))
+        self.label_telefonoProveedor.setText(_translate("MainWindow", "Telefono"))
+        self.label_emailProveedor.setText(_translate("MainWindow", "Email"))
+        self.label_dniProveedor.setText(_translate("MainWindow", "DNI"))
+        self.label_cbuProveedor.setText(_translate("MainWindow", "CBU"))
+        self.label_bancoCbuProveedor.setText(_translate("MainWindow", "Banco CBU"))
+        self.label_cuitProveedor.setText(_translate("MainWindow", "CUIT"))
+        self.label_categoriaIvaProveedor.setText(_translate("MainWindow", "Categoria IVA"))
+        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_agregar_modificar_proveedor),
+                                           _translate("MainWindow", "Agregar/Modificar/Eliminar proveedor"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_proveedor),
+                                            _translate("MainWindow", "Proveedores"))
+        self.tableListaCategoria.setSortingEnabled(False)
+        item = self.tableListaCategoria.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id categoria"))
+        item = self.tableListaCategoria.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableListaCategoria.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        item = self.tableListaCategoria.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Acciones"))
+        self.btn_buscar_categoria.setText(_translate("MainWindow", "Buscar"))
+        self.btn_mostrar_todos_categorias.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_listado_categoria),
+                                           _translate("MainWindow", "Listado categorias"))
+        self.label_nombreCategoria.setText(_translate("MainWindow", "Nombre"))
+        self.label_observacionesCategoria.setText(_translate("MainWindow", "Observaciones"))
+        self.pushButton_guardarCategoria.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_borrarCategoria.setText(_translate("MainWindow", "Borrar"))
+        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_agregar_modificar_categoria),
+                                           _translate("MainWindow", "Agregar/Modificar/Eliminar categoria"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_categoria),
+                                            _translate("MainWindow", "Categoria productos"))
+        self.acercaDe.setTitle(_translate("MainWindow", "Ayuda"))
+        self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de"))
+
+        # CREA CELDAS EN TABLAS
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_productoDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableResultadoBusquedaProducto.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_clienteDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableListaCliente.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_proveedorDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableListaProveedor.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_categoriaDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableListaCategoria.setItem(i, j, item)
+
+        # EVENT HANDLERS PARA BOTONES
+        # self.btn_buscar_producto.clicked.connect(lambda: self.button_handler(servicio_producto, self.tableResultadoBusquedaProducto))
+        self.btn_buscar_producto.clicked.connect(
+            lambda: self.busqueda_producto_handler(servicio_producto, self.comboBox_atributo_busqueda_producto,
+                                                   self.lineEdit_buscar_producto,
+                                                   self.tableResultadoBusquedaProducto))
+
+        self.btn_mostrar_todos_productos.clicked.connect(
+            lambda: self.mostrar_todos_productos(servicio_producto, self.tableResultadoBusquedaProducto)
+        )
+
+        formulario_nuevo_producto = {"nombre": self.lineEdit_agregar_producto_nombre,
+                                     "marca": self.lineEdit_agregar_producto_marca,
+                                     "precio_unitario": self.lineEdit_agregar_producto_precio_unitario,
+                                     # "unidades_stock": self.lineEdit_agregar_producto_unidades_stock,
+                                     "descripcion": self.lineEdit_agregar_producto_descripcion,
+                                     "observaciones": self.lineEdit_agregar_producto_observaciones}
+
+        formulario_nuevo_cliente = {"nombre": self.lineEdit_nombreCliente,
+                                    "apellido": self.lineEdit_apellidoCliente,
+                                    "direccion": self.lineEdit_direccionCliente,
+                                    "localidad": self.lineEdit_localidadCliente,
+                                    "telefono": self.lineEdit_telefonoCliente,
+                                    "dni": self.lineEdit_dniCliente,
+                                    # "observaciones": self.lineEdit_observacionesCliente
+                                    }
+
+        formulario_nuevo_proveedor = {"nombre": self.lineEdit_nombreProveedor,
+                                      "direccion_comercial": self.lineEdit_direccionComercialProveedor,
+                                      "localidad": self.lineEdit_localidadProveedor,
+                                      "telefono": self.lineEdit_telefonoProveedor,
+                                      "email": self.lineEdit_emailProveedor,
+                                      "dni": self.lineEdit_dniProveedor,
+                                      "cbu": self.lineEdit_cbuProveedor,
+                                      "banco_cbu": self.lineEdit_bancoCbuProveedor,
+                                      "cuit": self.lineEdit_cuitProveedor,
+                                      "categoria_iva": self.lineEdit_categoriaIvaProveedor,
+                                      "observaciones": self.lineEdit_observacionesProveedor}
+
+        formulario_nueva_categoria = {"nombre": self.lineEdit_nombreCategoria,
+                                      "observaciones": self.lineEdit_observacionesCategoria}
+
+        self.pushButton_agregar_producto_guardar.clicked.connect(
+            lambda: self.guardar_producto(servicio_producto, formulario_nuevo_producto))
+
+        self.btn_mostrar_todos_clientes.clicked.connect(
+            lambda: self.mostrar_todos_clientes(servicio_cliente, self.tableListaCliente)
+        )
+
+        self.pushButton_guardarCliente.clicked.connect(
+            lambda: self.guardar_cliente(servicio_cliente, formulario_nuevo_cliente)
+        )
+
+        self.btn_buscar_cliente.clicked.connect(
+            lambda: self.busqueda_cliente_handler(servicio_cliente, self.comboBox_atributo_busqueda_cliente,
+                                                  self.lineEdit_buscar_cliente, self.tableListaCliente)
+        )
+
+        self.btn_mostrar_todos_proveedores.clicked.connect(
+            lambda: self.mostrar_todos_proveedores(servicio_proveedor, self.tableListaProveedor)
+        )
+
+        self.btn_buscar_proveedor.clicked.connect(
+            lambda: self.busqueda_proveedor_handler(servicio_proveedor, self.comboBox_atributo_busqueda_proveedor,
+                                                    self.lineEdit_buscar_proveedor, self.tableListaProveedor)
+        )
+
+        self.pushButton_guardarCategoria.clicked.connect(
+            lambda: self.guardar_categoria(servicio_categoria, formulario_nueva_categoria)
+        )
+
+        self.btn_mostrar_todos_categorias.clicked.connect(
+            lambda: self.mostrar_todas_categorias(servicio_categoria, self.tableListaCategoria)
+        )
+
+        self.btn_buscar_categoria.clicked.connect(
+            lambda: self.buscar_categoria(servicio_categoria, self.lineEdit_buscar_categoria, self.tableListaCategoria)
+        )
+
+    '''
+    PRODUCTOS
+    '''
+
+    def button_handler(self, servicio, widget):
+        lista_productos = servicio.hola()
+        self.mostrar_lista_productos(widget, lista_productos)
+
+    def mostrar_todos_productos(self, servicio, widget_lista):
+        lista_productos = servicio.obtener_todos()
+        self.mostrar_lista_productos(widget_lista, lista_productos)
+
+    def mostrar_lista_productos(self, widget, lista_productos):
+        _translate = QtCore.QCoreApplication.translate
+
+        for index, producto in enumerate(lista_productos):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(producto.id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", producto.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", producto.marca))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(producto.precio_unitario)))
+            item = widget.item(index, 4)
+            item.setText(_translate("MainWindow", str(producto.unidades_stock)))
+            # item = widget.item(index, 5)
+            # item.setText(_translate("MainWindow", producto.categoria))
+            item = widget.item(index, 5)
+            item.setText(_translate("MainWindow", producto.descripcion))
+            item = widget.item(index, 6)
+            item.setText(_translate("MainWindow", producto.observaciones))
+
+    def limpiar_lista_productos(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_productoDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def busqueda_producto_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_productos(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_productos = []
+        if criterio_busqueda == "Nombre":
+            lista_productos = servicio.buscar_por_nombre(texto_busqueda)
+        elif criterio_busqueda == "Marca":
+            lista_productos = servicio.buscar_por_marca(texto_busqueda)
+        elif criterio_busqueda == "Categoria":
+            lista_productos = servicio.buscar_por_categoria(texto_busqueda)
+        elif criterio_busqueda == "Proveedor":
+            lista_productos = servicio.buscar_por_proveedor(texto_busqueda)
+
+        self.mostrar_lista_productos(widget_lista, lista_productos)
+
+    def guardar_producto(self, servicio, formulario_nuevo_producto):
+        producto_request = {"nombre": formulario_nuevo_producto["nombre"].text(),
+                            "marca": formulario_nuevo_producto["marca"].text(),
+                            "precio_unitario": formulario_nuevo_producto["precio_unitario"].text(),
+                            # "unidades_stock": formulario_nuevo_producto["unidades_stock"].text(),
+                            "unidades_stock": 5,
+                            "descripcion": formulario_nuevo_producto["descripcion"].text(),
+                            "observaciones": formulario_nuevo_producto["observaciones"].text()}
+        servicio.guardar(producto_request)
+
+    '''
+    CLIENTES
+    '''
+
+    def guardar_cliente(self, servicio, formulario_nuevo_cliente):
+        cliente_request = {"nombre": formulario_nuevo_cliente["nombre"].text(),
+                           "apellido": formulario_nuevo_cliente["apellido"].text(),
+                           "direccion": formulario_nuevo_cliente["direccion"].text(),
+                           "localidad": formulario_nuevo_cliente["localidad"].text(),
+                           "telefono": formulario_nuevo_cliente["telefono"].text(),
+                           "dni": formulario_nuevo_cliente["dni"].text(),
+                           "observaciones": formulario_nuevo_cliente["observaciones"].text()}
+        servicio.guardar(cliente_request)
+
+    def mostrar_todos_clientes(self, servicio, widget_lista):
+        lista_clientes = servicio.obtener_todos()
+        self.mostrar_lista_clientes(widget_lista, lista_clientes)
+
+    def limpiar_lista_clientes(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_clienteDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def mostrar_lista_clientes(self, widget, lista_clientes):
+        _translate = QtCore.QCoreApplication.translate
+
+        for index, cliente in enumerate(lista_clientes):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(cliente.id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", cliente.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", cliente.apellido))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(cliente.direccion)))
+            item = widget.item(index, 4)
+            item.setText(_translate("MainWindow", str(cliente.localidad)))
+            item = widget.item(index, 5)
+            item.setText(_translate("MainWindow", cliente.telefono))
+            item = widget.item(index, 6)
+            item.setText(_translate("MainWindow", cliente.dni))
+            item = widget.item(index, 7)
+            item.setText(_translate("MainWindow", cliente.observaciones))
+
+    def busqueda_cliente_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_clientes(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_clientes = []
+        if criterio_busqueda == "Nombre":
+            lista_clientes = servicio.buscar_por_nombre(texto_busqueda)
+        elif criterio_busqueda == "Apellido":
+            lista_clientes = servicio.buscar_por_apellido(texto_busqueda)
+        elif criterio_busqueda == "Localidad":
+            lista_clientes = servicio.buscar_por_localidad(texto_busqueda)
+        elif criterio_busqueda == "Provincia":
+            lista_clientes = servicio.buscar_por_provincia(texto_busqueda)
+
+        self.mostrar_lista_clientes(widget_lista, lista_clientes)
+
+    '''
+    PROVEEDORES
+    '''
+
+    def guardar_proveedor(self, servicio, formulario_nuevo_proveedor):
+        proveedor_request = {"nombre": formulario_nuevo_proveedor["nombre"].text(),
+                             "direccion_comercial": formulario_nuevo_proveedor["direccion_comercial"].text(),
+                             "localidad": formulario_nuevo_proveedor["localidad"].text(),
+                             "telefono": formulario_nuevo_proveedor["telefono"].text(),
+                             "email": formulario_nuevo_proveedor["email"].text(),
+                             "dni": formulario_nuevo_proveedor["dni"].text(),
+                             "cbu": formulario_nuevo_proveedor["cbu"].text(),
+                             "banco_cbu": formulario_nuevo_proveedor["banco_cbu"].text(),
+                             "cuit": formulario_nuevo_proveedor["cuit"].text(),
+                             "categoria_iva": formulario_nuevo_proveedor["categoria_iva"].text(),
+                             "observaciones": formulario_nuevo_proveedor["observaciones"].text()}
+        servicio.guardar(proveedor_request)
+
+    def limpiar_lista_proveedores(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_proveedorDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def mostrar_lista_proveedores(self, widget, lista_proveedores):
+        _translate = QtCore.QCoreApplication.translate
+
+        for index, proveedor in enumerate(lista_proveedores):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(proveedor.id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", proveedor.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", proveedor.direccion_comercial))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(proveedor.localidad)))
+            item = widget.item(index, 4)
+            item.setText(_translate("MainWindow", str(proveedor.telefono)))
+            item = widget.item(index, 5)
+            item.setText(_translate("MainWindow", proveedor.email))
+            item = widget.item(index, 6)
+            item.setText(_translate("MainWindow", str(proveedor.dni)))
+            item = widget.item(index, 7)
+            item.setText(_translate("MainWindow", str(proveedor.cbu)))
+            item = widget.item(index, 8)
+            item.setText(_translate("MainWindow", proveedor.banco_cbu))
+            item = widget.item(index, 9)
+            item.setText(_translate("MainWindow", str(proveedor.cuit)))
+            item = widget.item(index, 10)
+            item.setText(_translate("MainWindow", str(proveedor.categoria_iva)))
+            item = widget.item(index, 11)
+            item.setText(_translate("MainWindow", proveedor.observaciones))
+
+    def busqueda_proveedor_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_proveedores(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_proveedores = []
+        if criterio_busqueda == "Nombre":
+            lista_proveedores = servicio.buscar_por_nombre(texto_busqueda)
+        elif criterio_busqueda == "Localidad":
+            lista_proveedores = servicio.buscar_por_localidad(texto_busqueda)
+        elif criterio_busqueda == "Provincia":
+            lista_proveedores = servicio.buscar_por_provincia(texto_busqueda)
+
+        self.mostrar_lista_proveedores(widget_lista, lista_proveedores)
+
+    def mostrar_todos_proveedores(self, servicio, widget_lista):
+        lista_proveedores = servicio.obtener_todos()
+        self.mostrar_lista_proveedores(widget_lista, lista_proveedores)
+
+    '''
+    CATEGORIAS
+    '''
+
+    def guardar_categoria(self, servicio, formulario_nueva_categoria):
+        categoria_request = {"nombre": formulario_nueva_categoria["nombre"].text(),
+                             "observaciones": formulario_nueva_categoria["observaciones"].text()}
+        servicio.guardar(categoria_request)
+
+    def buscar_categoria(self, servicio, input_busqueda, widget_lista):
+        self.limpiar_lista_categorias(widget_lista)
+        texto_busqueda = input_busqueda.text()
+        lista_categorias = servicio.buscar_por_nombre(texto_busqueda)
+        self.mostrar_lista_categorias(widget_lista, lista_categorias)
+
+    def mostrar_todas_categorias(self, servicio, widget_lista):
+        lista_categorias = servicio.obtener_todas()
+        self.mostrar_lista_categorias(widget_lista, lista_categorias)
+
+    def mostrar_lista_categorias(self, widget, lista_categorias):
+        _translate = QtCore.QCoreApplication.translate
+
+        for index, categoria in enumerate(lista_categorias):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(categoria.id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", categoria.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", categoria.observaciones))
+
+    def limpiar_lista_categorias(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_categoriaDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
