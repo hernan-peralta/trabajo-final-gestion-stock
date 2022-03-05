@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
-from Gui.trabajo import *
+from Gui.ui import *
 
 
 class Gui(QMainWindow):
