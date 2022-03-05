@@ -23,6 +23,14 @@ class RepositorioCategoria:
         self.cursor.execute("SELECT * FROM categorias WHERE nombre LIKE %s", (nombre_categoria,))
         return self.cursor.fetchall()
 
+    def actualizar(self, categoria, id_categoria):
+        actualizar_categoria = ("UPDATE categorias "
+                             "SET nombre = %s, observaciones = %s "
+                             "WHERE id = %s")
+        datos_categoria = (categoria.nombre, categoria.observaciones, id_categoria)
+        self.cursor.execute(actualizar_categoria, datos_categoria)
+        self.cnx.commit()
+
     def eliminar(self, id_categoria):
         self.cursor.execute("DELETE FROM categorias WHERE id = %s", (id_categoria,))
         self.cnx.commit()
