@@ -17,6 +17,9 @@ class ServicioCategoria:
             lista_categorias.append(CategoriaDTO(q[0], q[1], q[2]))
         return lista_categorias
 
+    def buscar_por_id(self, id_categoria):
+        return self.repositorioCategoria.buscar_por_id(id_categoria)
+
     def buscar_por_nombre(self, nombre):
         lista_categorias = []
         resultado_query = self.repositorioCategoria.buscar_por_nombre(nombre)
