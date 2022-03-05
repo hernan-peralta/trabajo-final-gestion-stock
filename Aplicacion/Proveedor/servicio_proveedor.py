@@ -10,7 +10,8 @@ class ServicioProveedor:
         proveedor = Proveedor(proveedor_request["nombre"], proveedor_request["direccion_comercial"],
                               proveedor_request["localidad"], proveedor_request["dni"], proveedor_request["telefono"],
                               proveedor_request["email"], proveedor_request["cbu"], proveedor_request["banco_cbu"],
-                              proveedor_request["cuit"], proveedor_request["categoria_iva"], proveedor_request["observaciones"])
+                              proveedor_request["cuit"], proveedor_request["categoria_iva"],
+                              proveedor_request["observaciones"])
         return self.repositorioProveedor.guardar(proveedor)
 
     def obtener_todos(self):
@@ -20,6 +21,12 @@ class ServicioProveedor:
             lista_proveedores.append(
                 ProveedorDTO(q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11]))
         return lista_proveedores
+
+    def buscar_por_id(self, id_proveedor):
+        resultado_query = self.repositorioProveedor.buscar_por_id(id_proveedor)
+        return ProveedorDTO(resultado_query[0], resultado_query[1], resultado_query[2], resultado_query[3],
+                            resultado_query[4], resultado_query[5], resultado_query[6], resultado_query[7],
+                            resultado_query[8], resultado_query[9], resultado_query[10], resultado_query[11])
 
     def buscar_por_nombre(self, nombre):
         lista_proveedores = []

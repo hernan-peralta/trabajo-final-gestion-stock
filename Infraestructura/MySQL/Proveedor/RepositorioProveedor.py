@@ -20,6 +20,12 @@ class RepositorioProveedor:
             "SELECT proveedores.id, proveedores.nombre, proveedores.direccion_comercial, l.nombre, proveedores.telefono, proveedores.email, proveedores.dni, proveedores.cbu, proveedores.banco_cbu, proveedores.cuit, c_i.categoria_iva, proveedores.observaciones FROM proveedores JOIN localidades AS l ON proveedores.id_localidad = l.id JOIN categoria_iva AS c_i on proveedores.id_categoria_iva = c_i.id")
         return self.cursor.fetchall()
 
+    def buscar_por_id(self, id_proveedor):
+        self.cursor.execute(
+            "SELECT proveedores.id, proveedores.nombre, proveedores.direccion_comercial, l.nombre, proveedores.telefono, proveedores.email, proveedores.dni, proveedores.cbu, proveedores.banco_cbu, proveedores.cuit, c_i.categoria_iva, proveedores.observaciones FROM proveedores JOIN localidades AS l ON proveedores.id_localidad = l.id JOIN categoria_iva AS c_i on proveedores.id_categoria_iva = c_i.id WHERE proveedores.id LIKE %s",
+            (id_proveedor,))
+        return self.cursor.fetchone()
+
     def buscar_por_nombre(self, nombre_proveedor):
         self.cursor.execute(
             "SELECT proveedores.id, proveedores.nombre, proveedores.direccion_comercial, l.nombre, proveedores.telefono, proveedores.email, proveedores.dni, proveedores.cbu, proveedores.banco_cbu, proveedores.cuit, c_i.categoria_iva, proveedores.observaciones FROM proveedores JOIN localidades AS l ON proveedores.id_localidad = l.id JOIN categoria_iva AS c_i on proveedores.id_categoria_iva = c_i.id WHERE proveedores.nombre LIKE %s",
