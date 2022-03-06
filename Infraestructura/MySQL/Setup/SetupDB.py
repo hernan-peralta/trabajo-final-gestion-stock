@@ -86,7 +86,7 @@ TABLES["proveedores"] = (
     "   `telefono` varchar(20),"
     "   `email` varchar(100) NOT NULL,"
     "   `dni` varchar(10),"
-    "   `cbu` varchar(100) NOT NULL,"
+    "   `cbu` varchar(22) NOT NULL,"
     "   `banco_cbu` varchar(100) NOT NULL,"
     "   `cuit` varchar(15) NOT NULL,"
     "   `id_categoria_iva` int(10) NOT NULL,"
