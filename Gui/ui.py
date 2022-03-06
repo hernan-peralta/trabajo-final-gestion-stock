@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     cantidad_filas = 10
-    cantidad_elementos_productoDto = 7
+    cantidad_elementos_productoDto = 8
     cantidad_elementos_clienteDto = 8
     cantidad_elementos_proveedorDto = 12
     cantidad_elementos_categoriaDto = 3
@@ -895,6 +895,10 @@ class Ui_MainWindow(object):
         self.pushButton_agregar_producto_guardar.clicked.connect(
             lambda: self.guardar_producto(servicio_producto, formulario_nuevo_producto))
 
+        self.pushButton_eliminarProducto.clicked.connect(
+            lambda: self.eliminar_producto(servicio_producto, self.lineEdit_eliminar_idProducto)
+        )
+
         self.btn_mostrar_todos_clientes.clicked.connect(
             lambda: self.mostrar_todos_clientes(servicio_cliente, self.tableListaCliente)
         )
@@ -955,6 +959,7 @@ class Ui_MainWindow(object):
 
     def mostrar_lista_productos(self, widget, lista_productos):
         _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_productos(widget)
 
         for index, producto in enumerate(lista_productos):
             item = widget.item(index, 0)
@@ -967,11 +972,11 @@ class Ui_MainWindow(object):
             item.setText(_translate("MainWindow", str(producto.precio_unitario)))
             item = widget.item(index, 4)
             item.setText(_translate("MainWindow", str(producto.unidades_stock)))
-            # item = widget.item(index, 5)
-            # item.setText(_translate("MainWindow", producto.categoria))
             item = widget.item(index, 5)
-            item.setText(_translate("MainWindow", producto.descripcion))
+            item.setText(_translate("MainWindow", str(producto.categorias)))
             item = widget.item(index, 6)
+            item.setText(_translate("MainWindow", producto.descripcion))
+            item = widget.item(index, 7)
             item.setText(_translate("MainWindow", producto.observaciones))
 
     def limpiar_lista_productos(self, widget):
@@ -1007,6 +1012,10 @@ class Ui_MainWindow(object):
                             "observaciones": formulario_nuevo_producto["observaciones"].text()}
         servicio.guardar(producto_request)
 
+    def eliminar_producto(self, servicio, input_busqueda):
+        id_producto = input_busqueda.text()
+        servicio.eliminar(id_producto)
+
     '''
     CLIENTES
     '''
@@ -1034,6 +1043,7 @@ class Ui_MainWindow(object):
 
     def mostrar_lista_clientes(self, widget, lista_clientes):
         _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_clientes(widget)
 
         for index, cliente in enumerate(lista_clientes):
             item = widget.item(index, 0)
@@ -1096,6 +1106,7 @@ class Ui_MainWindow(object):
 
     def mostrar_lista_proveedores(self, widget, lista_proveedores):
         _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_proveedores(widget)
 
         for index, proveedor in enumerate(lista_proveedores):
             item = widget.item(index, 0)
