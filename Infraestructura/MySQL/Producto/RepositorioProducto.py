@@ -22,6 +22,12 @@ class RepositorioProducto:
         self.cursor.execute("SELECT * FROM productos WHERE id = %s", (id_producto,))
         return self.cursor.fetchall()
 
+    def obtener_categorias_producto(self, id_producto):
+        self.cursor.execute(
+            "SELECT categorias.nombre FROM categorias JOIN categorias_productos AS c_p ON categorias.id = c_p.id_categoria JOIN productos ON productos.id = c_p.id_producto WHERE productos.id = %s",
+            (id_producto,))
+        return self.cursor.fetchall()
+
     def buscar_por_nombre(self, nombre_producto):
         self.cursor.execute("SELECT * FROM productos WHERE nombre LIKE %s", (nombre_producto,))
         return self.cursor.fetchall()
