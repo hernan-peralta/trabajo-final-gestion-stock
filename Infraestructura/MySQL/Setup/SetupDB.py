@@ -95,6 +95,11 @@ TABLES["proveedores"] = (
     "   FOREIGN KEY(id_categoria_iva) REFERENCES categoria_iva(id)"
     ") ENGINE=InnoDB")
 
+TABLES["bancos"] = (
+    "CREATE TABLE `bancos` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `nombre` varchar(50) NOT NULL,"
+    ") ENGINE=InnoDB")
 
 def create_database(cursor, db_name):
     try:

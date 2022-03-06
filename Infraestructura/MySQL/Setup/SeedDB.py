@@ -73,6 +73,8 @@ lista_proveedores = [
      "email": "mayoristarosari@gmail.com", "dni": "24588456", "cbu": "1451414144284829484444",
      "banco_cbu": "Nacion", "cuit": "20-24588456-1", "id_categoria_iva": 1, "observaciones": ""}]
 
+lista_bancos = [{"nombre": "Macro"}, {"nombre": "Santander"}, {"nombre": "Nacion"}]
+
 agrega_categorias = ("INSERT INTO categorias "
                      "(nombre, observaciones) "
                      "VALUES (%(nombre)s, %(observaciones)s)")
@@ -104,6 +106,10 @@ agrega_categoria_iva = ("INSERT INTO categoria_iva "
 agrega_proveedores = ("INSERT INTO proveedores "
                       "(nombre, direccion_comercial, id_localidad, telefono, email, dni, cbu, banco_cbu, cuit, id_categoria_iva, observaciones) "
                       "VALUES (%(nombre)s, %(direccion_comercial)s, %(id_localidad)s, %(telefono)s, %(email)s, %(dni)s, %(cbu)s, %(banco_cbu)s, %(cuit)s, %(id_categoria_iva)s, %(observaciones)s)")
+
+agrega_bancos = ("INSERT INTO bancoos "
+                 "(nombre) "
+                 "VALUES (%(nombre)s)")
 
 
 def use_database(cursor, db_name):
@@ -151,6 +157,10 @@ for categoria_producto in lista_categorias_productos:
 
 for cliente in lista_clientes:
     cursor.execute(agrega_clientes, cliente)
+
+for banco in lista_bancos:
+    cursor.execute(agrega_bancos, banco)
+cnx.commit()
 
 for proveedor in lista_proveedores:
     cursor.execute(agrega_proveedores, proveedor)
