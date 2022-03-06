@@ -8,4 +8,3 @@ class ClienteDTO:
         self.telefono = telefono
         self.dni = dni
         self.observaciones = observaciones
-

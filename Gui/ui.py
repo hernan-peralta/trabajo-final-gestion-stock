@@ -912,6 +912,10 @@ class Ui_MainWindow(object):
                                                   self.lineEdit_buscar_cliente, self.tableListaCliente)
         )
 
+        self.pushButton_eliminarCliente.clicked.connect(
+            lambda: self.eliminar_cliente(servicio_cliente, self.lineEdit_eliminar_idCliente)
+        )
+
         self.btn_mostrar_todos_proveedores.clicked.connect(
             lambda: self.mostrar_todos_proveedores(servicio_proveedor, self.tableListaProveedor)
         )
@@ -1078,6 +1082,10 @@ class Ui_MainWindow(object):
             lista_clientes = servicio.buscar_por_provincia(texto_busqueda)
 
         self.mostrar_lista_clientes(widget_lista, lista_clientes)
+
+    def eliminar_cliente(self, servicio, input_busqueda):
+        id_cliente = input_busqueda.text()
+        servicio.eliminar(id_cliente)
 
     '''
     PROVEEDORES
