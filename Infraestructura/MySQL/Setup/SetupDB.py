@@ -77,6 +77,13 @@ TABLES["categoria_iva"] = (
     "   `categoria_iva` varchar(100) NOT NULL"
     ") ENGINE=InnoDB")
 
+TABLES["bancos"] = (
+    "CREATE TABLE `bancos` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `nombre` varchar(50) NOT NULL,"
+    "   `observaciones` varchar(500) NOT NULL"
+    ") ENGINE=InnoDB")
+
 TABLES["proveedores"] = (
     "CREATE TABLE `proveedores` ("
     "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
@@ -87,18 +94,61 @@ TABLES["proveedores"] = (
     "   `email` varchar(100) NOT NULL,"
     "   `dni` varchar(10),"
     "   `cbu` varchar(22) NOT NULL,"
-    "   `banco_cbu` varchar(100) NOT NULL,"
+    "   `id_banco` int(10) NOT NULL,"
     "   `cuit` varchar(15) NOT NULL,"
     "   `id_categoria_iva` int(10) NOT NULL,"
     "   `observaciones` varchar(500) NOT NULL,"
     "   FOREIGN KEY(id_localidad) REFERENCES localidades(id),"
-    "   FOREIGN KEY(id_categoria_iva) REFERENCES categoria_iva(id)"
+    "   FOREIGN KEY(id_categoria_iva) REFERENCES categoria_iva(id),"
+    "   FOREIGN KEY(id_banco) REFERENCES bancos(id)"
     ") ENGINE=InnoDB")
 
-TABLES["bancos"] = (
-    "CREATE TABLE `bancos` ("
+TABLES["forma_pago"] = (
+    "CREATE TABLE `forma_pago` ("
     "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
-    "   `nombre` varchar(50) NOT NULL,"
+    "   `forma_pago` varchar(100) NOT NULL"
+    ") ENGINE=InnoDB")
+
+TABLES["compras"] = (
+    "CREATE TABLE `compras` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `fecha` DATE NOT NULL,"
+    "   `id_proveedor` int(10) NOT NULL,"
+    "   `id_forma_pago` int(10) NOT NULL,"
+    "   FOREIGN KEY(id_proveedor) REFERENCES proveedores(id),"
+    "   FOREIGN KEY(id_forma_pago) REFERENCES forma_pago(id)"
+    ") ENGINE=InnoDB")
+
+TABLES["ventas"] = (
+    "CREATE TABLE `ventas` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `fecha` DATE NOT NULL,"
+    "   `id_cliente` int(10) NOT NULL,"
+    "   `id_forma_pago` int(10) NOT NULL,"
+    "   FOREIGN KEY(id_cliente) REFERENCES clientes(id),"
+    "   FOREIGN KEY(id_forma_pago) REFERENCES forma_pago(id)"
+    ") ENGINE=InnoDB")
+
+TABLES["detalle_compra"] = (
+    "CREATE TABLE `detalle_compra` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `cantidad` int(100) NOT NULL,"
+    "   `precio` int(100) NOT NULL,"
+    "   `id_compra` int(100) NOT NULL,"
+    "   `id_producto` int(10) NOT NULL,"
+    "   FOREIGN KEY(id_compra) REFERENCES compras(id),"
+    "   FOREIGN KEY(id_producto) REFERENCES productos(id)"
+    ") ENGINE=InnoDB")
+
+TABLES["detalle_venta"] = (
+    "CREATE TABLE `detalle_venta` ("
+    "   `id` int(10) PRIMARY KEY AUTO_INCREMENT,"
+    "   `cantidad` int(100) NOT NULL,"
+    "   `precio` int(100) NOT NULL,"
+    "   `id_venta` int(100) NOT NULL,"
+    "   `id_producto` int(10) NOT NULL,"
+    "   FOREIGN KEY(id_venta) REFERENCES ventas(id),"
+    "   FOREIGN KEY(id_producto) REFERENCES productos(id)"
     ") ENGINE=InnoDB")
 
 def create_database(cursor, db_name):
