@@ -1166,6 +1166,11 @@ class Ui_MainWindow(object):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableListaLocalidad.setItem(i, j, item)
 
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_bancoDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableListaBanco.setItem(i, j, item)
+
         # EVENT HANDLERS PARA BOTONES
         # self.btn_buscar_producto.clicked.connect(lambda: self.button_handler(servicio_producto, self.tableResultadoBusquedaProducto))
         self.btn_buscar_producto.clicked.connect(
@@ -1303,6 +1308,22 @@ class Ui_MainWindow(object):
 
         self.btn_mostrar_todos_banco.clicked.connect(
             lambda: self.mostrar_todos_bancos(servicio_banco, self.tableListaBanco)
+        )
+
+        self.pushButton_eliminarBanco.clicked.connect(
+            lambda: self.eliminar_banco(servicio_banco, self.lineEdit_eliminar_idBanco)
+        )
+
+        self.pushButton_guardarBanco.clicked.connect(
+            lambda: self.guardar_banco(servicio_banco, fomulario_nuevo_banco)
+        )
+
+        self.pushButton_cargar_banco_desde_id.clicked.connect(
+            lambda: self.cargar_banco_desde_id(servicio_banco, self.lineEdit_buscar_banco_por_id, fomulario_nuevo_banco)
+        )
+
+        self.pushButton_actualizarBanco.clicked.connect(
+            lambda: self.actualizar_banco(servicio_banco, fomulario_nuevo_banco, self.lineEdit_buscar_banco_por_id)
         )
 
     '''
@@ -1645,7 +1666,7 @@ class Ui_MainWindow(object):
 
         for index, banco in enumerate(lista_bancos):
             item = widget.item(index, 0)
-            item.setText(_translate("MainWindow", str(banco.banco_id)))
+            item.setText(_translate("MainWindow", str(banco.id)))
             item = widget.item(index, 1)
             item.setText(_translate("MainWindow", banco.nombre))
             item = widget.item(index, 2)
@@ -1660,7 +1681,7 @@ class Ui_MainWindow(object):
         id_banco = input_busqueda.text()
         banco = servicio.buscar_por_id(id_banco)
         formulario_banco["nombre"].setText(banco.nombre)
-        formulario_banco["observaciones"].setText(banco.codigo_postal)
+        formulario_banco["observaciones"].setText(banco.observaciones)
 
     def actualizar_banco(self, servicio, formulario_banco, input_busqueda_id):
         id_banco = input_busqueda_id.text()

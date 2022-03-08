@@ -24,6 +24,14 @@ class RepositorioLocalidad:
         self.cursor.execute("SELECT * FROM localidades WHERE nombre LIKE %s", (nombre,))
         return self.cursor.fetchone()
 
+    def actualizar(self, localidad, localidad_id):
+        actualizar_localidad = ("UPDATE localidads "
+                             "SET nombre = %s, codigo_postal = %s, id_provincia = %s "
+                             "WHERE id = %s")
+        datos_localidad = (localidad.nombre, localidad.codigo_postal, localidad.id_provincia, localidad_id)
+        self.cursor.execute(actualizar_localidad, datos_localidad)
+        self.cnx.commit()
+
     def eliminar(self, id_localidad):
         self.cursor.execute("DELETE FROM localidades WHERE id = %s", (id_localidad,))
         self.cnx.commit()
