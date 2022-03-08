@@ -4,13 +4,21 @@ class RepositorioCliente:
         self.cursor = cnx.cursor()
 
     def guardar(self, cliente, id_localidad):
-        print("CLIENTE", id_localidad)
         agregar_cliente = ("INSERT INTO clientes "
                            "(nombre, apellido, direccion, id_localidad, telefono, dni, observaciones) "
                            "VALUES (%s, %s, %s, %s, %s, %s, %s)")
         datos_cliente = (cliente.nombre, cliente.apellido, cliente.direccion, id_localidad, cliente.telefono,
                          cliente.dni, cliente.observaciones)
         self.cursor.execute(agregar_cliente, datos_cliente)
+        self.cnx.commit()
+
+    def actualizar(self, cliente, id_cliente):
+        actualizar_cliente = ("UPDATE clientes "
+                              "SET nombre = %s, apellido = %s, direccion = %s, id_localidad = %s, telefono = %s, dni = %s, observaciones = %s "
+                              "WHERE id = %s")
+        datos_cliente = (cliente.nombre, cliente.apellido, cliente.direccion, cliente.localidad, cliente.telefono,
+                         cliente.dni, cliente.observaciones, id_cliente)
+        self.cursor.execute(actualizar_cliente, datos_cliente)
         self.cnx.commit()
 
     def obtener_todos(self):
