@@ -1215,8 +1215,7 @@ class Ui_MainWindow(object):
 
         formulario_nueva_localidad = {"nombre": self.lineEdit_nombreLocalidad,
                                       "codigo_postal": self.lineEdit_codigo_postal_Localidad,
-                                      "provincia": self.lineEdit_provinciaLocalidad,
-                                      "observaciones": self.lineEdit_observacionesLocalidad}
+                                      "provincia": self.lineEdit_provinciaLocalidad}
 
         fomulario_nuevo_banco = {"nombre": self.lineEdit_nombreBanco2,
                                  "observaciones": self.lineEdit_observacionesBanco}
@@ -1239,6 +1238,16 @@ class Ui_MainWindow(object):
         self.btn_buscar_cliente.clicked.connect(
             lambda: self.busqueda_cliente_handler(servicio_cliente, self.comboBox_atributo_busqueda_cliente,
                                                   self.lineEdit_buscar_cliente, self.tableListaCliente)
+        )
+
+        self.pushButton_cargar_cliente_desde_id.clicked.connect(
+            lambda: self.cargar_cliente_desde_id(servicio_cliente, self.lineEdit_buscar_cliente_por_id,
+                                                 formulario_nuevo_cliente)
+        )
+
+        self.pushButton_actualizarCliente.clicked.connect(
+            lambda: self.actualizar_cliente(servicio_cliente, formulario_nuevo_cliente,
+                                            self.lineEdit_buscar_cliente_por_id)
         )
 
         self.pushButton_eliminarCliente.clicked.connect(
@@ -1300,6 +1309,11 @@ class Ui_MainWindow(object):
 
         self.pushButton_guardarLocalidad.clicked.connect(
             lambda: self.guardar_localidad(servicio_localidad, formulario_nueva_localidad)
+        )
+
+        self.pushButton_actualizarLocalidad.clicked.connect(
+            lambda: self.actualizar_localidad(servicio_localidad, formulario_nueva_localidad,
+                                              self.lineEdit_buscar_localidad_por_id)
         )
 
         self.pushButton_eliminarLocalidad.clicked.connect(
@@ -1459,6 +1473,28 @@ class Ui_MainWindow(object):
             lista_clientes = servicio.buscar_por_provincia(texto_busqueda)
 
         self.mostrar_lista_clientes(widget_lista, lista_clientes)
+
+    def cargar_cliente_desde_id(self, servicio, input_busqueda, formulario_cliente):
+        id_cliente = input_busqueda.text()
+        cliente = servicio.buscar_por_id(id_cliente)
+        formulario_cliente["nombre"].setText(cliente.nombre)
+        formulario_cliente["apellido"].setText(cliente.apellido)
+        formulario_cliente["direccion"].setText(cliente.direccion)
+        formulario_cliente["localidad"].setText(cliente.localidad)
+        formulario_cliente["telefono"].setText(cliente.telefono)
+        formulario_cliente["dni"].setText(cliente.dni)
+        formulario_cliente["observaciones"].setText(cliente.observaciones)
+
+    def actualizar_cliente(self, servicio, formulario_cliente, input_busqueda_id):
+        id_cliente = input_busqueda_id.text()
+        cliente_request = {"id": id_cliente, "nombre": formulario_cliente["nombre"].text(),
+                           "apellido": formulario_cliente["apellido"].text(),
+                           "direccion": formulario_cliente["direccion"].text(),
+                           "localidad": formulario_cliente["localidad"].text(),
+                           "telefono": formulario_cliente["telefono"].text(),
+                           "dni": formulario_cliente["dni"].text(),
+                           "observaciones": formulario_cliente["observaciones"].text()}
+        servicio.actualizar(cliente_request)
 
     def eliminar_cliente(self, servicio, input_busqueda):
         id_cliente = input_busqueda.text()
