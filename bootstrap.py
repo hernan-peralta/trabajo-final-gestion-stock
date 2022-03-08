@@ -6,12 +6,14 @@ from Aplicacion.Cliente.servicio_cliente import ServicioCliente
 from Aplicacion.Proveedor.servicio_proveedor import ServicioProveedor
 from Aplicacion.Categoria.servicio_categoria import ServicioCategoria
 from Aplicacion.Localidad.servicio_localidad import ServicioLocalidad
+from Aplicacion.Banco.servicio_banco import ServicioBanco
 from Infraestructura.MySQL.Producto.RepositorioProducto import RepositorioProducto
 from Infraestructura.MySQL.Cliente.RepositorioCliente import RepositorioCliente
 from Infraestructura.MySQL.Proveedor.RepositorioProveedor import RepositorioProveedor
 from Infraestructura.MySQL.Categoria.RepositorioCategoria import RepositorioCategoria
 from Infraestructura.MySQL.Localidad.RepositorioLocalidad import RepositorioLocalidad
 from Infraestructura.MySQL.Provincia.RepositorioProvincia import RepositorioProvincia
+from Infraestructura.MySQL.Banco.RepositorioBanco import RepositorioBanco
 from Gui.aplicacion import crear_aplicacion
 
 import mysql.connector
@@ -37,11 +39,14 @@ servicioProducto = ServicioProducto(repositorioProducto)
 repositorioCliente = RepositorioCliente(cnx)
 servicioCliente = ServicioCliente(repositorioCliente, repositorioLocalidad)
 
+repositorioBanco = RepositorioBanco(cnx)
+servicioBanco = ServicioBanco(repositorioBanco)
 repositorioProveedor = RepositorioProveedor(cnx)
-servicioProveedor = ServicioProveedor(repositorioProveedor)
+servicioProveedor = ServicioProveedor(repositorioProveedor, repositorioBanco)
 
 repositorioCategoria = RepositorioCategoria(cnx)
 servicioCategoria = ServicioCategoria(repositorioCategoria)
 
-crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria)
+crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria, servicioLocalidad,
+                 servicioBanco)
 
