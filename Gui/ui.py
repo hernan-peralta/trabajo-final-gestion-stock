@@ -16,8 +16,11 @@ class Ui_MainWindow(object):
     cantidad_elementos_clienteDto = 8
     cantidad_elementos_proveedorDto = 12
     cantidad_elementos_categoriaDto = 3
+    cantidad_elementos_localidadDto = 4
+    cantidad_elementos_bancoDto = 3
 
-    def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria):
+    def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
+                servicio_localidad, servicio_banco):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1111, 782)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -368,7 +371,7 @@ class Ui_MainWindow(object):
         self.tableListaProveedor.setWordWrap(True)
         self.tableListaProveedor.setCornerButtonEnabled(True)
         self.tableListaProveedor.setRowCount(10)
-        self.tableListaProveedor.setColumnCount(12)
+        self.tableListaProveedor.setColumnCount(13)
         self.tableListaProveedor.setObjectName("tableListaProveedor")
         item = QtWidgets.QTableWidgetItem()
         self.tableListaProveedor.setHorizontalHeaderItem(0, item)
@@ -394,6 +397,8 @@ class Ui_MainWindow(object):
         self.tableListaProveedor.setHorizontalHeaderItem(10, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableListaProveedor.setHorizontalHeaderItem(11, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaProveedor.setHorizontalHeaderItem(12, item)
         self.tableListaProveedor.horizontalHeader().setCascadingSectionResizes(False)
         self.frame_buscar_proveedor = QtWidgets.QFrame(self.tab_listado_proveedor)
         self.frame_buscar_proveedor.setGeometry(QtCore.QRect(140, 10, 811, 111))
@@ -640,6 +645,234 @@ class Ui_MainWindow(object):
         self.formLayout_8.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_eliminar_idCategoria)
         self.tabWidgetCliente_2.addTab(self.tab_eliminar_categoria, "")
         self.tabWidgetAplicacion.addTab(self.tab_categoria, "")
+        self.tab_localidades = QtWidgets.QWidget()
+        self.tab_localidades.setObjectName("tab_localidades")
+        self.tabWidgetLocalidad = QtWidgets.QTabWidget(self.tab_localidades)
+        self.tabWidgetLocalidad.setGeometry(QtCore.QRect(0, 0, 1051, 671))
+        self.tabWidgetLocalidad.setObjectName("tabWidgetLocalidad")
+        self.tab_listado_localidad = QtWidgets.QWidget()
+        self.tab_listado_localidad.setObjectName("tab_listado_localidad")
+        self.tableListaLocalidad = QtWidgets.QTableWidget(self.tab_listado_localidad)
+        self.tableListaLocalidad.setEnabled(True)
+        self.tableListaLocalidad.setGeometry(QtCore.QRect(140, 200, 781, 361))
+        self.tableListaLocalidad.setAcceptDrops(False)
+        self.tableListaLocalidad.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableListaLocalidad.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableListaLocalidad.setLineWidth(1)
+        self.tableListaLocalidad.setMidLineWidth(0)
+        self.tableListaLocalidad.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableListaLocalidad.setShowGrid(True)
+        self.tableListaLocalidad.setWordWrap(True)
+        self.tableListaLocalidad.setCornerButtonEnabled(True)
+        self.tableListaLocalidad.setRowCount(10)
+        self.tableListaLocalidad.setColumnCount(5)
+        self.tableListaLocalidad.setObjectName("tableListaLocalidad")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaLocalidad.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaLocalidad.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaLocalidad.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaLocalidad.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaLocalidad.setHorizontalHeaderItem(4, item)
+        self.tableListaLocalidad.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_localidad = QtWidgets.QFrame(self.tab_listado_localidad)
+        self.frame_buscar_localidad.setGeometry(QtCore.QRect(110, 10, 811, 111))
+        self.frame_buscar_localidad.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_localidad.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_localidad.setObjectName("frame_buscar_localidad")
+        self.btn_buscar_localidad = QtWidgets.QPushButton(self.frame_buscar_localidad)
+        self.btn_buscar_localidad.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_localidad.setObjectName("btn_buscar_localidad")
+        self.lineEdit_buscar_localidad = QtWidgets.QLineEdit(self.frame_buscar_localidad)
+        self.lineEdit_buscar_localidad.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_localidad.setObjectName("lineEdit_buscar_localidad")
+        self.btn_mostrar_todos_localidad = QtWidgets.QPushButton(self.tab_listado_localidad)
+        self.btn_mostrar_todos_localidad.setGeometry(QtCore.QRect(300, 140, 552, 28))
+        self.btn_mostrar_todos_localidad.setObjectName("btn_mostrar_todos_localidad")
+        self.tabWidgetLocalidad.addTab(self.tab_listado_localidad, "")
+        self.tab_agregar_modificar_localidad = QtWidgets.QWidget()
+        self.tab_agregar_modificar_localidad.setObjectName("tab_agregar_modificar_localidad")
+        self.frame_13 = QtWidgets.QFrame(self.tab_agregar_modificar_localidad)
+        self.frame_13.setGeometry(QtCore.QRect(140, 180, 841, 291))
+        self.frame_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_13.setObjectName("frame_13")
+        self.formLayout_9 = QtWidgets.QFormLayout(self.frame_13)
+        self.formLayout_9.setObjectName("formLayout_9")
+        self.label_nombreLocalidad = QtWidgets.QLabel(self.frame_13)
+        self.label_nombreLocalidad.setObjectName("label_nombreLocalidad")
+        self.formLayout_9.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_nombreLocalidad)
+        self.lineEdit_nombreLocalidad = QtWidgets.QLineEdit(self.frame_13)
+        self.lineEdit_nombreLocalidad.setObjectName("lineEdit_nombreLocalidad")
+        self.formLayout_9.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.lineEdit_nombreLocalidad)
+        self.pushButton_guardarLocalidad = QtWidgets.QPushButton(self.frame_13)
+        self.pushButton_guardarLocalidad.setObjectName("pushButton_guardarLocalidad")
+        self.formLayout_9.setWidget(23, QtWidgets.QFormLayout.FieldRole, self.pushButton_guardarLocalidad)
+        self.pushButton_actualizarLocalidad = QtWidgets.QPushButton(self.frame_13)
+        self.pushButton_actualizarLocalidad.setObjectName("pushButton_actualizarLocalidad")
+        self.formLayout_9.setWidget(24, QtWidgets.QFormLayout.FieldRole, self.pushButton_actualizarLocalidad)
+        self.label_codigo_postal_Localidad = QtWidgets.QLabel(self.frame_13)
+        self.label_codigo_postal_Localidad.setObjectName("label_codigo_postal_Localidad")
+        self.formLayout_9.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_codigo_postal_Localidad)
+        self.lineEdit_codigo_postal_Localidad = QtWidgets.QLineEdit(self.frame_13)
+        self.lineEdit_codigo_postal_Localidad.setObjectName("lineEdit_codigo_postal_Localidad")
+        self.formLayout_9.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_codigo_postal_Localidad)
+        self.label_observacionesLocalidad = QtWidgets.QLabel(self.frame_13)
+        self.label_observacionesLocalidad.setObjectName("label_observacionesLocalidad")
+        self.formLayout_9.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_observacionesLocalidad)
+        self.lineEdit_observacionesLocalidad = QtWidgets.QLineEdit(self.frame_13)
+        self.lineEdit_observacionesLocalidad.setObjectName("lineEdit_observacionesLocalidad")
+        self.formLayout_9.setWidget(16, QtWidgets.QFormLayout.FieldRole, self.lineEdit_observacionesLocalidad)
+        self.label_provinciaLocalidad = QtWidgets.QLabel(self.frame_13)
+        self.label_provinciaLocalidad.setObjectName("label_provinciaLocalidad")
+        self.formLayout_9.setWidget(12, QtWidgets.QFormLayout.LabelRole, self.label_provinciaLocalidad)
+        self.lineEdit_provinciaLocalidad = QtWidgets.QLineEdit(self.frame_13)
+        self.lineEdit_provinciaLocalidad.setObjectName("lineEdit_provinciaLocalidad")
+        self.formLayout_9.setWidget(12, QtWidgets.QFormLayout.FieldRole, self.lineEdit_provinciaLocalidad)
+        self.frame_14 = QtWidgets.QFrame(self.tab_agregar_modificar_localidad)
+        self.frame_14.setGeometry(QtCore.QRect(140, 60, 841, 80))
+        self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_14.setObjectName("frame_14")
+        self.label_buscar_categoria_por_id_2 = QtWidgets.QLabel(self.frame_14)
+        self.label_buscar_categoria_por_id_2.setGeometry(QtCore.QRect(20, 20, 64, 28))
+        self.label_buscar_categoria_por_id_2.setObjectName("label_buscar_categoria_por_id_2")
+        self.lineEdit_buscar_localidad_por_id = QtWidgets.QLineEdit(self.frame_14)
+        self.lineEdit_buscar_localidad_por_id.setGeometry(QtCore.QRect(70, 20, 511, 28))
+        self.lineEdit_buscar_localidad_por_id.setObjectName("lineEdit_buscar_localidad_por_id")
+        self.pushButton_cargar_localidad_desde_id = QtWidgets.QPushButton(self.frame_14)
+        self.pushButton_cargar_localidad_desde_id.setGeometry(QtCore.QRect(630, 20, 191, 28))
+        self.pushButton_cargar_localidad_desde_id.setObjectName("pushButton_cargar_localidad_desde_id")
+        self.tabWidgetLocalidad.addTab(self.tab_agregar_modificar_localidad, "")
+        self.tab_eliminar_localidad = QtWidgets.QWidget()
+        self.tab_eliminar_localidad.setObjectName("tab_eliminar_localidad")
+        self.frame_15 = QtWidgets.QFrame(self.tab_eliminar_localidad)
+        self.frame_15.setGeometry(QtCore.QRect(60, 30, 841, 521))
+        self.frame_15.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_15.setObjectName("frame_15")
+        self.formLayout_10 = QtWidgets.QFormLayout(self.frame_15)
+        self.formLayout_10.setObjectName("formLayout_10")
+        self.pushButton_eliminarLocalidad = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_eliminarLocalidad.setObjectName("pushButton_eliminarLocalidad")
+        self.formLayout_10.setWidget(25, QtWidgets.QFormLayout.FieldRole, self.pushButton_eliminarLocalidad)
+        self.lineEdit_eliminar_idLocalidad = QtWidgets.QLineEdit(self.frame_15)
+        self.lineEdit_eliminar_idLocalidad.setObjectName("lineEdit_eliminar_idLocalidad")
+        self.formLayout_10.setWidget(16, QtWidgets.QFormLayout.FieldRole, self.lineEdit_eliminar_idLocalidad)
+        self.label_eliminar_idLocalidad = QtWidgets.QLabel(self.frame_15)
+        self.label_eliminar_idLocalidad.setObjectName("label_eliminar_idLocalidad")
+        self.formLayout_10.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_eliminar_idLocalidad)
+        self.tabWidgetLocalidad.addTab(self.tab_eliminar_localidad, "")
+        self.tabWidgetAplicacion.addTab(self.tab_localidades, "")
+        self.tab_bancos = QtWidgets.QWidget()
+        self.tab_bancos.setObjectName("tab_bancos")
+        self.tabWidgetLocalidad_2 = QtWidgets.QTabWidget(self.tab_bancos)
+        self.tabWidgetLocalidad_2.setGeometry(QtCore.QRect(0, 0, 1051, 671))
+        self.tabWidgetLocalidad_2.setObjectName("tabWidgetLocalidad_2")
+        self.tab_listado_banco = QtWidgets.QWidget()
+        self.tab_listado_banco.setObjectName("tab_listado_banco")
+        self.tableListaBanco = QtWidgets.QTableWidget(self.tab_listado_banco)
+        self.tableListaBanco.setEnabled(True)
+        self.tableListaBanco.setGeometry(QtCore.QRect(140, 200, 781, 361))
+        self.tableListaBanco.setAcceptDrops(False)
+        self.tableListaBanco.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableListaBanco.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableListaBanco.setLineWidth(1)
+        self.tableListaBanco.setMidLineWidth(0)
+        self.tableListaBanco.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableListaBanco.setShowGrid(True)
+        self.tableListaBanco.setWordWrap(True)
+        self.tableListaBanco.setCornerButtonEnabled(True)
+        self.tableListaBanco.setRowCount(10)
+        self.tableListaBanco.setColumnCount(3)
+        self.tableListaBanco.setObjectName("tableListaBanco")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaBanco.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaBanco.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableListaBanco.setHorizontalHeaderItem(2, item)
+        self.tableListaBanco.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_banco = QtWidgets.QFrame(self.tab_listado_banco)
+        self.frame_buscar_banco.setGeometry(QtCore.QRect(110, 10, 811, 111))
+        self.frame_buscar_banco.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_banco.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_banco.setObjectName("frame_buscar_banco")
+        self.btn_buscar_banco = QtWidgets.QPushButton(self.frame_buscar_banco)
+        self.btn_buscar_banco.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_banco.setObjectName("btn_buscar_banco")
+        self.lineEdit_buscar_banco = QtWidgets.QLineEdit(self.frame_buscar_banco)
+        self.lineEdit_buscar_banco.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_buscar_banco.setObjectName("lineEdit_buscar_banco")
+        self.btn_mostrar_todos_banco = QtWidgets.QPushButton(self.tab_listado_banco)
+        self.btn_mostrar_todos_banco.setGeometry(QtCore.QRect(300, 140, 552, 28))
+        self.btn_mostrar_todos_banco.setObjectName("btn_mostrar_todos_banco")
+        self.tabWidgetLocalidad_2.addTab(self.tab_listado_banco, "")
+        self.tab_agregar_modificar_banco = QtWidgets.QWidget()
+        self.tab_agregar_modificar_banco.setObjectName("tab_agregar_modificar_banco")
+        self.frame_16 = QtWidgets.QFrame(self.tab_agregar_modificar_banco)
+        self.frame_16.setGeometry(QtCore.QRect(140, 190, 841, 291))
+        self.frame_16.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_16.setObjectName("frame_16")
+        self.formLayout_11 = QtWidgets.QFormLayout(self.frame_16)
+        self.formLayout_11.setObjectName("formLayout_11")
+        self.label_nombreBanco = QtWidgets.QLabel(self.frame_16)
+        self.label_nombreBanco.setObjectName("label_nombreBanco")
+        self.formLayout_11.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_nombreBanco)
+        self.lineEdit_nombreBanco2 = QtWidgets.QLineEdit(self.frame_16)
+        self.lineEdit_nombreBanco2.setObjectName("lineEdit_nombreBanco2")
+        self.formLayout_11.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.lineEdit_nombreBanco2)
+        self.label_observacionesBanco = QtWidgets.QLabel(self.frame_16)
+        self.label_observacionesBanco.setObjectName("label_observacionesBanco")
+        self.formLayout_11.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_observacionesBanco)
+        self.lineEdit_observacionesBanco = QtWidgets.QLineEdit(self.frame_16)
+        self.lineEdit_observacionesBanco.setObjectName("lineEdit_observacionesBanco")
+        self.formLayout_11.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.lineEdit_observacionesBanco)
+        self.pushButton_guardarBanco = QtWidgets.QPushButton(self.frame_16)
+        self.pushButton_guardarBanco.setObjectName("pushButton_guardarBanco")
+        self.formLayout_11.setWidget(18, QtWidgets.QFormLayout.FieldRole, self.pushButton_guardarBanco)
+        self.pushButton_actualizarBanco = QtWidgets.QPushButton(self.frame_16)
+        self.pushButton_actualizarBanco.setObjectName("pushButton_actualizarBanco")
+        self.formLayout_11.setWidget(19, QtWidgets.QFormLayout.FieldRole, self.pushButton_actualizarBanco)
+        self.frame_17 = QtWidgets.QFrame(self.tab_agregar_modificar_banco)
+        self.frame_17.setGeometry(QtCore.QRect(140, 60, 841, 80))
+        self.frame_17.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_17.setObjectName("frame_17")
+        self.label_buscar_banco_por_id = QtWidgets.QLabel(self.frame_17)
+        self.label_buscar_banco_por_id.setGeometry(QtCore.QRect(20, 20, 64, 28))
+        self.label_buscar_banco_por_id.setObjectName("label_buscar_banco_por_id")
+        self.lineEdit_buscar_banco_por_id = QtWidgets.QLineEdit(self.frame_17)
+        self.lineEdit_buscar_banco_por_id.setGeometry(QtCore.QRect(70, 20, 511, 28))
+        self.lineEdit_buscar_banco_por_id.setObjectName("lineEdit_buscar_banco_por_id")
+        self.pushButton_cargar_banco_desde_id = QtWidgets.QPushButton(self.frame_17)
+        self.pushButton_cargar_banco_desde_id.setGeometry(QtCore.QRect(630, 20, 191, 28))
+        self.pushButton_cargar_banco_desde_id.setObjectName("pushButton_cargar_banco_desde_id")
+        self.tabWidgetLocalidad_2.addTab(self.tab_agregar_modificar_banco, "")
+        self.tab_eliminar_banco = QtWidgets.QWidget()
+        self.tab_eliminar_banco.setObjectName("tab_eliminar_banco")
+        self.frame_18 = QtWidgets.QFrame(self.tab_eliminar_banco)
+        self.frame_18.setGeometry(QtCore.QRect(60, 30, 841, 521))
+        self.frame_18.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_18.setObjectName("frame_18")
+        self.formLayout_12 = QtWidgets.QFormLayout(self.frame_18)
+        self.formLayout_12.setObjectName("formLayout_12")
+        self.pushButton_eliminarBanco = QtWidgets.QPushButton(self.frame_18)
+        self.pushButton_eliminarBanco.setObjectName("pushButton_eliminarBanco")
+        self.formLayout_12.setWidget(25, QtWidgets.QFormLayout.FieldRole, self.pushButton_eliminarBanco)
+        self.lineEdit_eliminar_idBanco = QtWidgets.QLineEdit(self.frame_18)
+        self.lineEdit_eliminar_idBanco.setObjectName("lineEdit_eliminar_idBanco")
+        self.formLayout_12.setWidget(16, QtWidgets.QFormLayout.FieldRole, self.lineEdit_eliminar_idBanco)
+        self.label_eliminar_idBanco = QtWidgets.QLabel(self.frame_18)
+        self.label_eliminar_idBanco.setObjectName("label_eliminar_idBanco")
+        self.formLayout_12.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_eliminar_idBanco)
+        self.tabWidgetLocalidad_2.addTab(self.tab_eliminar_banco, "")
+        self.tabWidgetAplicacion.addTab(self.tab_bancos, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -656,15 +889,19 @@ class Ui_MainWindow(object):
         self.acercaDe.addAction(self.actionAcerca_de)
         self.menubar.addAction(self.acercaDe.menuAction())
 
-        self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria)
+        self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
+                           servicio_localidad, servicio_banco)
         self.tabWidgetAplicacion.setCurrentIndex(0)
         self.tabWidgetProducto.setCurrentIndex(0)
-        self.tabWidgetCliente.setCurrentIndex(1)
-        self.tabWidgetProveedor.setCurrentIndex(1)
-        self.tabWidgetCliente_2.setCurrentIndex(1)
+        self.tabWidgetCliente.setCurrentIndex(0)
+        self.tabWidgetProveedor.setCurrentIndex(0)
+        self.tabWidgetCliente_2.setCurrentIndex(0)
+        self.tabWidgetLocalidad.setCurrentIndex(0)
+        self.tabWidgetLocalidad_2.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria):
+    def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
+                      servicio_localidad, servicio_banco):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
@@ -692,7 +929,8 @@ class Ui_MainWindow(object):
         item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(8)
         item.setText(_translate("MainWindow", "Acciones"))
         self.btn_mostrar_todos_productos.setText(_translate("MainWindow", "Mostrar todos"))
-        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_listado_producto), _translate("MainWindow", "Listado productos"))
+        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_listado_producto),
+                                          _translate("MainWindow", "Listado productos"))
         self.label_agregar_producto_nombre.setText(_translate("MainWindow", "Nombre"))
         self.label_agregar_producto_marca.setText(_translate("MainWindow", "Marca"))
         self.label_agregar_producto_categoria.setText(_translate("MainWindow", "Categoria"))
@@ -705,11 +943,14 @@ class Ui_MainWindow(object):
         self.pushButton_actualizar_producto.setText(_translate("MainWindow", "Actualizar"))
         self.label_buscar_producto_por_id.setText(_translate("MainWindow", "ID"))
         self.pushButton_cargar_producto_desde_id.setText(_translate("MainWindow", "Cargar"))
-        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_agregar_modificar_producto), _translate("MainWindow", "Agregar/Modificar producto"))
+        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_agregar_modificar_producto),
+                                          _translate("MainWindow", "Agregar/Modificar producto"))
         self.pushButton_eliminarProducto.setText(_translate("MainWindow", "Borrar"))
         self.label_eliminar_idProducto.setText(_translate("MainWindow", "ID producto"))
-        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_eliminar_producto), _translate("MainWindow", "Eliminar producto"))
-        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_producto), _translate("MainWindow", "Productos"))
+        self.tabWidgetProducto.setTabText(self.tabWidgetProducto.indexOf(self.tab_eliminar_producto),
+                                          _translate("MainWindow", "Eliminar producto"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_producto),
+                                            _translate("MainWindow", "Productos"))
         self.tableListaCliente.setSortingEnabled(False)
         item = self.tableListaCliente.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id cliente"))
@@ -735,7 +976,8 @@ class Ui_MainWindow(object):
         self.comboBox_atributo_busqueda_cliente.setItemText(3, _translate("MainWindow", "Provincia"))
         self.btn_buscar_cliente.setText(_translate("MainWindow", "Buscar"))
         self.btn_mostrar_todos_clientes.setText(_translate("MainWindow", "Mostrar todos"))
-        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_listado_cliente), _translate("MainWindow", "Listado clientes"))
+        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_listado_cliente),
+                                         _translate("MainWindow", "Listado clientes"))
         self.label_nombreCliente.setText(_translate("MainWindow", "Nombre"))
         self.label_apellidoCliente.setText(_translate("MainWindow", "Apellido"))
         self.label_direccionCliente.setText(_translate("MainWindow", "Direccion"))
@@ -747,11 +989,14 @@ class Ui_MainWindow(object):
         self.pushButton_actualizarCliente.setText(_translate("MainWindow", "Actualizar"))
         self.label_buscar_cliente_por_id.setText(_translate("MainWindow", "ID"))
         self.pushButton_cargar_cliente_desde_id.setText(_translate("MainWindow", "Cargar"))
-        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_agregar_modificar_cliente), _translate("MainWindow", "Agregar/Modificar cliente"))
+        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_agregar_modificar_cliente),
+                                         _translate("MainWindow", "Agregar/Modificar cliente"))
         self.pushButton_eliminarCliente.setText(_translate("MainWindow", "Borrar"))
         self.label_eliminar_idCliente.setText(_translate("MainWindow", "ID cliente"))
-        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_eliminar_cliente), _translate("MainWindow", "Eliminar cliente"))
-        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_cliente), _translate("MainWindow", "Clientes"))
+        self.tabWidgetCliente.setTabText(self.tabWidgetCliente.indexOf(self.tab_eliminar_cliente),
+                                         _translate("MainWindow", "Eliminar cliente"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_cliente),
+                                            _translate("MainWindow", "Clientes"))
         self.tableListaProveedor.setSortingEnabled(False)
         item = self.tableListaProveedor.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id proveedor"))
@@ -768,21 +1013,24 @@ class Ui_MainWindow(object):
         item = self.tableListaProveedor.horizontalHeaderItem(6)
         item.setText(_translate("MainWindow", "DNI"))
         item = self.tableListaProveedor.horizontalHeaderItem(7)
-        item.setText(_translate("MainWindow", "Banco CBU"))
+        item.setText(_translate("MainWindow", "CBU"))
         item = self.tableListaProveedor.horizontalHeaderItem(8)
-        item.setText(_translate("MainWindow", "CUIT"))
+        item.setText(_translate("MainWindow", "Banco CBU"))
         item = self.tableListaProveedor.horizontalHeaderItem(9)
-        item.setText(_translate("MainWindow", "Categoria IVA"))
+        item.setText(_translate("MainWindow", "CUIT"))
         item = self.tableListaProveedor.horizontalHeaderItem(10)
-        item.setText(_translate("MainWindow", "Observaciones"))
+        item.setText(_translate("MainWindow", "Categoria IVA"))
         item = self.tableListaProveedor.horizontalHeaderItem(11)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        item = self.tableListaProveedor.horizontalHeaderItem(12)
         item.setText(_translate("MainWindow", "Acciones"))
         self.comboBox_atributo_busqueda_proveedor.setItemText(0, _translate("MainWindow", "Nombre"))
         self.comboBox_atributo_busqueda_proveedor.setItemText(1, _translate("MainWindow", "Localidad"))
         self.comboBox_atributo_busqueda_proveedor.setItemText(2, _translate("MainWindow", "Provincia"))
         self.btn_buscar_proveedor.setText(_translate("MainWindow", "Buscar"))
         self.btn_mostrar_todos_proveedores.setText(_translate("MainWindow", "Mostrar todos"))
-        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_listado_proveedor), _translate("MainWindow", "Listado proveedores"))
+        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_listado_proveedor),
+                                           _translate("MainWindow", "Listado proveedores"))
         self.label_nombreProveedor.setText(_translate("MainWindow", "Nombre"))
         self.label_direccionComercialProveedor.setText(_translate("MainWindow", "Direccion comercial"))
         self.label_localidadProveedor.setText(_translate("MainWindow", "Localidad"))
@@ -798,11 +1046,14 @@ class Ui_MainWindow(object):
         self.pushButton_actualizarProveedor.setText(_translate("MainWindow", "Actualizar"))
         self.label_buscar_proveedor_por_id.setText(_translate("MainWindow", "ID"))
         self.pushButton_cargar_proveedor_desde_id.setText(_translate("MainWindow", "Cargar"))
-        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_agregar_modificar_proveedor), _translate("MainWindow", "Agregar/Modificar proveedor"))
+        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_agregar_modificar_proveedor),
+                                           _translate("MainWindow", "Agregar/Modificar proveedor"))
         self.pushButton_eliminarProveedor.setText(_translate("MainWindow", "Borrar"))
         self.label_eliminar_idProveedor.setText(_translate("MainWindow", "ID proveedor"))
-        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_eliminar_proveedor), _translate("MainWindow", "Eliminar proveedor"))
-        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_proveedor), _translate("MainWindow", "Proveedores"))
+        self.tabWidgetProveedor.setTabText(self.tabWidgetProveedor.indexOf(self.tab_eliminar_proveedor),
+                                           _translate("MainWindow", "Eliminar proveedor"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_proveedor),
+                                            _translate("MainWindow", "Proveedores"))
         self.tableListaCategoria.setSortingEnabled(False)
         item = self.tableListaCategoria.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Id categoria"))
@@ -814,22 +1065,82 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Acciones"))
         self.btn_buscar_categoria.setText(_translate("MainWindow", "Buscar"))
         self.btn_mostrar_todos_categorias.setText(_translate("MainWindow", "Mostrar todos"))
-        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_listado_categoria), _translate("MainWindow", "Listado categorias"))
+        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_listado_categoria),
+                                           _translate("MainWindow", "Listado categorias"))
         self.label_nombreCategoria.setText(_translate("MainWindow", "Nombre"))
         self.label_observacionesCategoria.setText(_translate("MainWindow", "Observaciones"))
         self.pushButton_guardarCategoria.setText(_translate("MainWindow", "Guardar"))
         self.pushButton_actualizarCategoria.setText(_translate("MainWindow", "Actualizar"))
         self.label_buscar_categoria_por_id.setText(_translate("MainWindow", "ID"))
         self.pushButton_cargar_categoria_desde_id.setText(_translate("MainWindow", "Cargar"))
-        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_agregar_modificar_categoria), _translate("MainWindow", "Agregar/Modificar categoria"))
+        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_agregar_modificar_categoria),
+                                           _translate("MainWindow", "Agregar/Modificar categoria"))
         self.pushButton_eliminarCategoria.setText(_translate("MainWindow", "Borrar"))
         self.label_eliminar_idCategoria.setText(_translate("MainWindow", "ID categoria"))
-        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_eliminar_categoria), _translate("MainWindow", "Eliminar categoria"))
-        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_categoria), _translate("MainWindow", "Categorias"))
+        self.tabWidgetCliente_2.setTabText(self.tabWidgetCliente_2.indexOf(self.tab_eliminar_categoria),
+                                           _translate("MainWindow", "Eliminar categoria"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_categoria),
+                                            _translate("MainWindow", "Categorias"))
+        self.tableListaLocalidad.setSortingEnabled(False)
+        item = self.tableListaLocalidad.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id Localidad"))
+        item = self.tableListaLocalidad.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableListaLocalidad.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Codigo postal"))
+        item = self.tableListaLocalidad.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Provincia"))
+        item = self.tableListaLocalidad.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        self.btn_buscar_localidad.setText(_translate("MainWindow", "Buscar"))
+        self.btn_mostrar_todos_localidad.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetLocalidad.setTabText(self.tabWidgetLocalidad.indexOf(self.tab_listado_localidad),
+                                           _translate("MainWindow", "Listado localidades"))
+        self.label_nombreLocalidad.setText(_translate("MainWindow", "Nombre"))
+        self.pushButton_guardarLocalidad.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_actualizarLocalidad.setText(_translate("MainWindow", "Actualizar"))
+        self.label_codigo_postal_Localidad.setText(_translate("MainWindow", "Codigo postal"))
+        self.label_observacionesLocalidad.setText(_translate("MainWindow", "Observaciones"))
+        self.label_provinciaLocalidad.setText(_translate("MainWindow", "Provincia"))
+        self.label_buscar_categoria_por_id_2.setText(_translate("MainWindow", "ID"))
+        self.pushButton_cargar_localidad_desde_id.setText(_translate("MainWindow", "Cargar"))
+        self.tabWidgetLocalidad.setTabText(self.tabWidgetLocalidad.indexOf(self.tab_agregar_modificar_localidad),
+                                           _translate("MainWindow", "Agregar/Modificar localidad"))
+        self.pushButton_eliminarLocalidad.setText(_translate("MainWindow", "Borrar"))
+        self.label_eliminar_idLocalidad.setText(_translate("MainWindow", "ID localidad"))
+        self.tabWidgetLocalidad.setTabText(self.tabWidgetLocalidad.indexOf(self.tab_eliminar_localidad),
+                                           _translate("MainWindow", "Eliminar localidad"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_localidades),
+                                            _translate("MainWindow", "Localidades"))
+        self.tableListaBanco.setSortingEnabled(False)
+        item = self.tableListaBanco.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Id Localidad"))
+        item = self.tableListaBanco.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableListaBanco.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Observaciones"))
+        self.btn_buscar_banco.setText(_translate("MainWindow", "Buscar"))
+        self.btn_mostrar_todos_banco.setText(_translate("MainWindow", "Mostrar todos"))
+        self.tabWidgetLocalidad_2.setTabText(self.tabWidgetLocalidad_2.indexOf(self.tab_listado_banco),
+                                             _translate("MainWindow", "Listado bancos"))
+        self.label_nombreBanco.setText(_translate("MainWindow", "Nombre"))
+        self.label_observacionesBanco.setText(_translate("MainWindow", "Observaciones"))
+        self.pushButton_guardarBanco.setText(_translate("MainWindow", "Guardar"))
+        self.pushButton_actualizarBanco.setText(_translate("MainWindow", "Actualizar"))
+        self.label_buscar_banco_por_id.setText(_translate("MainWindow", "ID"))
+        self.pushButton_cargar_banco_desde_id.setText(_translate("MainWindow", "Cargar"))
+        self.tabWidgetLocalidad_2.setTabText(self.tabWidgetLocalidad_2.indexOf(self.tab_agregar_modificar_banco),
+                                             _translate("MainWindow", "Agregar/Modificar banco"))
+        self.pushButton_eliminarBanco.setText(_translate("MainWindow", "Borrar"))
+        self.label_eliminar_idBanco.setText(_translate("MainWindow", "ID banco"))
+        self.tabWidgetLocalidad_2.setTabText(self.tabWidgetLocalidad_2.indexOf(self.tab_eliminar_banco),
+                                             _translate("MainWindow", "Eliminar banco"))
+        self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_bancos),
+                                            _translate("MainWindow", "Bancos"))
         self.acercaDe.setTitle(_translate("MainWindow", "Ayuda"))
         self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de"))
 
-    # CREA CELDAS EN TABLAS
+        # CREA CELDAS EN TABLAS
         for i in range(Ui_MainWindow.cantidad_filas):
             for j in range(Ui_MainWindow.cantidad_elementos_productoDto):
                 item = QtWidgets.QTableWidgetItem()
@@ -849,6 +1160,11 @@ class Ui_MainWindow(object):
             for j in range(Ui_MainWindow.cantidad_elementos_categoriaDto):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableListaCategoria.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_localidadDto):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableListaLocalidad.setItem(i, j, item)
 
         # EVENT HANDLERS PARA BOTONES
         # self.btn_buscar_producto.clicked.connect(lambda: self.button_handler(servicio_producto, self.tableResultadoBusquedaProducto))
@@ -892,6 +1208,14 @@ class Ui_MainWindow(object):
         formulario_nueva_categoria = {"nombre": self.lineEdit_nombreCategoria,
                                       "observaciones": self.lineEdit_observacionesCategoria}
 
+        formulario_nueva_localidad = {"nombre": self.lineEdit_nombreLocalidad,
+                                      "codigo_postal": self.lineEdit_codigo_postal_Localidad,
+                                      "provincia": self.lineEdit_provinciaLocalidad,
+                                      "observaciones": self.lineEdit_observacionesLocalidad}
+
+        fomulario_nuevo_banco = {"nombre": self.lineEdit_nombreBanco2,
+                                 "observaciones": self.lineEdit_observacionesBanco}
+
         self.pushButton_agregar_producto_guardar.clicked.connect(
             lambda: self.guardar_producto(servicio_producto, formulario_nuevo_producto))
 
@@ -925,6 +1249,10 @@ class Ui_MainWindow(object):
                                                     self.lineEdit_buscar_proveedor, self.tableListaProveedor)
         )
 
+        self.pushButton_guardarProveedor.clicked.connect(
+            lambda: self.guardar_proveedor(servicio_proveedor, formulario_nuevo_proveedor)
+        )
+
         self.pushButton_guardarCategoria.clicked.connect(
             lambda: self.guardar_categoria(servicio_categoria, formulario_nueva_categoria)
         )
@@ -938,15 +1266,43 @@ class Ui_MainWindow(object):
         )
 
         self.pushButton_cargar_categoria_desde_id.clicked.connect(
-            lambda: self.cargar_categoria_desde_id(servicio_categoria, self.lineEdit_buscar_categoria_por_id, formulario_nueva_categoria)
+            lambda: self.cargar_categoria_desde_id(servicio_categoria, self.lineEdit_buscar_categoria_por_id,
+                                                   formulario_nueva_categoria)
         )
 
         self.pushButton_actualizarCategoria.clicked.connect(
-            lambda: self.actualizar_categoria(servicio_categoria, formulario_nueva_categoria, self.lineEdit_buscar_categoria_por_id)
+            lambda: self.actualizar_categoria(servicio_categoria, formulario_nueva_categoria,
+                                              self.lineEdit_buscar_categoria_por_id)
         )
 
         self.pushButton_eliminarCategoria.clicked.connect(
             lambda: self.eliminar_categoria(servicio_categoria, self.lineEdit_eliminar_idCategoria)
+        )
+
+        self.btn_mostrar_todos_localidad.clicked.connect(
+            lambda: self.mostrar_todas_localidades(servicio_localidad, self.tableListaLocalidad)
+        )
+
+        # BUSQUEDA DE LOCALIDADES
+        # self.btn_buscar_localidad.clicked.connect(
+        #     lambda: self.cargar_localidad_desde_id(servicio_localidad, self.lineEdit_buscar_localidad)
+        # )
+
+        self.pushButton_cargar_localidad_desde_id.clicked.connect(
+            lambda: self.cargar_localidad_desde_id(servicio_localidad, self.lineEdit_buscar_localidad_por_id,
+                                                   formulario_nueva_localidad)
+        )
+
+        self.pushButton_guardarLocalidad.clicked.connect(
+            lambda: self.guardar_localidad(servicio_localidad, formulario_nueva_localidad)
+        )
+
+        self.pushButton_eliminarLocalidad.clicked.connect(
+            lambda: self.eliminar_localidad(servicio_localidad, self.lineEdit_eliminar_idLocalidad)
+        )
+
+        self.btn_mostrar_todos_banco.clicked.connect(
+            lambda: self.mostrar_todos_bancos(servicio_banco, self.tableListaBanco)
         )
 
     '''
@@ -1134,7 +1490,7 @@ class Ui_MainWindow(object):
             item = widget.item(index, 7)
             item.setText(_translate("MainWindow", str(proveedor.cbu)))
             item = widget.item(index, 8)
-            item.setText(_translate("MainWindow", proveedor.banco_cbu))
+            item.setText(_translate("MainWindow", str(proveedor.banco_cbu)))
             item = widget.item(index, 9)
             item.setText(_translate("MainWindow", str(proveedor.cuit)))
             item = widget.item(index, 10)
@@ -1213,3 +1569,106 @@ class Ui_MainWindow(object):
     def eliminar_categoria(self, servicio, input_busqueda):
         id_categoria = input_busqueda.text()
         servicio.eliminar(id_categoria)
+
+    '''
+    LOCALIDADES
+    '''
+
+    def mostrar_todas_localidades(self, servicio, widget_lista):
+        lista_localidades = servicio.obtener_todas()
+        self.mostrar_lista_localidades(widget_lista, lista_localidades)
+
+    def limpiar_lista_localidades(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_localidadDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def mostrar_lista_localidades(self, widget, lista_localidades):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_localidades(widget)
+
+        for index, localidad in enumerate(lista_localidades):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(localidad.localidad_id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", localidad.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", localidad.codigo_postal))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", localidad.provincia))
+
+    def guardar_localidad(self, servicio, formulario):
+        localidad_request = {"nombre": formulario["nombre"].text(),
+                             "codigo_postal": formulario["codigo_postal"].text(),
+                             "provincia": formulario["provincia"].text()}
+        servicio.guardar(localidad_request)
+
+    def cargar_localidad_desde_id(self, servicio, input_busqueda, formulario_localidad):
+        id_localidad = input_busqueda.text()
+        localidad = servicio.buscar_por_id(id_localidad)
+        formulario_localidad["nombre"].setText(localidad.nombre)
+        formulario_localidad["codigo_postal"].setText(localidad.codigo_postal)
+        formulario_localidad["provincia"].setText(localidad.provincia)
+
+    def actualizar_localidad(self, servicio, formulario_localidad, input_busqueda_id):
+        id_localidad = input_busqueda_id.text()
+        localidad_request = {"id": id_localidad,
+                             "nombre": formulario_localidad["nombre"].text(),
+                             "codigo_postal": formulario_localidad["codigo_postal"].text(),
+                             "provincia": formulario_localidad["provincia"].text()}
+        servicio.actualizar(localidad_request)
+
+    def eliminar_localidad(self, servicio, input_busqueda):
+        id_localidad = input_busqueda.text()
+        servicio.eliminar(id_localidad)
+
+    '''
+    BANCOS
+    '''
+
+    def mostrar_todos_bancos(self, servicio, widget_lista):
+        lista_bancos = servicio.obtener_todos()
+        self.mostrar_lista_bancos(widget_lista, lista_bancos)
+
+    def limpiar_lista_bancos(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_bancoDto):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def mostrar_lista_bancos(self, widget, lista_bancos):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_bancos(widget)
+
+        for index, banco in enumerate(lista_bancos):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(banco.banco_id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", banco.nombre))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", banco.observaciones))
+
+    def guardar_banco(self, servicio, formulario):
+        banco_request = {"nombre": formulario["nombre"].text(),
+                         "observaciones": formulario["observaciones"].text()}
+        servicio.guardar(banco_request)
+
+    def cargar_banco_desde_id(self, servicio, input_busqueda, formulario_banco):
+        id_banco = input_busqueda.text()
+        banco = servicio.buscar_por_id(id_banco)
+        formulario_banco["nombre"].setText(banco.nombre)
+        formulario_banco["observaciones"].setText(banco.codigo_postal)
+
+    def actualizar_banco(self, servicio, formulario_banco, input_busqueda_id):
+        id_banco = input_busqueda_id.text()
+        banco_request = {"id": id_banco,
+                         "nombre": formulario_banco["nombre"].text(),
+                         "observaciones": formulario_banco["observaciones"].text()}
+        servicio.actualizar(banco_request)
+
+    def eliminar_banco(self, servicio, input_busqueda):
+        id_banco = input_busqueda.text()
+        servicio.eliminar(id_banco)
