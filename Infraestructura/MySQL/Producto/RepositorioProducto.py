@@ -4,7 +4,7 @@ class RepositorioProducto:
         self.cursor = cnx.cursor()
 
     def guardar(self, producto):
-        #TODO asociar la categoria
+        # TODO asociar la categoria
         agregar_producto = ("INSERT INTO productos "
                             "(nombre, marca, precio_unitario, unidades_stock, descripcion, observaciones) "
                             "VALUES (%s, %s, %s, %s, %s, %s)")

@@ -8,5 +8,5 @@ class RepositorioProvincia:
         return self.cursor.fetchone()
 
     def obtener_por_id(self, id_provincia):
-        self.cursor.execute("SELECT * FROM provincias WHERE id LIKE %s", (id_provincia,))
+        self.cursor.execute("SELECT * FROM provincias WHERE id = %s", (id_provincia,))
         return self.cursor.fetchone()
