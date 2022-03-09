@@ -21,7 +21,7 @@ class RepositorioBanco:
 
     def buscar_por_nombre(self, nombre):
         self.cursor.execute("SELECT * FROM bancos WHERE nombre LIKE %s", (nombre,))
-        return self.cursor.fetchone()
+        return self.cursor.fetchall()
 
     def actualizar(self, banco, id_banco):
         actualizar_banco = ("UPDATE bancos "

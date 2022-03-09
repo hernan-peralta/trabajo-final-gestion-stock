@@ -22,7 +22,7 @@ class RepositorioLocalidad:
 
     def buscar_por_nombre(self, nombre):
         self.cursor.execute("SELECT * FROM localidades WHERE nombre LIKE %s", (nombre,))
-        return self.cursor.fetchone()
+        return self.cursor.fetchall()
 
     def actualizar(self, localidad, localidad_id):
         actualizar_localidad = ("UPDATE localidades "

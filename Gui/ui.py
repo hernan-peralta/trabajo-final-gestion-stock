@@ -1172,7 +1172,6 @@ class Ui_MainWindow(object):
                 self.tableListaBanco.setItem(i, j, item)
 
         # EVENT HANDLERS PARA BOTONES
-        # self.btn_buscar_producto.clicked.connect(lambda: self.button_handler(servicio_producto, self.tableResultadoBusquedaProducto))
         self.btn_buscar_producto.clicked.connect(
             lambda: self.busqueda_producto_handler(servicio_producto, self.comboBox_atributo_busqueda_producto,
                                                    self.lineEdit_buscar_producto,
@@ -1184,6 +1183,7 @@ class Ui_MainWindow(object):
 
         formulario_nuevo_producto = {"nombre": self.lineEdit_agregar_producto_nombre,
                                      "marca": self.lineEdit_agregar_producto_marca,
+                                     "categoria": self.lineEdit_agregar_producto_categoria,
                                      "precio_unitario": self.lineEdit_agregar_producto_precio_unitario,
                                      "unidades_stock": self.lineEdit_agregar_producto_unidades_stock,
                                      "descripcion": self.lineEdit_agregar_producto_descripcion,
@@ -1298,9 +1298,9 @@ class Ui_MainWindow(object):
         )
 
         # BUSQUEDA DE LOCALIDADES
-        # self.btn_buscar_localidad.clicked.connect(
-        #     lambda: self.cargar_localidad_desde_id(servicio_localidad, self.lineEdit_buscar_localidad)
-        # )
+        self.btn_buscar_localidad.clicked.connect(
+            lambda: self.buscar_localidad(servicio_localidad, self.lineEdit_buscar_localidad, self.tableListaLocalidad)
+        )
 
         self.pushButton_cargar_localidad_desde_id.clicked.connect(
             lambda: self.cargar_localidad_desde_id(servicio_localidad, self.lineEdit_buscar_localidad_por_id,
@@ -1338,6 +1338,10 @@ class Ui_MainWindow(object):
 
         self.pushButton_actualizarBanco.clicked.connect(
             lambda: self.actualizar_banco(servicio_banco, fomulario_nuevo_banco, self.lineEdit_buscar_banco_por_id)
+        )
+
+        self.btn_buscar_banco.clicked.connect(
+            lambda: self.buscar_banco(servicio_banco, self.lineEdit_buscar_banco, self.tableListaBanco)
         )
 
     '''
@@ -1400,12 +1404,23 @@ class Ui_MainWindow(object):
     def guardar_producto(self, servicio, formulario_nuevo_producto):
         producto_request = {"nombre": formulario_nuevo_producto["nombre"].text(),
                             "marca": formulario_nuevo_producto["marca"].text(),
+                            "categoria": formulario_nuevo_producto["categoria"].text(),
                             "precio_unitario": formulario_nuevo_producto["precio_unitario"].text(),
-                            # "unidades_stock": formulario_nuevo_producto["unidades_stock"].text(),
-                            "unidades_stock": 5,
+                            "unidades_stock": formulario_nuevo_producto["unidades_stock"].text(),
                             "descripcion": formulario_nuevo_producto["descripcion"].text(),
                             "observaciones": formulario_nuevo_producto["observaciones"].text()}
         servicio.guardar(producto_request)
+
+    def cargar_producto_desde_id(self, servicio, input_busqueda, formulario_producto):
+        id_producto = input_busqueda.text()
+        producto = servicio.buscar_por_id(id_producto)
+        formulario_producto["nombre"].setText(producto.nombre)
+        formulario_producto["marca"].setText(producto.apellido)
+        formulario_producto["categoria"].setText(producto.dni)
+        formulario_producto["precio_unitario"].setText(producto.direccion)
+        formulario_producto["unidades_stock"].setText(producto.localidad)
+        formulario_producto["descripcion"].setText(producto.telefono)
+        formulario_producto["observaciones"].setText(producto.observaciones)
 
     def eliminar_producto(self, servicio, input_busqueda):
         id_producto = input_busqueda.text()
@@ -1669,6 +1684,12 @@ class Ui_MainWindow(object):
         formulario_localidad["codigo_postal"].setText(localidad.codigo_postal)
         formulario_localidad["provincia"].setText(localidad.provincia)
 
+    def buscar_localidad(self, servicio, input_busqueda, widget_lista):
+        self.limpiar_lista_localidades(widget_lista)
+        texto_busqueda = input_busqueda.text()
+        lista_localidades = servicio.buscar_por_nombre(texto_busqueda)
+        self.mostrar_lista_localidades(widget_lista, lista_localidades)
+
     def actualizar_localidad(self, servicio, formulario_localidad, input_busqueda_id):
         id_localidad = input_busqueda_id.text()
         localidad_request = {"id": id_localidad,
@@ -1718,6 +1739,13 @@ class Ui_MainWindow(object):
         banco = servicio.buscar_por_id(id_banco)
         formulario_banco["nombre"].setText(banco.nombre)
         formulario_banco["observaciones"].setText(banco.observaciones)
+
+    def buscar_banco(self, servicio, input_busqueda, widget_lista):
+        self.limpiar_lista_bancos(widget_lista)
+        texto_busqueda = input_busqueda.text()
+        lista_bancos = servicio.buscar_por_nombre(texto_busqueda)
+        print("LISTA", lista_bancos)
+        self.mostrar_lista_bancos(widget_lista, lista_bancos)
 
     def actualizar_banco(self, servicio, formulario_banco, input_busqueda_id):
         id_banco = input_busqueda_id.text()

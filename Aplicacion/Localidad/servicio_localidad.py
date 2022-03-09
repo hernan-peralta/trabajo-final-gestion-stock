@@ -22,10 +22,13 @@ class ServicioLocalidad:
                             resultado_query_provincia[1])
 
     def buscar_por_nombre(self, nombre_localidad):
-        resultado_query_localidad = self.repositorio_localidad.buscar_por_nombre(nombre_localidad)
-        resultado_query_provincia = self.repositorio_provincia.obtener_por_id(resultado_query_localidad[2])
-        return LocalidadDTO(resultado_query_localidad[0], resultado_query_localidad[1], resultado_query_localidad[2],
-                            resultado_query_provincia[1])
+        lista_query = self.repositorio_localidad.buscar_por_nombre(nombre_localidad)
+        lista_localidades = []
+        for (q) in lista_query:
+            resultado_query_provincia = self.repositorio_provincia.obtener_por_id(q[3])
+            lista_localidades.append(
+                LocalidadDTO(q[0], q[1], q[2], resultado_query_provincia[1]))
+        return lista_localidades
 
     def buscar_por_provincia(self, nombre_provincia):
         #TODO
