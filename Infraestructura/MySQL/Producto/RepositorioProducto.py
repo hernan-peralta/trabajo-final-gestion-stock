@@ -13,14 +13,15 @@ class RepositorioProducto:
             producto.observaciones)
         self.cursor.execute(agregar_producto, datos_producto)
         self.cnx.commit()
+        return self.cursor.lastrowid
 
     def obtener_todos(self):
         self.cursor.execute("SELECT * FROM productos")
         return self.cursor.fetchall()
 
     def obtener(self, id_producto):
-        self.cursor.execute("SELECT * FROM productos WHERE id = %s", (id_producto,))
-        return self.cursor.fetchall()
+        self.cursor.execute("SELECT * FROM productos  WHERE id = %s", (id_producto,))
+        return self.cursor.fetchone()
 
     def obtener_categorias_producto(self, id_producto):
         self.cursor.execute(

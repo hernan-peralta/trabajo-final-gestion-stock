@@ -1227,6 +1227,11 @@ class Ui_MainWindow(object):
             lambda: self.eliminar_producto(servicio_producto, self.lineEdit_eliminar_idProducto)
         )
 
+        self.pushButton_cargar_producto_desde_id.clicked.connect(
+            lambda: self.cargar_producto_desde_id(servicio_producto, self.lineEdit_buscar_producto_por_id,
+                                                  formulario_nuevo_producto)
+        )
+
         self.btn_mostrar_todos_clientes.clicked.connect(
             lambda: self.mostrar_todos_clientes(servicio_cliente, self.tableListaCliente)
         )
@@ -1404,7 +1409,7 @@ class Ui_MainWindow(object):
     def guardar_producto(self, servicio, formulario_nuevo_producto):
         producto_request = {"nombre": formulario_nuevo_producto["nombre"].text(),
                             "marca": formulario_nuevo_producto["marca"].text(),
-                            "categoria": formulario_nuevo_producto["categoria"].text(),
+                            "categoria": [x.strip() for x in formulario_nuevo_producto["categoria"].text().split(",")],
                             "precio_unitario": formulario_nuevo_producto["precio_unitario"].text(),
                             "unidades_stock": formulario_nuevo_producto["unidades_stock"].text(),
                             "descripcion": formulario_nuevo_producto["descripcion"].text(),
@@ -1415,11 +1420,11 @@ class Ui_MainWindow(object):
         id_producto = input_busqueda.text()
         producto = servicio.buscar_por_id(id_producto)
         formulario_producto["nombre"].setText(producto.nombre)
-        formulario_producto["marca"].setText(producto.apellido)
-        formulario_producto["categoria"].setText(producto.dni)
-        formulario_producto["precio_unitario"].setText(producto.direccion)
-        formulario_producto["unidades_stock"].setText(producto.localidad)
-        formulario_producto["descripcion"].setText(producto.telefono)
+        formulario_producto["marca"].setText(producto.marca)
+        formulario_producto["categoria"].setText(producto.categorias.__str__())
+        formulario_producto["precio_unitario"].setText(str(producto.precio_unitario))
+        formulario_producto["unidades_stock"].setText(str(producto.unidades_stock))
+        formulario_producto["descripcion"].setText(producto.descripcion)
         formulario_producto["observaciones"].setText(producto.observaciones)
 
     def eliminar_producto(self, servicio, input_busqueda):
@@ -1744,7 +1749,6 @@ class Ui_MainWindow(object):
         self.limpiar_lista_bancos(widget_lista)
         texto_busqueda = input_busqueda.text()
         lista_bancos = servicio.buscar_por_nombre(texto_busqueda)
-        print("LISTA", lista_bancos)
         self.mostrar_lista_bancos(widget_lista, lista_bancos)
 
     def actualizar_banco(self, servicio, formulario_banco, input_busqueda_id):

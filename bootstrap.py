@@ -1,4 +1,5 @@
 import os
+import atexit
 from pathlib import Path
 from dotenv import load_dotenv
 from Aplicacion.Producto.servicio_producto import ServicioProducto
@@ -7,6 +8,7 @@ from Aplicacion.Proveedor.servicio_proveedor import ServicioProveedor
 from Aplicacion.Categoria.servicio_categoria import ServicioCategoria
 from Aplicacion.Localidad.servicio_localidad import ServicioLocalidad
 from Aplicacion.Banco.servicio_banco import ServicioBanco
+from Aplicacion.CategoriasProductos.servicio_categorias_productos import ServicioCategoriasProductos
 from Infraestructura.MySQL.Producto.RepositorioProducto import RepositorioProducto
 from Infraestructura.MySQL.Cliente.RepositorioCliente import RepositorioCliente
 from Infraestructura.MySQL.Proveedor.RepositorioProveedor import RepositorioProveedor
@@ -14,6 +16,7 @@ from Infraestructura.MySQL.Categoria.RepositorioCategoria import RepositorioCate
 from Infraestructura.MySQL.Localidad.RepositorioLocalidad import RepositorioLocalidad
 from Infraestructura.MySQL.Provincia.RepositorioProvincia import RepositorioProvincia
 from Infraestructura.MySQL.Banco.RepositorioBanco import RepositorioBanco
+from Infraestructura.MySQL.CategoriasProductos.RepositorioCategoriasProductos import RepositorioCategoriasProductos
 from Gui.aplicacion import crear_aplicacion
 
 import mysql.connector
@@ -33,8 +36,8 @@ repositorioLocalidad = RepositorioLocalidad(cnx)
 repositorioProvincia = RepositorioProvincia(cnx)
 servicioLocalidad = ServicioLocalidad(repositorioLocalidad, repositorioProvincia)
 
-repositorioProducto = RepositorioProducto(cnx)
-servicioProducto = ServicioProducto(repositorioProducto)
+# repositorioProducto = RepositorioProducto(cnx)
+# servicioProducto = ServicioProducto(repositorioProducto)
 
 repositorioCliente = RepositorioCliente(cnx)
 servicioCliente = ServicioCliente(repositorioCliente, repositorioLocalidad)
@@ -47,6 +50,13 @@ servicioProveedor = ServicioProveedor(repositorioProveedor, repositorioBanco)
 repositorioCategoria = RepositorioCategoria(cnx)
 servicioCategoria = ServicioCategoria(repositorioCategoria)
 
+repositorioCategoriasProductos = RepositorioCategoriasProductos(cnx)
+servicioCategoriasProductos = ServicioCategoriasProductos(repositorioCategoriasProductos)
+
+repositorioProducto = RepositorioProducto(cnx)
+servicioProducto = ServicioProducto(repositorioProducto, servicioCategoria, servicioCategoriasProductos)
+
 crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria, servicioLocalidad,
                  servicioBanco)
 
+atexit.register(lambda: cursor.close(), cnx.close())

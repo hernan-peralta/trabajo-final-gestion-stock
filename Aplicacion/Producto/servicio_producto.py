@@ -3,14 +3,21 @@ from Dominio.producto import Producto
 
 
 class ServicioProducto:
-    def __init__(self, repositorio_producto):
+    def __init__(self, repositorio_producto, servicio_categoria, servicio_producto_categoria):
         self.repositorioProducto = repositorio_producto
+        self.servicio_categoria = servicio_categoria
+        self.servicio_producto_categoria = servicio_producto_categoria
+
 
     def guardar(self, producto_request):
-        producto = Producto(producto_request["nombre"], producto_request["marca"], producto_request["precio_unitario"],
+        producto = Producto(producto_request["nombre"], producto_request["marca"],
+                            producto_request["precio_unitario"],
                             producto_request["unidades_stock"], producto_request["descripcion"],
                             producto_request["observaciones"])
-        return self.repositorioProducto.guardar(producto)
+        producto_id = self.repositorioProducto.guardar(producto)
+        for categoria_nombre in producto_request["categoria"]:
+            categoria = self.servicio_categoria.buscar_por_nombre(categoria_nombre)
+            self.servicio_producto_categoria.guardar(producto_id, categoria[0].id)
 
     def obtener_todos(self):
         lista_productos = []
@@ -20,7 +27,7 @@ class ServicioProducto:
             lista_productos.append(ProductoDTO(q[0], q[1], q[2], q[3], q[4], lista_categorias, q[5], q[6]))
         return lista_productos
 
-    def obtener_id(self, producto_id):
+    def buscar_por_id(self, producto_id):
         resultado_query = self.repositorioProducto.obtener(producto_id)
         lista_categorias = self.obtener_categorias_producto(producto_id)
         return ProductoDTO(resultado_query[0], resultado_query[1], resultado_query[2], resultado_query[3],
