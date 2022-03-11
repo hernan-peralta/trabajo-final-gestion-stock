@@ -3,16 +3,21 @@ from Dominio.proveedor import Proveedor
 
 
 class ServicioProveedor:
-    def __init__(self, repositorio_proveedor, repositorio_banco):
+    def __init__(self, repositorio_proveedor, repositorio_banco, repositorio_localidad, repositorio_categoria_iva):
+        self.repositorio_categoria_iva = repositorio_categoria_iva
+        self.repositorio_localidad = repositorio_localidad
         self.repositorioProveedor = repositorio_proveedor
         self.repositorio_banco = repositorio_banco
 
     def guardar(self, proveedor_request):
         banco = self.repositorio_banco.buscar_por_nombre(proveedor_request["banco_cbu"])
+        localidad = self.repositorio_localidad.buscar_por_nombre(proveedor_request["localidad"])
+        categoria_iva = self.repositorio_categoria_iva.buscar_por_nombre(proveedor_request["categoria_iva"])
         proveedor = Proveedor(proveedor_request["nombre"], proveedor_request["direccion_comercial"],
-                              proveedor_request["localidad"], proveedor_request["dni"], proveedor_request["telefono"],
-                              proveedor_request["email"], proveedor_request["cbu"], banco[0],
-                              proveedor_request["cuit"], proveedor_request["categoria_iva"],
+                              localidad[0][0], proveedor_request["telefono"],
+                              proveedor_request["email"], proveedor_request["dni"], proveedor_request["cbu"],
+                              banco[0][0],
+                              proveedor_request["cuit"], categoria_iva[0][0],
                               proveedor_request["observaciones"])
         return self.repositorioProveedor.guardar(proveedor)
 

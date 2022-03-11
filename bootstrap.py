@@ -17,6 +17,7 @@ from Infraestructura.MySQL.Localidad.RepositorioLocalidad import RepositorioLoca
 from Infraestructura.MySQL.Provincia.RepositorioProvincia import RepositorioProvincia
 from Infraestructura.MySQL.Banco.RepositorioBanco import RepositorioBanco
 from Infraestructura.MySQL.CategoriasProductos.RepositorioCategoriasProductos import RepositorioCategoriasProductos
+from Infraestructura.MySQL.CategoriaIva.RepositorioCategoriaIva import RepositorioCategoriaIva
 from Gui.aplicacion import crear_aplicacion
 
 import mysql.connector
@@ -36,16 +37,14 @@ repositorioLocalidad = RepositorioLocalidad(cnx)
 repositorioProvincia = RepositorioProvincia(cnx)
 servicioLocalidad = ServicioLocalidad(repositorioLocalidad, repositorioProvincia)
 
-# repositorioProducto = RepositorioProducto(cnx)
-# servicioProducto = ServicioProducto(repositorioProducto)
-
 repositorioCliente = RepositorioCliente(cnx)
 servicioCliente = ServicioCliente(repositorioCliente, repositorioLocalidad)
 
+repositorioCategoriaIva = RepositorioCategoriaIva(cnx)
 repositorioBanco = RepositorioBanco(cnx)
 servicioBanco = ServicioBanco(repositorioBanco)
 repositorioProveedor = RepositorioProveedor(cnx)
-servicioProveedor = ServicioProveedor(repositorioProveedor, repositorioBanco)
+servicioProveedor = ServicioProveedor(repositorioProveedor, repositorioBanco, repositorioLocalidad, repositorioCategoriaIva)
 
 repositorioCategoria = RepositorioCategoria(cnx)
 servicioCategoria = ServicioCategoria(repositorioCategoria)

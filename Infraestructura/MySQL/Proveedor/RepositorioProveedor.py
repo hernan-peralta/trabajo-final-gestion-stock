@@ -3,14 +3,14 @@ class RepositorioProveedor:
         self.cnx = cnx
         self.cursor = cnx.cursor()
 
-    def guardar(self, proveedor, id_banco):
+    def guardar(self, proveedor):
         agregar_proveedor = ("INSERT INTO proveedores "
-                             "(nombre, direccion_comercial, id_localidad, telefono, email, dni, cbu, id_banco, cuit, categoria_iva, observaciones) "
+                             "(nombre, direccion_comercial, id_localidad, telefono, email, dni, cbu, id_banco, cuit, id_categoria_iva, observaciones) "
                              "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
         datos_proveedor = (
             proveedor.nombre, proveedor.direccion_comercial, proveedor.id_localidad, proveedor.telefono,
             proveedor.email,
-            proveedor.dni, proveedor.cbu, id_banco, proveedor.cuit, proveedor.categoria_iva,
+            proveedor.dni, proveedor.cbu, proveedor.id_banco, proveedor.cuit, proveedor.id_categoria_iva,
             proveedor.observaciones)
         self.cursor.execute(agregar_proveedor, datos_proveedor)
         self.cnx.commit()
