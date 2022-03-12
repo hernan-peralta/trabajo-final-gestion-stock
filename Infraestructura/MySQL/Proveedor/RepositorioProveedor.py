@@ -44,6 +44,18 @@ class RepositorioProveedor:
             (provincia.title(),))
         return self.cursor.fetchall()
 
+    def actualizar(self, proveedor, proveedor_id):
+        actualizar_proveedor = ("UPDATE proveedores "
+                             "SET nombre = %s, direccion_comercial = %s, id_localidad = %s, telefono = %s, email = %s, dni = %s, cbu = %s, id_banco = %s, cuit = %s, id_categoria_iva = %s, observaciones = %s  "
+                             "WHERE id = %s")
+        datos_proveedor = (
+            proveedor.nombre, proveedor.direccion_comercial, proveedor.id_localidad, proveedor.telefono,
+            proveedor.email,
+            proveedor.dni, proveedor.cbu, proveedor.id_banco, proveedor.cuit, proveedor.id_categoria_iva,
+            proveedor.observaciones, proveedor_id)
+        self.cursor.execute(actualizar_proveedor, datos_proveedor)
+        self.cnx.commit()
+
     def eliminar(self, id_proveedor):
         self.cursor.execute("DELETE FROM proveedores WHERE id = %s", (id_proveedor,))
         self.cnx.commit()

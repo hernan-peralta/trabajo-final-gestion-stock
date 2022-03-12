@@ -1268,6 +1268,19 @@ class Ui_MainWindow(object):
                                                     self.lineEdit_buscar_proveedor, self.tableListaProveedor)
         )
 
+        self.pushButton_eliminarProveedor.clicked.connect(
+            lambda: self.eliminar_proveedor(servicio_proveedor, self.lineEdit_eliminar_idProveedor)
+        )
+
+        self.pushButton_cargar_proveedor_desde_id.clicked.connect(
+            lambda: self.cargar_proveedor_desde_id(servicio_proveedor, self.lineEdit_buscar_proveedor_por_id, formulario_nuevo_proveedor)
+        )
+
+        self.pushButton_actualizarProveedor.clicked.connect(
+            lambda: self.actualizar_proveedor(servicio_proveedor, formulario_nuevo_proveedor,
+                                              self.lineEdit_buscar_proveedor_por_id)
+        )
+
         self.pushButton_guardarProveedor.clicked.connect(
             lambda: self.guardar_proveedor(servicio_proveedor, formulario_nuevo_proveedor)
         )
@@ -1592,6 +1605,40 @@ class Ui_MainWindow(object):
     def mostrar_todos_proveedores(self, servicio, widget_lista):
         lista_proveedores = servicio.obtener_todos()
         self.mostrar_lista_proveedores(widget_lista, lista_proveedores)
+
+    def cargar_proveedor_desde_id(self, servicio, input_busqueda, formulario_proveedor):
+        id_proveedor = input_busqueda.text()
+        proveedor = servicio.buscar_por_id(id_proveedor)
+        formulario_proveedor["nombre"].setText(proveedor.nombre)
+        formulario_proveedor["direccion_comercial"].setText(proveedor.direccion_comercial)
+        formulario_proveedor["localidad"].setText(proveedor.nombre)
+        formulario_proveedor["telefono"].setText(proveedor.telefono)
+        formulario_proveedor["dni"].setText(proveedor.dni)
+        formulario_proveedor["cbu"].setText(proveedor.cbu)
+        formulario_proveedor["banco_cbu"].setText(str(proveedor.banco_cbu))
+        formulario_proveedor["cuit"].setText(proveedor.cuit)
+        formulario_proveedor["categoria_iva"].setText(proveedor.categoria_iva)
+        formulario_proveedor["observaciones"].setText(proveedor.observaciones)
+
+    def actualizar_proveedor(self, servicio, formulario_nuevo_proveedor, input_busqueda_id):
+        id_proveedor = input_busqueda_id.text()
+        proveedor_request = {"id": id_proveedor,
+                             "nombre": formulario_nuevo_proveedor["nombre"].text(),
+                             "direccion_comercial": formulario_nuevo_proveedor["direccion_comercial"].text(),
+                             "localidad": formulario_nuevo_proveedor["localidad"].text(),
+                             "telefono": formulario_nuevo_proveedor["telefono"].text(),
+                             "email": formulario_nuevo_proveedor["email"].text(),
+                             "dni": formulario_nuevo_proveedor["dni"].text(),
+                             "cbu": formulario_nuevo_proveedor["cbu"].text(),
+                             "banco_cbu": formulario_nuevo_proveedor["banco_cbu"].text(),
+                             "cuit": formulario_nuevo_proveedor["cuit"].text(),
+                             "categoria_iva": formulario_nuevo_proveedor["categoria_iva"].text(),
+                             "observaciones": formulario_nuevo_proveedor["observaciones"].text()}
+        servicio.actualizar(proveedor_request)
+
+    def eliminar_proveedor(self, servicio, input_busqueda):
+        id_proveedor = input_busqueda.text()
+        servicio.eliminar(id_proveedor)
 
     '''
     CATEGORIAS

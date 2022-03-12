@@ -59,3 +59,20 @@ class ServicioProveedor:
             lista_proveedores.append(
                 ProveedorDTO(q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], q[8], q[9], q[10], q[11]))
         return lista_proveedores
+
+    def actualizar(self, proveedor_request):
+        id_proveedor = int(proveedor_request["id"])
+        banco = self.repositorio_banco.buscar_por_nombre(proveedor_request["banco_cbu"])
+        localidad = self.repositorio_localidad.buscar_por_nombre(proveedor_request["localidad"])
+        categoria_iva = self.repositorio_categoria_iva.buscar_por_nombre(proveedor_request["categoria_iva"])
+        proveedor = Proveedor(proveedor_request["nombre"], proveedor_request["direccion_comercial"],
+                              localidad[0][0],
+                              proveedor_request["telefono"],
+                              proveedor_request["email"], proveedor_request["dni"], proveedor_request["cbu"],
+                              banco[0][0],
+                              proveedor_request["cuit"], categoria_iva[0][0],
+                              proveedor_request["observaciones"])
+        return self.repositorioProveedor.actualizar(proveedor, id_proveedor)
+
+    def eliminar(self, id_proveedor):
+        return self.repositorioProveedor.eliminar(id_proveedor)
