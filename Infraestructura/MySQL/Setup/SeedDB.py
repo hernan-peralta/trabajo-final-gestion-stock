@@ -64,16 +64,20 @@ lista_categoria_iva = [{"categoria_iva": "IVA Responsable inscripto"},
 lista_proveedores = [
     {"nombre": "Mayorista Cordoba", "direccion_comercial": "Cordoba 4656", "id_localidad": 3, "telefono": "456145681",
      "email": "mayoristacordoba@gmail.com", "dni": "25789402", "cbu": "4156548984531265451984",
-     "banco_cbu": "Santander", "cuit": "20-25789402-1", "id_categoria_iva": 1, "observaciones": ""},
+     "id_banco": 2, "cuit": "20-25789402-1", "id_categoria_iva": 1, "observaciones": ""},
     {"nombre": "Mayorista La Plata", "direccion_comercial": "Buenos Aires 5342", "id_localidad": 4,
      "telefono": "98126156",
      "email": "mayoristalaplata@gmail.com", "dni": "26459714", "cbu": "4894561512685165489484",
-     "banco_cbu": "Macro", "cuit": "20-26459714-1", "id_categoria_iva": 1, "observaciones": ""},
+     "id_banco": 1, "cuit": "20-26459714-1", "id_categoria_iva": 1, "observaciones": ""},
     {"nombre": "Mayorista Rosario", "direccion_comercial": "Santa Fe 2341", "id_localidad": 2, "telefono": "56156151",
      "email": "mayoristarosari@gmail.com", "dni": "24588456", "cbu": "1451414144284829484444",
-     "banco_cbu": "Nacion", "cuit": "20-24588456-1", "id_categoria_iva": 1, "observaciones": ""}]
+     "id_banco": 3, "cuit": "20-24588456-1", "id_categoria_iva": 1, "observaciones": ""}]
 
-lista_bancos = [{"nombre": "Macro"}, {"nombre": "Santander"}, {"nombre": "Nacion"}]
+lista_bancos = [{"nombre": "Macro", "observaciones": ""}, {"nombre": "Santander", "observaciones": ""},
+                {"nombre": "Nacion", "observaciones": ""}]
+
+lista_forma_pago = [{"forma_pago": "efectivo"}, {"forma_pago": "tarjeta de credito"},
+                    {"forma_pago": "tarjeta de debito"}, {"forma_pago": "cheque"}]
 
 agrega_categorias = ("INSERT INTO categorias "
                      "(nombre, observaciones) "
@@ -104,12 +108,16 @@ agrega_categoria_iva = ("INSERT INTO categoria_iva "
                         "VALUES (%(categoria_iva)s)")
 
 agrega_proveedores = ("INSERT INTO proveedores "
-                      "(nombre, direccion_comercial, id_localidad, telefono, email, dni, cbu, banco_cbu, cuit, id_categoria_iva, observaciones) "
-                      "VALUES (%(nombre)s, %(direccion_comercial)s, %(id_localidad)s, %(telefono)s, %(email)s, %(dni)s, %(cbu)s, %(banco_cbu)s, %(cuit)s, %(id_categoria_iva)s, %(observaciones)s)")
+                      "(nombre, direccion_comercial, id_localidad, telefono, email, dni, cbu, id_banco, cuit, id_categoria_iva, observaciones) "
+                      "VALUES (%(nombre)s, %(direccion_comercial)s, %(id_localidad)s, %(telefono)s, %(email)s, %(dni)s, %(cbu)s, %(id_banco)s, %(cuit)s, %(id_categoria_iva)s, %(observaciones)s)")
 
-agrega_bancos = ("INSERT INTO bancoos "
-                 "(nombre) "
-                 "VALUES (%(nombre)s)")
+agrega_bancos = ("INSERT INTO bancos "
+                 "(nombre, observaciones) "
+                 "VALUES (%(nombre)s, %(observaciones)s)")
+
+agrega_forma_pagos = ("INSERT INTO forma_pago "
+                      "(forma_pago) "
+                      "VALUES (%(forma_pago)s)")
 
 
 def use_database(cursor, db_name):
@@ -164,6 +172,10 @@ cnx.commit()
 
 for proveedor in lista_proveedores:
     cursor.execute(agrega_proveedores, proveedor)
+cnx.commit()
+
+for forma_pago in lista_forma_pago:
+    cursor.execute(agrega_forma_pagos, forma_pago)
 cnx.commit()
 
 cursor.close()
