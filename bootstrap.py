@@ -11,6 +11,8 @@ from Aplicacion.Banco.servicio_banco import ServicioBanco
 from Aplicacion.CategoriasProductos.servicio_categorias_productos import ServicioCategoriasProductos
 from Aplicacion.DetalleVenta.servicio_detalle_venta import ServicioDetalleVenta
 from Aplicacion.Venta.servicio_venta import ServicioVenta
+from Aplicacion.DetalleCompra.servicio_detalle_compra import ServicioDetalleCompra
+from Aplicacion.Compra.servicio_compra import ServicioCompra
 from Infraestructura.MySQL.Producto.RepositorioProducto import RepositorioProducto
 from Infraestructura.MySQL.Cliente.RepositorioCliente import RepositorioCliente
 from Infraestructura.MySQL.Proveedor.RepositorioProveedor import RepositorioProveedor
@@ -23,6 +25,8 @@ from Infraestructura.MySQL.CategoriaIva.RepositorioCategoriaIva import Repositor
 from Infraestructura.MySQL.DetalleVenta.RepositorioDetalleVenta import RepositorioDetalleVenta
 from Infraestructura.MySQL.Venta.RepositorioVenta import RepositorioVenta
 from Infraestructura.MySQL.FormaPago.RepositorioFormaPago import RepositorioFormaPago
+from Infraestructura.MySQL.DetalleCompra.RepositorioDetalleCompra import RepositorioDetalleCompra
+from Infraestructura.MySQL.Compra.RepositorioCompra import RepositorioCompra
 from Gui.aplicacion import crear_aplicacion
 
 import mysql.connector
@@ -69,7 +73,14 @@ servicioDetalleVenta = ServicioDetalleVenta(repositorioDetalleVenta, repositorio
 
 servicioVenta = ServicioVenta(repositorioVenta, repositorioFormaPago, repositorioCliente, repositorioDetalleVenta)
 
+repositorioDetalleCompra = RepositorioDetalleCompra(cnx)
+repositorioCompra = RepositorioCompra(cnx)
+servicioDetalleCompra = ServicioDetalleCompra(repositorioDetalleCompra, repositorioProducto, repositorioCompra,
+                                              repositorioProveedor, repositorioFormaPago)
+
+servicioCompra = ServicioCompra(repositorioCompra, repositorioFormaPago, repositorioProveedor, repositorioDetalleCompra)
+
 crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria, servicioLocalidad,
-                 servicioBanco, servicioDetalleVenta, servicioVenta)
+                 servicioBanco, servicioDetalleVenta, servicioVenta, servicioDetalleCompra, servicioCompra)
 
 atexit.register(lambda: cursor.close(), cnx.close())

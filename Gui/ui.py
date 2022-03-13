@@ -24,7 +24,8 @@ class Ui_MainWindow(object):
     cantidad_elementos_compras = 5
 
     def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta):
+                servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta, servicio_detalle_compra,
+                servicio_compra):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1259, 852)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -1226,7 +1227,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.acercaDe.menuAction())
 
         self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                           servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta)
+                           servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta,
+                           servicio_detalle_compra, servicio_compra)
         self.tabWidgetAplicacion.setCurrentIndex(0)
         self.tabWidgetProducto.setCurrentIndex(0)
         self.tabWidgetCliente.setCurrentIndex(0)
@@ -1241,7 +1243,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                      servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta):
+                      servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta,
+                      servicio_detalle_compra, servicio_compra):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
@@ -1629,7 +1632,7 @@ class Ui_MainWindow(object):
         for i in range(Ui_MainWindow.cantidad_filas):
             for j in range(Ui_MainWindow.cantidad_elementos_compras):
                 item = QtWidgets.QTableWidgetItem()
-                self.tableLista_detalle_venta_3.setItem(i, j, item)
+                self.tableLista_detalle_compra_6.setItem(i, j, item)
 
         formulario_nuevo_producto = {"nombre": self.lineEdit_agregar_producto_nombre,
                                      "marca": self.lineEdit_agregar_producto_marca,
@@ -1856,7 +1859,27 @@ class Ui_MainWindow(object):
 
         self.btn_buscar_detalle_de_venta.clicked.connect(
             lambda: self.mostrar_venta_detallada_por_venta_id(servicio_detalle_venta, self.tableLista_detalle_venta_3,
-                                                 self.lineEdit_id_buscar_venta)
+                                                              self.lineEdit_id_buscar_venta)
+        )
+
+        self.pushButton_agregar_detalle_compra.clicked.connect(
+            lambda: self.agregar_detalle_compra(servicio_detalle_compra, formulario_detalle_compra,
+                                                self.tableLista_detalle_compra)
+        )
+
+        self.pushButton_guardar_detalle_compra.clicked.connect(
+            lambda: self.guardar_detalle_compra(servicio_detalle_compra, formulario_detalle_compra,
+                                                self.tableLista_detalle_compra)
+        )
+
+        self.btn_mostrar_todas_compras.clicked.connect(
+            lambda: self.mostrar_todos_compras(servicio_compra, self.tableListaCompra)
+        )
+
+        self.btn_buscar_detalle_de_compra.clicked.connect(
+            lambda: self.mostrar_compra_detallada_por_compra_id(servicio_detalle_compra,
+                                                                self.tableLista_detalle_compra_6,
+                                                                self.lineEdit_id_buscar_compra)
         )
 
     '''
@@ -2389,7 +2412,6 @@ class Ui_MainWindow(object):
     def mostrar_venta_detallada_por_venta_id(self, servicio, widget_tabla, input_busqueda):
         id_venta = input_busqueda.text()
         lista_detalle_ventas = servicio.obtener_por_venta_id(id_venta)
-        print("que onda", lista_detalle_ventas)
         self.mostrar_lista_detalle_por_venta(widget_tabla, lista_detalle_ventas)
 
     def mostrar_lista_detalle_por_venta(self, widget, lista_detalle_venta):
@@ -2429,6 +2451,113 @@ class Ui_MainWindow(object):
                 item = widget.item(i, j)
                 item.setText(_translate("MainWindow", ""))
 
-    # def mostrar_venta_detallada(self, servicio, input_busqueda, widget_lista):
-    #     id_venta = input_busqueda.text()
-    #     lista_venta_detallada = servicio.buscar_por_id(id_venta)
+    '''
+    DETALLE COMPRAS
+    '''
+
+    def agregar_detalle_compra(self, servicio, formulario, widget_lista):
+        lista_detalle_compras = self.obtener_elementos_lista(widget_lista)
+        detalle_compra = {"producto": formulario["producto"].text(), "cantidad": formulario["cantidad"].text(),
+                          "precio": formulario["precio"].text()}
+        lista_detalle_compras.append(detalle_compra)
+        self.mostrar_lista_detalle_compra(widget_lista, lista_detalle_compras)
+        formulario["producto"].setText("")
+        formulario["cantidad"].setText("")
+        formulario["precio"].setText("")
+
+    def guardar_detalle_compra(self, servicio, formulario, tabla_detalle_compras):
+        lista_detalle_compras = {}
+        lista_detalle_compras["lista"] = self.obtener_elementos_lista(tabla_detalle_compras)
+        lista_detalle_compras["proveedor"] = formulario["proveedor"].text()
+        lista_detalle_compras["forma_pago"] = formulario["forma_pago"].text()
+        servicio.guardar(lista_detalle_compras)
+        self.limpiar_lista_detalle_compras(tabla_detalle_compras)
+        formulario["producto"].setText("")
+        formulario["cantidad"].setText("")
+        formulario["precio"].setText("")
+        formulario["proveedor"].setText("")
+        formulario["forma_pago"].setText("")
+
+    def mostrar_lista_detalle_compra(self, widget, lista_detalle_compra):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_detalle_compras(widget)
+
+        for index, detalle_compra in enumerate(lista_detalle_compra):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", detalle_compra["producto"]))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", detalle_compra["cantidad"]))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", detalle_compra["precio"]))
+
+    def obtener_elementos_lista(self, widget_lista):
+        lista_detalle_compras = []
+        for index in range(10):
+            detalle_compra = {}
+            item = widget_lista.item(index, 0)
+            detalle_compra["producto"] = item.text()
+            item = widget_lista.item(index, 1)
+            detalle_compra["cantidad"] = item.text()
+            item = widget_lista.item(index, 2)
+            detalle_compra["precio"] = item.text()
+            if detalle_compra["producto"] != '' and detalle_compra["cantidad"] != '' and detalle_compra["precio"] != '':
+                lista_detalle_compras.append(detalle_compra)
+
+        return lista_detalle_compras
+
+    def limpiar_lista_detalle_compras(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_detalle_compras):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    '''
+    COMPRAS
+    '''
+
+    def mostrar_todos_compras(self, servicio, widget_tabla):
+        lista_compras = servicio.obtener_todos()
+        self.mostrar_lista_compras(widget_tabla, lista_compras)
+
+    def mostrar_compra_detallada_por_compra_id(self, servicio, widget_tabla, input_busqueda):
+        id_compra = input_busqueda.text()
+        lista_detalle_compras = servicio.obtener_por_compra_id(id_compra)
+        self.mostrar_lista_detalle_por_compra(widget_tabla, lista_detalle_compras)
+
+    def mostrar_lista_detalle_por_compra(self, widget, lista_detalle_compra):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_detalle_compras(widget)
+
+        for index, detalle_compra in enumerate(lista_detalle_compra):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(detalle_compra.producto)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", str(detalle_compra.cantidad)))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", str(detalle_compra.precio)))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(detalle_compra.total_item)))
+
+    def mostrar_lista_compras(self, widget, lista_compras):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_compras(widget)
+
+        for index, compra in enumerate(lista_compras):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(compra.id)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", str(compra.fecha)))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", compra.forma_pago))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(compra.total_compra)))
+            item = widget.item(index, 4)
+            item.setText(_translate("MainWindow", str(compra.proveedor)))
+
+    def limpiar_lista_compras(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_compras):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
