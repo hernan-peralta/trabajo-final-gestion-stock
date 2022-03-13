@@ -994,6 +994,47 @@ class Ui_MainWindow(object):
         self.tableListaVenta.setHorizontalHeaderItem(4, item)
         self.tableListaVenta.horizontalHeader().setCascadingSectionResizes(False)
         self.tabWidgetVenta.addTab(self.tab_venta, "")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.frame_buscar_venta_4 = QtWidgets.QFrame(self.tab)
+        self.frame_buscar_venta_4.setGeometry(QtCore.QRect(160, 30, 811, 111))
+        self.frame_buscar_venta_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_venta_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_venta_4.setObjectName("frame_buscar_venta_4")
+        self.btn_buscar_detalle_de_venta = QtWidgets.QPushButton(self.frame_buscar_venta_4)
+        self.btn_buscar_detalle_de_venta.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_detalle_de_venta.setObjectName("btn_buscar_detalle_de_venta")
+        self.lineEdit_id_buscar_venta = QtWidgets.QLineEdit(self.frame_buscar_venta_4)
+        self.lineEdit_id_buscar_venta.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_id_buscar_venta.setObjectName("lineEdit_id_buscar_venta")
+        self.label_id_venta = QtWidgets.QLabel(self.frame_buscar_venta_4)
+        self.label_id_venta.setGeometry(QtCore.QRect(80, 30, 72, 28))
+        self.label_id_venta.setObjectName("label_id_venta")
+        self.tableLista_detalle_venta_3 = QtWidgets.QTableWidget(self.tab)
+        self.tableLista_detalle_venta_3.setEnabled(True)
+        self.tableLista_detalle_venta_3.setGeometry(QtCore.QRect(120, 180, 1041, 501))
+        self.tableLista_detalle_venta_3.setAcceptDrops(False)
+        self.tableLista_detalle_venta_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableLista_detalle_venta_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableLista_detalle_venta_3.setLineWidth(1)
+        self.tableLista_detalle_venta_3.setMidLineWidth(0)
+        self.tableLista_detalle_venta_3.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableLista_detalle_venta_3.setShowGrid(True)
+        self.tableLista_detalle_venta_3.setWordWrap(True)
+        self.tableLista_detalle_venta_3.setCornerButtonEnabled(True)
+        self.tableLista_detalle_venta_3.setRowCount(20)
+        self.tableLista_detalle_venta_3.setColumnCount(4)
+        self.tableLista_detalle_venta_3.setObjectName("tableLista_detalle_venta_3")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_venta_3.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_venta_3.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_venta_3.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_venta_3.setHorizontalHeaderItem(3, item)
+        self.tableLista_detalle_venta_3.horizontalHeader().setCascadingSectionResizes(False)
+        self.tabWidgetVenta.addTab(self.tab, "")
         self.tabWidgetAplicacion.addTab(self.tab_ventas, "")
         self.tab_detalle_compra = QtWidgets.QWidget()
         self.tab_detalle_compra.setObjectName("tab_detalle_compra")
@@ -1126,6 +1167,47 @@ class Ui_MainWindow(object):
         self.tableListaCompra.setHorizontalHeaderItem(4, item)
         self.tableListaCompra.horizontalHeader().setCascadingSectionResizes(False)
         self.tabWidgetCompra.addTab(self.tab_compra, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.tableLista_detalle_compra_6 = QtWidgets.QTableWidget(self.tab_2)
+        self.tableLista_detalle_compra_6.setEnabled(True)
+        self.tableLista_detalle_compra_6.setGeometry(QtCore.QRect(140, 180, 1041, 501))
+        self.tableLista_detalle_compra_6.setAcceptDrops(False)
+        self.tableLista_detalle_compra_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableLista_detalle_compra_6.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.tableLista_detalle_compra_6.setLineWidth(1)
+        self.tableLista_detalle_compra_6.setMidLineWidth(0)
+        self.tableLista_detalle_compra_6.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableLista_detalle_compra_6.setShowGrid(True)
+        self.tableLista_detalle_compra_6.setWordWrap(True)
+        self.tableLista_detalle_compra_6.setCornerButtonEnabled(True)
+        self.tableLista_detalle_compra_6.setRowCount(20)
+        self.tableLista_detalle_compra_6.setColumnCount(4)
+        self.tableLista_detalle_compra_6.setObjectName("tableLista_detalle_compra_6")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_compra_6.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_compra_6.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_compra_6.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableLista_detalle_compra_6.setHorizontalHeaderItem(3, item)
+        self.tableLista_detalle_compra_6.horizontalHeader().setCascadingSectionResizes(False)
+        self.frame_buscar_compra_6 = QtWidgets.QFrame(self.tab_2)
+        self.frame_buscar_compra_6.setGeometry(QtCore.QRect(200, 30, 811, 111))
+        self.frame_buscar_compra_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_buscar_compra_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_buscar_compra_6.setObjectName("frame_buscar_compra_6")
+        self.btn_buscar_detalle_de_compra = QtWidgets.QPushButton(self.frame_buscar_compra_6)
+        self.btn_buscar_detalle_de_compra.setGeometry(QtCore.QRect(189, 64, 552, 28))
+        self.btn_buscar_detalle_de_compra.setObjectName("btn_buscar_detalle_de_compra")
+        self.lineEdit_id_buscar_compra = QtWidgets.QLineEdit(self.frame_buscar_compra_6)
+        self.lineEdit_id_buscar_compra.setGeometry(QtCore.QRect(189, 30, 552, 28))
+        self.lineEdit_id_buscar_compra.setObjectName("lineEdit_id_buscar_compra")
+        self.label_id_compra = QtWidgets.QLabel(self.frame_buscar_compra_6)
+        self.label_id_compra.setGeometry(QtCore.QRect(80, 30, 91, 28))
+        self.label_id_compra.setObjectName("label_id_compra")
+        self.tabWidgetCompra.addTab(self.tab_2, "")
         self.tabWidgetAplicacion.addTab(self.tab_compras, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -1423,6 +1505,19 @@ class Ui_MainWindow(object):
         item = self.tableListaVenta.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Cliente"))
         self.tabWidgetVenta.setTabText(self.tabWidgetVenta.indexOf(self.tab_venta), _translate("MainWindow", "Ventas"))
+        self.btn_buscar_detalle_de_venta.setText(_translate("MainWindow", "Buscar"))
+        self.label_id_venta.setText(_translate("MainWindow", "ID venta"))
+        self.tableLista_detalle_venta_3.setSortingEnabled(False)
+        item = self.tableLista_detalle_venta_3.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Producto"))
+        item = self.tableLista_detalle_venta_3.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Cantidad"))
+        item = self.tableLista_detalle_venta_3.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Precio"))
+        item = self.tableLista_detalle_venta_3.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Total item"))
+        self.tabWidgetVenta.setTabText(self.tabWidgetVenta.indexOf(self.tab),
+                                       _translate("MainWindow", "Detalle de venta"))
         self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_ventas),
                                             _translate("MainWindow", "Ventas"))
         self.label_cliente_detalle_compra.setText(_translate("MainWindow", "Proveedor"))
@@ -1462,8 +1557,21 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Proveedor"))
         self.tabWidgetCompra.setTabText(self.tabWidgetCompra.indexOf(self.tab_compra),
                                         _translate("MainWindow", "Compras"))
+        self.tableLista_detalle_compra_6.setSortingEnabled(False)
+        item = self.tableLista_detalle_compra_6.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Producto"))
+        item = self.tableLista_detalle_compra_6.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Cantidad"))
+        item = self.tableLista_detalle_compra_6.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Precio"))
+        item = self.tableLista_detalle_compra_6.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Total item"))
+        self.btn_buscar_detalle_de_compra.setText(_translate("MainWindow", "Buscar"))
+        self.label_id_compra.setText(_translate("MainWindow", "ID compra"))
+        self.tabWidgetCompra.setTabText(self.tabWidgetCompra.indexOf(self.tab_2),
+                                        _translate("MainWindow", "Detalle de compra"))
         self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_compras),
-                                            _translate("MainWindow", "Compras"))
+                                            _translate("MainWindow", "Detalle de compra"))
         self.acercaDe.setTitle(_translate("MainWindow", "Ayuda"))
         self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de"))
 
@@ -1517,6 +1625,11 @@ class Ui_MainWindow(object):
             for j in range(Ui_MainWindow.cantidad_elementos_compras):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableListaCompra.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_compras):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableLista_detalle_venta_3.setItem(i, j, item)
 
         formulario_nuevo_producto = {"nombre": self.lineEdit_agregar_producto_nombre,
                                      "marca": self.lineEdit_agregar_producto_marca,
@@ -1739,6 +1852,11 @@ class Ui_MainWindow(object):
 
         self.btn_mostrar_todas_ventas.clicked.connect(
             lambda: self.mostrar_todos_ventas(servicio_venta, self.tableListaVenta)
+        )
+
+        self.btn_buscar_detalle_de_venta.clicked.connect(
+            lambda: self.mostrar_venta_detallada_por_venta_id(servicio_detalle_venta, self.tableLista_detalle_venta_3,
+                                                 self.lineEdit_id_buscar_venta)
         )
 
     '''
@@ -2268,6 +2386,26 @@ class Ui_MainWindow(object):
         lista_ventas = servicio.obtener_todos()
         self.mostrar_lista_ventas(widget_tabla, lista_ventas)
 
+    def mostrar_venta_detallada_por_venta_id(self, servicio, widget_tabla, input_busqueda):
+        id_venta = input_busqueda.text()
+        lista_detalle_ventas = servicio.obtener_por_venta_id(id_venta)
+        print("que onda", lista_detalle_ventas)
+        self.mostrar_lista_detalle_por_venta(widget_tabla, lista_detalle_ventas)
+
+    def mostrar_lista_detalle_por_venta(self, widget, lista_detalle_venta):
+        _translate = QtCore.QCoreApplication.translate
+        self.limpiar_lista_detalle_ventas(widget)
+
+        for index, detalle_venta in enumerate(lista_detalle_venta):
+            item = widget.item(index, 0)
+            item.setText(_translate("MainWindow", str(detalle_venta.producto)))
+            item = widget.item(index, 1)
+            item.setText(_translate("MainWindow", str(detalle_venta.cantidad)))
+            item = widget.item(index, 2)
+            item.setText(_translate("MainWindow", str(detalle_venta.precio)))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(detalle_venta.total_item)))
+
     def mostrar_lista_ventas(self, widget, lista_ventas):
         _translate = QtCore.QCoreApplication.translate
         self.limpiar_lista_ventas(widget)
@@ -2291,6 +2429,6 @@ class Ui_MainWindow(object):
                 item = widget.item(i, j)
                 item.setText(_translate("MainWindow", ""))
 
-    def mostrar_venta_detallada(self, servicio, input_busqueda, widget_lista):
-        id_venta = input_busqueda.text()
-        lista_venta_detallada = servicio.buscar_por_id(id_venta)
+    # def mostrar_venta_detallada(self, servicio, input_busqueda, widget_lista):
+    #     id_venta = input_busqueda.text()
+    #     lista_venta_detallada = servicio.buscar_por_id(id_venta)
