@@ -10,6 +10,7 @@ from Aplicacion.Localidad.servicio_localidad import ServicioLocalidad
 from Aplicacion.Banco.servicio_banco import ServicioBanco
 from Aplicacion.CategoriasProductos.servicio_categorias_productos import ServicioCategoriasProductos
 from Aplicacion.DetalleVenta.servicio_detalle_venta import ServicioDetalleVenta
+from Aplicacion.Venta.servicio_venta import ServicioVenta
 from Infraestructura.MySQL.Producto.RepositorioProducto import RepositorioProducto
 from Infraestructura.MySQL.Cliente.RepositorioCliente import RepositorioCliente
 from Infraestructura.MySQL.Proveedor.RepositorioProveedor import RepositorioProveedor
@@ -66,7 +67,9 @@ repositorioVenta = RepositorioVenta(cnx)
 servicioDetalleVenta = ServicioDetalleVenta(repositorioDetalleVenta, repositorioProducto, repositorioVenta,
                                             repositorioCliente, repositorioFormaPago)
 
+servicioVenta = ServicioVenta(repositorioVenta, repositorioFormaPago, repositorioCliente, repositorioDetalleVenta)
+
 crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria, servicioLocalidad,
-                 servicioBanco, servicioDetalleVenta)
+                 servicioBanco, servicioDetalleVenta, servicioVenta)
 
 atexit.register(lambda: cursor.close(), cnx.close())

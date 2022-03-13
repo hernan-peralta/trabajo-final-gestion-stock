@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     cantidad_elementos_compras = 5
 
     def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                servicio_localidad, servicio_banco, servicio_detalle_venta):
+                servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1259, 852)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -1144,7 +1144,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.acercaDe.menuAction())
 
         self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                           servicio_localidad, servicio_banco, servicio_detalle_venta)
+                           servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta)
         self.tabWidgetAplicacion.setCurrentIndex(0)
         self.tabWidgetProducto.setCurrentIndex(0)
         self.tabWidgetCliente.setCurrentIndex(0)
@@ -1159,7 +1159,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                      servicio_localidad, servicio_banco, servicio_detalle_venta):
+                      servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
@@ -1732,6 +1732,10 @@ class Ui_MainWindow(object):
                                                self.tableLista_detalle_venta)
         )
 
+        self.btn_mostrar_todas_ventas.clicked.connect(
+            lambda: self.mostrar_todos_ventas(servicio_venta, self.tableListaVenta)
+        )
+
     '''
     PRODUCTOS
     '''
@@ -2194,15 +2198,17 @@ class Ui_MainWindow(object):
         formulario["precio"].setText("")
 
     def guardar_detalle_venta(self, servicio, formulario, tabla_detalle_ventas):
-        lista_detalle_ventas = self.obtener_elementos_lista(tabla_detalle_ventas)
-        detalle_venta = {"producto": formulario["producto"].text(), "cantidad": formulario["cantidad"].text(),
-                         "precio": formulario["precio"].text()}
-        lista_detalle_ventas.append(detalle_venta)
+        lista_detalle_ventas = {}
+        lista_detalle_ventas["lista"] = self.obtener_elementos_lista(tabla_detalle_ventas)
+        lista_detalle_ventas["cliente"] = formulario["cliente"].text()
+        lista_detalle_ventas["forma_pago"] = formulario["forma_pago"].text()
         servicio.guardar(lista_detalle_ventas)
         self.limpiar_lista_detalle_ventas(tabla_detalle_ventas)
         formulario["producto"].setText("")
         formulario["cantidad"].setText("")
         formulario["precio"].setText("")
+        formulario["cliente"].setText("")
+        formulario["forma_pago"].setText("")
 
     def mostrar_lista_detalle_venta(self, widget, lista_detalle_venta):
         _translate = QtCore.QCoreApplication.translate
@@ -2242,8 +2248,9 @@ class Ui_MainWindow(object):
     VENTAS
     '''
 
-    def mostrar_todos_ventas(self):
-        pass
+    def mostrar_todos_ventas(self, servicio, widget_tabla):
+        lista_ventas = servicio.obtener_todos()
+        self.mostrar_lista_ventas(widget_tabla, lista_ventas)
 
     def mostrar_lista_ventas(self, widget, lista_ventas):
         _translate = QtCore.QCoreApplication.translate
@@ -2253,6 +2260,21 @@ class Ui_MainWindow(object):
             item = widget.item(index, 0)
             item.setText(_translate("MainWindow", str(venta.id)))
             item = widget.item(index, 1)
-            item.setText(_translate("MainWindow", venta.nombre))
+            item.setText(_translate("MainWindow", str(venta.fecha)))
             item = widget.item(index, 2)
-            item.setText(_translate("MainWindow", venta.observaciones))
+            item.setText(_translate("MainWindow", venta.forma_pago))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(venta.total_venta)))
+            item = widget.item(index, 4)
+            item.setText(_translate("MainWindow", str(venta.cliente)))
+
+    def limpiar_lista_ventas(self, widget):
+        _translate = QtCore.QCoreApplication.translate
+        for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_ventas):
+                item = widget.item(i, j)
+                item.setText(_translate("MainWindow", ""))
+
+    def mostrar_venta_detallada(self, servicio, input_busqueda, widget_lista):
+        id_venta = input_busqueda.text()
+        lista_venta_detallada = servicio.buscar_por_id(id_venta)
