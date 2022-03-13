@@ -32,15 +32,15 @@ lista_localidades = [{"nombre": "Firmat", "codigo_postal": "2630", "id_provincia
                      {"nombre": "Mendoza", "codigo_postal": "5500", "id_provincia": 8}]
 
 lista_productos = [
-    {"nombre": "Taladro", "marca": "Makita", "precio_unitario": 20000, "unidades_stock": 2, "descripcion": "",
+    {"nombre": "Taladro", "marca": "Makita", "precio_unitario": 20000, "unidades_stock": 10, "descripcion": "",
      "observaciones": ""},
-    {"nombre": "Soldadora", "marca": "ESAB", "precio_unitario": 100000, "unidades_stock": 1, "descripcion": "",
+    {"nombre": "Soldadora", "marca": "ESAB", "precio_unitario": 100000, "unidades_stock": 10, "descripcion": "",
      "observaciones": ""},
-    {"nombre": "Llave inglesa", "marca": "Bahco", "precio_unitario": 3000, "unidades_stock": 3, "descripcion": "",
+    {"nombre": "Llave inglesa", "marca": "Bahco", "precio_unitario": 3000, "unidades_stock": 10, "descripcion": "",
      "observaciones": ""},
-    {"nombre": "Motosierra", "marca": "Husqvarna", "precio_unitario": 60000, "unidades_stock": 1, "descripcion": "",
+    {"nombre": "Motosierra", "marca": "Husqvarna", "precio_unitario": 60000, "unidades_stock": 10, "descripcion": "",
      "observaciones": ""},
-    {"nombre": "Martillo demoledor", "marca": "Bosch", "precio_unitario": 22000, "unidades_stock": 1, "descripcion": "",
+    {"nombre": "Martillo demoledor", "marca": "Bosch", "precio_unitario": 22000, "unidades_stock": 10, "descripcion": "",
      "observaciones": ""}]
 
 lista_categorias_productos = [{"id_producto": 1, "id_categoria": 1}, {"id_producto": 1, "id_categoria": 2},
