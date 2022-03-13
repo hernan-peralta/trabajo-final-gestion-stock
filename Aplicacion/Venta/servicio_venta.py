@@ -2,11 +2,11 @@ from Aplicacion.Venta.ventaDTO import VentaDTO
 
 
 class ServicioVenta:
-    def __init__(self, repositorioVenta, repositorioFormaPago, repositorioCliente, repositorioDetalleVenta):
-        self.repositorioVenta = repositorioVenta
-        self.repositorioFormaPago = repositorioFormaPago
-        self.repositorioCliente = repositorioCliente
-        self.repositorioDetalleVenta = repositorioDetalleVenta
+    def __init__(self, repositorio_venta, repositorio_forma_pago, repositorio_cliente, repositorio_detalle_venta):
+        self.repositorioVenta = repositorio_venta
+        self.repositorioFormaPago = repositorio_forma_pago
+        self.repositorioCliente = repositorio_cliente
+        self.repositorioDetalleVenta = repositorio_detalle_venta
 
     def obtener_todos(self):
         lista_ventas = []
