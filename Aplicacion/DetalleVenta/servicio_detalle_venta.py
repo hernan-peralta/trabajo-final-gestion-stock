@@ -1,3 +1,4 @@
+from Aplicacion.DetalleVenta.detalleVentaDTO import DetalleVentaDTO
 from Dominio.detalle_venta import DetalleVenta
 from Dominio.producto import Producto
 
@@ -24,3 +25,14 @@ class ServicioDetalleVenta:
                 self.repositorio_detalle_venta.guardar(detalle_venta)
                 producto.unidades_stock -= int(detalle_venta.cantidad)
                 self.repositorio_producto.actualizar(producto, query_producto[0][0])
+
+    def obtener_por_venta_id(self, venta_id):
+        lista_detalle_ventas = []
+        resultado_query = self.repositorio_detalle_venta.obtener_por_venta_id(venta_id)
+        for (q) in resultado_query:
+            producto = self.repositorio_producto.obtener(q[4])
+            precio_detalle_venta = q[2]
+            cantidad = q[1]
+            total_item = precio_detalle_venta * cantidad
+            lista_detalle_ventas.append(DetalleVentaDTO(q[0], q[1], q[2], producto[1], total_item))
+        return lista_detalle_ventas

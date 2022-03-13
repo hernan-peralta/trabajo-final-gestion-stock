@@ -15,7 +15,9 @@ class ServicioVenta:
             total_venta = 0
             lista_detalle_ventas = self.repositorioDetalleVenta.obtener_por_venta_id(q[0])
             for detalle in lista_detalle_ventas:
-                total_venta += detalle[2]
+                cantidad = detalle[1]
+                precio_venta = detalle[2]
+                total_venta = cantidad * precio_venta
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             cliente = self.repositorioCliente.buscar_por_id(q[2])
             lista_ventas.append(VentaDTO(q[0], q[1], forma_pago[1], total_venta, cliente[0]))
