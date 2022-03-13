@@ -1,4 +1,5 @@
 from Dominio.detalle_venta import DetalleVenta
+from Dominio.producto import Producto
 
 
 class ServicioDetalleVenta:
@@ -15,6 +16,11 @@ class ServicioDetalleVenta:
         forma_pago = self.repositorio_forma_pago.buscar_por_nombre(detalle_venta_request["forma_pago"])
         venta_id = self.repositorio_venta.crear(cliente[0], forma_pago[0])
         for item in detalle_venta_request["lista"]:
-            producto = self.repositorio_producto.buscar_por_nombre(item["producto"])
-            detalle_venta = DetalleVenta(producto[0][0], item["precio"], item["cantidad"], venta_id)
-            self.repositorio_detalle_venta.guardar(detalle_venta)
+            query_producto = self.repositorio_producto.buscar_por_nombre(item["producto"])
+            producto = Producto(query_producto[0][1], query_producto[0][2], query_producto[0][3], query_producto[0][4],
+                                query_producto[0][5], query_producto[0][6])
+            detalle_venta = DetalleVenta(query_producto[0][0], item["precio"], item["cantidad"], venta_id)
+            if producto.unidades_stock > 0:
+                self.repositorio_detalle_venta.guardar(detalle_venta)
+                producto.unidades_stock -= int(detalle_venta.cantidad)
+                self.repositorio_producto.actualizar(producto, query_producto[0][0])
