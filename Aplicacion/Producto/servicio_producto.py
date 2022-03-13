@@ -19,6 +19,14 @@ class ServicioProducto:
             categoria = self.servicio_categoria.buscar_por_nombre(categoria_nombre)
             self.servicio_producto_categoria.guardar(producto_id, categoria[0].id)
 
+    def actualizar(self, producto_request):
+        id_producto = int(producto_request["id"])
+        producto = Producto(producto_request["nombre"], producto_request["marca"],
+                            producto_request["precio_unitario"],
+                            producto_request["unidades_stock"], producto_request["descripcion"],
+                            producto_request["observaciones"])
+        return self.repositorioProducto.actualizar(producto, id_producto)
+
     def obtener_todos(self):
         lista_productos = []
         lista_query = self.repositorioProducto.obtener_todos()

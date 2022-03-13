@@ -14,6 +14,16 @@ class RepositorioProducto:
         self.cnx.commit()
         return self.cursor.lastrowid
 
+    def actualizar(self, producto, id_producto):
+        actualizar_producto = ("UPDATE productos "
+                               "SET nombre = %s, marca = %s, precio_unitario = %s, unidades_stock = %s, descripcion = %s, observaciones = %s "
+                               "WHERE id = %s")
+        datos_producto = (
+            producto.nombre, producto.marca, producto.precio_unitario, producto.unidades_stock, producto.descripcion,
+            producto.observaciones, id_producto)
+        self.cursor.execute(actualizar_producto, datos_producto)
+        self.cnx.commit()
+
     def obtener_todos(self):
         self.cursor.execute("SELECT * FROM productos")
         return self.cursor.fetchall()

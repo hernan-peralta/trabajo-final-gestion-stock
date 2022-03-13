@@ -1586,6 +1586,11 @@ class Ui_MainWindow(object):
             lambda: self.eliminar_producto(servicio_producto, self.lineEdit_eliminar_idProducto)
         )
 
+        self.pushButton_actualizar_producto.clicked.connect(
+            lambda: self.actualizar_producto(servicio_producto, formulario_nuevo_producto,
+                                             self.lineEdit_buscar_producto_por_id)
+        )
+
         self.pushButton_cargar_producto_desde_id.clicked.connect(
             lambda: self.cargar_producto_desde_id(servicio_producto, self.lineEdit_buscar_producto_por_id,
                                                   formulario_nuevo_producto)
@@ -1813,6 +1818,17 @@ class Ui_MainWindow(object):
         formulario_producto["unidades_stock"].setText(str(producto.unidades_stock))
         formulario_producto["descripcion"].setText(producto.descripcion)
         formulario_producto["observaciones"].setText(producto.observaciones)
+
+    def actualizar_producto(self, servicio, formulario_producto, input_busqueda_id):
+        id_producto = input_busqueda_id.text()
+        producto_request = {"id": id_producto,
+                            "nombre": formulario_producto["nombre"].text(),
+                            "marca": formulario_producto["marca"].text(),
+                            "precio_unitario": formulario_producto["precio_unitario"].text(),
+                            "unidades_stock": formulario_producto["unidades_stock"].text(),
+                            "descripcion": formulario_producto["descripcion"].text(),
+                            "observaciones": formulario_producto["observaciones"].text()}
+        servicio.actualizar(producto_request)
 
     def eliminar_producto(self, servicio, input_busqueda):
         id_producto = input_busqueda.text()
