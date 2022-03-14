@@ -1,0 +1,3514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1259</width>
+    <height>852</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidgetAplicacion">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>1251</width>
+      <height>801</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_producto">
+     <attribute name="title">
+      <string>Productos</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetProducto">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1231</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_producto">
+       <attribute name="title">
+        <string>Listado productos</string>
+       </attribute>
+       <widget class="QFrame" name="frame_buscar_producto">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>10</y>
+          <width>861</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_producto">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nombre</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Marca</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Categoria</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Proveedor</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="btn_buscar_producto">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_producto">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QTableWidget" name="tableResultadoBusquedaProducto">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>190</y>
+          <width>1171</width>
+          <height>511</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id producto</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Marca</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Precio unitario</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Unidades en stock</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Categoria</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Descripcion</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Observaciones</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_productos">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_producto">
+       <attribute name="title">
+        <string>Agregar/Modificar producto</string>
+       </attribute>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>110</y>
+          <width>831</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_agregar_producto_nombre">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_nombre"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_agregar_producto_marca">
+           <property name="text">
+            <string>Marca</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_marca"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_agregar_producto_categoria">
+           <property name="text">
+            <string>Categoria</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_agregar_producto_precio_unitario">
+           <property name="text">
+            <string>Precio unitario</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_precio_unitario"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_agregar_producto_precio_unitario_2">
+           <property name="text">
+            <string>Unidades en stock</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_unidades_stock"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_agregar_producto_proveedor">
+           <property name="text">
+            <string>Proveedor</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_agregar_producto_descripcion">
+           <property name="text">
+            <string>Descripcion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_descripcion"/>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_agregar_producto_observaciones">
+           <property name="text">
+            <string>Observaciones</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_observaciones"/>
+         </item>
+         <item row="13" column="1">
+          <widget class="QPushButton" name="pushButton_agregar_producto_guardar">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QPushButton" name="pushButton_actualizar_producto">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_categoria"/>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="lineEdit_agregar_producto_proveedores"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_3">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>20</y>
+          <width>831</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_producto_por_id">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_producto_por_id">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_producto_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+       <zorder>frame_3</zorder>
+       <zorder>frame</zorder>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_producto">
+       <attribute name="title">
+        <string>Eliminar producto</string>
+       </attribute>
+       <widget class="QFrame" name="frame_8">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>40</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_7">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarProducto">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idProducto"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idProducto">
+           <property name="text">
+            <string>ID producto</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_cliente">
+     <attribute name="title">
+      <string>Clientes</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetCliente">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_cliente">
+       <attribute name="title">
+        <string>Listado clientes</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableListaCliente">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>190</y>
+          <width>1181</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>8</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id cliente</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Apellido</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Direccion</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Localidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Telefono</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>DNI</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Observaciones</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_cliente">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>10</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_cliente">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nombre</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Apellido</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Localidad</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Provincia</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="btn_buscar_cliente">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_cliente">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_clientes">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_cliente">
+       <attribute name="title">
+        <string>Agregar/Modificar cliente</string>
+       </attribute>
+       <widget class="QFrame" name="frame_2">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>150</y>
+          <width>831</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_nombreCliente">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_nombreCliente"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_apellidoCliente">
+           <property name="text">
+            <string>Apellido</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_apellidoCliente"/>
+         </item>
+         <item row="13" column="0">
+          <widget class="QLabel" name="label_direccionCliente">
+           <property name="text">
+            <string>Direccion</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="QLineEdit" name="lineEdit_direccionCliente"/>
+         </item>
+         <item row="15" column="0">
+          <widget class="QLabel" name="label_localidadCliente">
+           <property name="text">
+            <string>Localidad</string>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="QLineEdit" name="lineEdit_localidadCliente"/>
+         </item>
+         <item row="19" column="0">
+          <widget class="QLabel" name="label_telefonoCliente">
+           <property name="text">
+            <string>Telefono</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QLineEdit" name="lineEdit_telefonoCliente"/>
+         </item>
+         <item row="21" column="0">
+          <widget class="QLabel" name="label_dniCliente">
+           <property name="text">
+            <string>DNI</string>
+           </property>
+          </widget>
+         </item>
+         <item row="21" column="1">
+          <widget class="QLineEdit" name="lineEdit_dniCliente"/>
+         </item>
+         <item row="23" column="0">
+          <widget class="QLabel" name="label_observacionesCliente">
+           <property name="text">
+            <string>Observaciones</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1">
+          <widget class="QLineEdit" name="lineEdit_observacionesCliente"/>
+         </item>
+         <item row="24" column="1">
+          <widget class="QPushButton" name="pushButton_guardarCliente">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_actualizarCliente">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_10">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>40</y>
+          <width>831</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_cliente_por_id">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_cliente_por_id">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_cliente_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_cliente">
+       <attribute name="title">
+        <string>Eliminar cliente</string>
+       </attribute>
+       <widget class="QFrame" name="frame_7">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>30</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_6">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarCliente">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idCliente"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idCliente">
+           <property name="text">
+            <string>ID cliente</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_proveedor">
+     <attribute name="title">
+      <string>Proveedores</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetProveedor">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1231</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_proveedor">
+       <attribute name="title">
+        <string>Listado proveedores</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableListaProveedor">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>190</y>
+          <width>1191</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>12</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id proveedor</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Direccion comercial</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Localidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Telefono</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Email</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>DNI</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>CBU</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Banco CBU</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>CUIT</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Categoria IVA</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Observaciones</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_proveedor">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>10</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_proveedor">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nombre</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Localidad</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Provincia</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="btn_buscar_proveedor">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_proveedor">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_proveedores">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_proveedor">
+       <attribute name="title">
+        <string>Agregar/Modificar proveedor</string>
+       </attribute>
+       <widget class="QFrame" name="frame_5">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>100</y>
+          <width>841</width>
+          <height>561</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_4">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_nombreProveedor">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_nombreProveedor"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_direccionComercialProveedor">
+           <property name="text">
+            <string>Direccion comercial</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_direccionComercialProveedor"/>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_localidadProveedor">
+           <property name="text">
+            <string>Localidad</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="lineEdit_localidadProveedor"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_telefonoProveedor">
+           <property name="text">
+            <string>Telefono</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="lineEdit_telefonoProveedor"/>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_emailProveedor">
+           <property name="text">
+            <string>Email</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="lineEdit_emailProveedor"/>
+         </item>
+         <item row="13" column="0">
+          <widget class="QLabel" name="label_dniProveedor">
+           <property name="text">
+            <string>DNI</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="QLineEdit" name="lineEdit_dniProveedor"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_cbuProveedor">
+           <property name="text">
+            <string>CBU</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_cbuProveedor"/>
+         </item>
+         <item row="19" column="0">
+          <widget class="QLabel" name="label_bancoCbuProveedor">
+           <property name="text">
+            <string>Banco CBU</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QLineEdit" name="lineEdit_bancoCbuProveedor"/>
+         </item>
+         <item row="20" column="0">
+          <widget class="QLabel" name="label_cuitProveedor">
+           <property name="text">
+            <string>CUIT</string>
+           </property>
+          </widget>
+         </item>
+         <item row="20" column="1">
+          <widget class="QLineEdit" name="lineEdit_cuitProveedor"/>
+         </item>
+         <item row="23" column="0">
+          <widget class="QLabel" name="label_categoriaIvaProveedor">
+           <property name="text">
+            <string>Categoria IVA</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1">
+          <widget class="QLineEdit" name="lineEdit_categoriaIvaProveedor"/>
+         </item>
+         <item row="24" column="0">
+          <widget class="QLabel" name="label_observacionesProveedor">
+           <property name="text">
+            <string>Observaciones</string>
+           </property>
+          </widget>
+         </item>
+         <item row="24" column="1">
+          <widget class="QLineEdit" name="lineEdit_observacionesProveedor"/>
+         </item>
+         <item row="29" column="1">
+          <widget class="QPushButton" name="pushButton_guardarProveedor">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="30" column="1">
+          <widget class="QPushButton" name="pushButton_actualizarProveedor">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_11">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>10</y>
+          <width>841</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_proveedor_por_id">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_proveedor_por_id">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_proveedor_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_proveedor">
+       <attribute name="title">
+        <string>Eliminar proveedor</string>
+       </attribute>
+       <widget class="QFrame" name="frame_6">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>30</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_5">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarProveedor">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idProveedor"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idProveedor">
+           <property name="text">
+            <string>ID proveedor</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_categoria">
+     <attribute name="title">
+      <string>Categorias</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetCliente_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1231</width>
+        <height>751</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_categoria">
+       <attribute name="title">
+        <string>Listado categorias</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableListaCategoria">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>200</y>
+          <width>1031</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>3</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id categoria</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Observaciones</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_categoria">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>10</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_categoria">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_categoria">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_categorias">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_categoria">
+       <attribute name="title">
+        <string>Agregar/Modificar categoria</string>
+       </attribute>
+       <widget class="QFrame" name="frame_4">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>190</y>
+          <width>841</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_3">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_nombreCategoria">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_nombreCategoria"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_observacionesCategoria">
+           <property name="text">
+            <string>Observaciones</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_observacionesCategoria"/>
+         </item>
+         <item row="18" column="1">
+          <widget class="QPushButton" name="pushButton_guardarCategoria">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QPushButton" name="pushButton_actualizarCategoria">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_12">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>60</y>
+          <width>841</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_categoria_por_id">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_categoria_por_id">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_categoria_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_categoria">
+       <attribute name="title">
+        <string>Eliminar categoria</string>
+       </attribute>
+       <widget class="QFrame" name="frame_9">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>30</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_8">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarCategoria">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idCategoria"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idCategoria">
+           <property name="text">
+            <string>ID categoria</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_localidades">
+     <attribute name="title">
+      <string>Localidades</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetLocalidad">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_localidad">
+       <attribute name="title">
+        <string>Listado localidades</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableListaLocalidad">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>200</y>
+          <width>991</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id Localidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Codigo postal</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Provincia</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_localidad">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>10</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_localidad">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_localidad">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_cliente_2">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nombre</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Codigo postal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Provincia</string>
+          </property>
+         </item>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_localidad">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_localidad">
+       <attribute name="title">
+        <string>Agregar/Modificar localidad</string>
+       </attribute>
+       <widget class="QFrame" name="frame_13">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>180</y>
+          <width>841</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_9">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_nombreLocalidad">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_nombreLocalidad"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_codigo_postal_Localidad">
+           <property name="text">
+            <string>Codigo postal</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_codigo_postal_Localidad"/>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_provinciaLocalidad">
+           <property name="text">
+            <string>Provincia</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="lineEdit_provinciaLocalidad"/>
+         </item>
+         <item row="22" column="1">
+          <widget class="QPushButton" name="pushButton_guardarLocalidad">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="23" column="1">
+          <widget class="QPushButton" name="pushButton_actualizarLocalidad">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_14">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>60</y>
+          <width>841</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_categoria_por_id_2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_localidad_por_id">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_localidad_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_localidad">
+       <attribute name="title">
+        <string>Eliminar localidad</string>
+       </attribute>
+       <widget class="QFrame" name="frame_15">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>30</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_10">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarLocalidad">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idLocalidad"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idLocalidad">
+           <property name="text">
+            <string>ID localidad</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_bancos">
+     <attribute name="title">
+      <string>Bancos</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetLocalidad_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1211</width>
+        <height>751</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_listado_banco">
+       <attribute name="title">
+        <string>Listado bancos</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableListaBanco">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>200</y>
+          <width>1021</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>3</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id Banco</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Observaciones</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_banco">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>10</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_banco">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_banco">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todos_banco">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>140</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_agregar_modificar_banco">
+       <attribute name="title">
+        <string>Agregar/Modificar banco</string>
+       </attribute>
+       <widget class="QFrame" name="frame_16">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>190</y>
+          <width>841</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_11">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_nombreBanco">
+           <property name="text">
+            <string>Nombre</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_nombreBanco2"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_observacionesBanco">
+           <property name="text">
+            <string>Observaciones</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="lineEdit_observacionesBanco"/>
+         </item>
+         <item row="18" column="1">
+          <widget class="QPushButton" name="pushButton_guardarBanco">
+           <property name="text">
+            <string>Guardar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QPushButton" name="pushButton_actualizarBanco">
+           <property name="text">
+            <string>Actualizar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_17">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>60</y>
+          <width>841</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_buscar_banco_por_id">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>64</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_banco_por_id">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>20</y>
+           <width>511</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_cargar_banco_desde_id">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>20</y>
+           <width>191</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cargar</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_eliminar_banco">
+       <attribute name="title">
+        <string>Eliminar banco</string>
+       </attribute>
+       <widget class="QFrame" name="frame_18">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>30</y>
+          <width>841</width>
+          <height>521</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_12">
+         <item row="25" column="1">
+          <widget class="QPushButton" name="pushButton_eliminarBanco">
+           <property name="text">
+            <string>Borrar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="lineEdit_eliminar_idBanco"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_eliminar_idBanco">
+           <property name="text">
+            <string>ID banco</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_detalle_venta">
+     <attribute name="title">
+      <string>Detalle venta</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetDetalleVenta">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_agregar_detalle_venta">
+       <attribute name="title">
+        <string>Agregar item detalle venta</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableLista_detalle_venta">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>280</y>
+          <width>891</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Producto</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cantidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Precio</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total item</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_guardar_detalle_venta">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>640</y>
+          <width>833</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Guardar</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_24">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>20</y>
+          <width>851</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLineEdit" name="lineEdit_cantidad_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>110</y>
+           <width>461</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_cantidad_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>110</y>
+           <width>70</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cantidad</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_producto_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>80</y>
+           <width>461</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_producto_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>80</y>
+           <width>72</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Producto</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_precio_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>150</y>
+           <width>461</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_precio_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>140</y>
+           <width>49</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Precio</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_agregar_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>190</y>
+           <width>325</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Agregar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_cliente_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>20</y>
+           <width>461</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_cliente_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>20</y>
+           <width>72</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cliente</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_forma_pago_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>50</y>
+           <width>461</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_forma_pago_detalle_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>50</y>
+           <width>121</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Forma de pago</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_ventas">
+     <attribute name="title">
+      <string>Ventas</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetVenta">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_venta">
+       <attribute name="title">
+        <string>Ventas</string>
+       </attribute>
+       <widget class="QFrame" name="frame_buscar_venta">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>30</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_venta">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_venta">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_venta">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Cliente</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fecha</string>
+          </property>
+         </item>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todas_ventas">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>160</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableListaVenta">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>220</y>
+          <width>1021</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>5</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id venta</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Forma de pago</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total venta</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cliente</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Detalle de venta</string>
+       </attribute>
+       <widget class="QFrame" name="frame_buscar_venta_4">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>30</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_detalle_de_venta">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_id_buscar_venta">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_id_venta">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>30</y>
+           <width>72</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID venta</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QTableWidget" name="tableLista_detalle_venta_3">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>180</y>
+          <width>1041</width>
+          <height>501</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Producto</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cantidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Precio</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total item</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_detalle_compra">
+     <attribute name="title">
+      <string>Detalle compra</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetDetalleCompra">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_agregar_detalle_compra">
+       <attribute name="title">
+        <string>Agregar item detalle compra</string>
+       </attribute>
+       <widget class="QFrame" name="frame_23">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>10</y>
+          <width>821</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QFormLayout" name="formLayout_16">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetNoConstraint</enum>
+         </property>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_cliente_detalle_compra">
+           <property name="text">
+            <string>Proveedor</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_proveedor_detalle_compra"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_forma_pago_detalle_compra">
+           <property name="text">
+            <string>Forma de pago</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_producto_detalle_compra">
+           <property name="text">
+            <string>Producto</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLabel" name="label_cantidad_detalle_compra">
+           <property name="text">
+            <string>Cantidad</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QLineEdit" name="lineEdit_cantidad_detalle_compra"/>
+         </item>
+         <item row="14" column="0">
+          <widget class="QLabel" name="label_precio_detalle_compra">
+           <property name="text">
+            <string>Precio</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QLineEdit" name="lineEdit_precio_detalle_compra"/>
+         </item>
+         <item row="17" column="1">
+          <widget class="QPushButton" name="pushButton_agregar_detalle_compra">
+           <property name="text">
+            <string>Agregar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="lineEdit_producto_detalle_compra"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_forma_pago_detalle_compra"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTableWidget" name="tableLista_detalle_compra">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>280</y>
+          <width>891</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Producto</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cantidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Precio</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total item</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_guardar_detalle_compra">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>640</y>
+          <width>833</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Guardar</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_compras">
+     <attribute name="title">
+      <string>Detalle de compra</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidgetCompra">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>761</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_compra">
+       <attribute name="title">
+        <string>Compras</string>
+       </attribute>
+       <widget class="QFrame" name="frame_buscar_compra">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>30</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_compra">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_buscar_compra">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboBox_atributo_busqueda_compra">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>30</y>
+           <width>106</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Proveedor</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fecha</string>
+          </property>
+         </item>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_mostrar_todas_compras">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>160</y>
+          <width>552</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mostrar todos</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableListaCompra">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>220</y>
+          <width>1021</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>5</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Id compra</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Forma de pago</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total compra</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proveedor</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Detalle de compra</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableLista_detalle_compra_6">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>180</y>
+          <width>1041</width>
+          <height>501</height>
+         </rect>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>20</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>Producto</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Cantidad</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Precio</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Total item</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QFrame" name="frame_buscar_compra_6">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>30</y>
+          <width>811</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="btn_buscar_detalle_de_compra">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>64</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_id_buscar_compra">
+         <property name="geometry">
+          <rect>
+           <x>189</x>
+           <y>30</y>
+           <width>552</width>
+           <height>28</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_id_compra">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>30</y>
+           <width>91</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ID compra</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1259</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="acercaDe">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionAcerca_de"/>
+   </widget>
+   <addaction name="acercaDe"/>
+  </widget>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
