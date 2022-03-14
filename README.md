@@ -15,5 +15,3 @@ Sistema de gestión de stock de productos, proveedores y clientes escrito en Pyt
 3) Ejecutar `python3 Infraestructura/Mysql/Setup/SetupDB.py`
 4) Ejecutar `python3 Infraestructura/Mysql/Setup/SeedDB.py` (Opcional)
 5) Ejecutar `python3 bootstrap.py`
-
-## Diagramas
