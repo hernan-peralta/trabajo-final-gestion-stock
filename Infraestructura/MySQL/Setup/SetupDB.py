@@ -151,6 +151,7 @@ TABLES["detalle_venta"] = (
     "   FOREIGN KEY(id_producto) REFERENCES productos(id)"
     ") ENGINE=InnoDB")
 
+
 def create_database(cursor, db_name):
     try:
         cursor.execute(
