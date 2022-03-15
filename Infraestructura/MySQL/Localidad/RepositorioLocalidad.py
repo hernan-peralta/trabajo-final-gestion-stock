@@ -30,6 +30,10 @@ class RepositorioLocalidad:
             (nombre_provincia,))
         return self.cursor.fetchall()
 
+    def buscar_por_codigo_postal(self, codigo_postal):
+        self.cursor.execute("SELECT * FROM localidades WHERE codigo_postal LIKE %s", (codigo_postal,))
+        return self.cursor.fetchone()
+
     def actualizar(self, localidad, localidad_id):
         actualizar_localidad = ("UPDATE localidades "
                                 "SET nombre = %s, codigo_postal = %s, id_provincia = %s "
