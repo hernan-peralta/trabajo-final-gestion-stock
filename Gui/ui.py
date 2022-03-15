@@ -1796,7 +1796,6 @@ class Ui_MainWindow(object):
             lambda: self.mostrar_todas_localidades(servicio_localidad, self.tableListaLocalidad)
         )
 
-        # BUSQUEDA DE LOCALIDADES
         self.btn_buscar_localidad.clicked.connect(
             lambda: self.buscar_localidad(servicio_localidad, self.lineEdit_buscar_localidad, self.tableListaLocalidad)
         )
