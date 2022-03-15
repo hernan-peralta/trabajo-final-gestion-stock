@@ -1614,6 +1614,11 @@ class Ui_MainWindow(object):
                 self.tableListaVenta.setItem(i, j, item)
 
         for i in range(Ui_MainWindow.cantidad_filas):
+            for j in range(Ui_MainWindow.cantidad_elementos_ventas):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableLista_detalle_venta_3.setItem(i, j, item)
+
+        for i in range(Ui_MainWindow.cantidad_filas):
             for j in range(Ui_MainWindow.cantidad_elementos_detalle_compras):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableLista_detalle_compra.setItem(i, j, item)
