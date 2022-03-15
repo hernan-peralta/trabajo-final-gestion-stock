@@ -24,10 +24,16 @@ class RepositorioLocalidad:
         self.cursor.execute("SELECT * FROM localidades WHERE nombre LIKE %s", (nombre,))
         return self.cursor.fetchall()
 
+    def buscar_por_provincia(self, nombre_provincia):
+        self.cursor.execute(
+            "SELECT localidades.id, localidades.nombre, localidades.codigo_postal, p.nombre FROM localidades JOIN provincias AS p ON localidades.id_provincia = p.id WHERE p.nombre = %s",
+            (nombre_provincia,))
+        return self.cursor.fetchall()
+
     def actualizar(self, localidad, localidad_id):
         actualizar_localidad = ("UPDATE localidades "
-                             "SET nombre = %s, codigo_postal = %s, id_provincia = %s "
-                             "WHERE id = %s")
+                                "SET nombre = %s, codigo_postal = %s, id_provincia = %s "
+                                "WHERE id = %s")
         datos_localidad = (localidad.nombre, localidad.codigo_postal, localidad.id_provincia, localidad_id)
         self.cursor.execute(actualizar_localidad, datos_localidad)
         self.cnx.commit()

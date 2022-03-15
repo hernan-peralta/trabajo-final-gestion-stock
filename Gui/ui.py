@@ -1797,7 +1797,8 @@ class Ui_MainWindow(object):
         )
 
         self.btn_buscar_localidad.clicked.connect(
-            lambda: self.buscar_localidad(servicio_localidad, self.lineEdit_buscar_localidad, self.tableListaLocalidad)
+            lambda: self.busqueda_localidades_handler(servicio_localidad, self.comboBox_atributo_busqueda_cliente_2,
+                                                      self.lineEdit_buscar_localidad, self.tableListaLocalidad)
         )
 
         self.pushButton_cargar_localidad_desde_id.clicked.connect(
@@ -2270,6 +2271,20 @@ class Ui_MainWindow(object):
         self.limpiar_lista_localidades(widget_lista)
         texto_busqueda = input_busqueda.text()
         lista_localidades = servicio.buscar_por_nombre(texto_busqueda)
+        self.mostrar_lista_localidades(widget_lista, lista_localidades)
+
+    def busqueda_localidades_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_localidades(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_localidades = []
+        if criterio_busqueda == "Nombre":
+            lista_localidades = servicio.buscar_por_nombre(texto_busqueda)
+        elif criterio_busqueda == "Provincia":
+            lista_localidades = servicio.buscar_por_provincia(texto_busqueda)
+        elif criterio_busqueda == "Codigo postal":
+            lista_localidades = servicio.buscar_por_codigo_postal(texto_busqueda)
+
         self.mostrar_lista_localidades(widget_lista, lista_localidades)
 
     def actualizar_localidad(self, servicio, formulario_localidad, input_busqueda_id):

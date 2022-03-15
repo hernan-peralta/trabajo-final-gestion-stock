@@ -31,8 +31,14 @@ class ServicioLocalidad:
         return lista_localidades
 
     def buscar_por_provincia(self, nombre_provincia):
-        #TODO
-        pass
+        lista_query = self.repositorio_localidad.buscar_por_provincia(nombre_provincia)
+        lista_localidades = []
+        for (q) in lista_query:
+            # resultado_query_provincia = self.repositorio_provincia.obtener_por_id(q[3])
+            lista_localidades.append(
+                LocalidadDTO(q[0], q[1], q[2], q[3]))
+        print("LOCALIDADES", lista_localidades)
+        return lista_localidades
 
     def guardar(self, localidad_request):
         provincia = self.repositorio_provincia.obtener_por_nombre(localidad_request["provincia"])
