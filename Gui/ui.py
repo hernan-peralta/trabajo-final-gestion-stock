@@ -23,9 +23,7 @@ class Ui_MainWindow(object):
     cantidad_elementos_detalle_compras = 4
     cantidad_elementos_compras = 5
 
-    def setupUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta, servicio_detalle_compra,
-                servicio_compra):
+    def setupUi(self, MainWindow, servicios):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1259, 852)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -1226,9 +1224,7 @@ class Ui_MainWindow(object):
         self.acercaDe.addAction(self.actionAcerca_de)
         self.menubar.addAction(self.acercaDe.menuAction())
 
-        self.retranslateUi(MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                           servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta,
-                           servicio_detalle_compra, servicio_compra)
+        self.retranslateUi(MainWindow, servicios)
         self.tabWidgetAplicacion.setCurrentIndex(0)
         self.tabWidgetProducto.setCurrentIndex(0)
         self.tabWidgetCliente.setCurrentIndex(0)
@@ -1242,9 +1238,7 @@ class Ui_MainWindow(object):
         self.tabWidgetCompra.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow, servicio_producto, servicio_cliente, servicio_proveedor, servicio_categoria,
-                      servicio_localidad, servicio_banco, servicio_detalle_venta, servicio_venta,
-                      servicio_detalle_compra, servicio_compra):
+    def retranslateUi(self, MainWindow, servicios):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
@@ -1687,197 +1681,197 @@ class Ui_MainWindow(object):
 
         # EVENT HANDLERS PARA BOTONES
         self.btn_buscar_producto.clicked.connect(
-            lambda: self.busqueda_producto_handler(servicio_producto, self.comboBox_atributo_busqueda_producto,
+            lambda: self.busqueda_producto_handler(servicios["producto"], self.comboBox_atributo_busqueda_producto,
                                                    self.lineEdit_buscar_producto,
                                                    self.tableResultadoBusquedaProducto))
 
         self.btn_mostrar_todos_productos.clicked.connect(
-            lambda: self.mostrar_todos_productos(servicio_producto, self.tableResultadoBusquedaProducto)
+            lambda: self.mostrar_todos_productos(servicios["producto"], self.tableResultadoBusquedaProducto)
         )
 
         self.pushButton_agregar_producto_guardar.clicked.connect(
-            lambda: self.guardar_producto(servicio_producto, formulario_nuevo_producto))
+            lambda: self.guardar_producto(servicios["producto"], formulario_nuevo_producto))
 
         self.pushButton_eliminarProducto.clicked.connect(
-            lambda: self.eliminar_producto(servicio_producto, self.lineEdit_eliminar_idProducto)
+            lambda: self.eliminar_producto(servicios["producto"], self.lineEdit_eliminar_idProducto)
         )
 
         self.pushButton_actualizar_producto.clicked.connect(
-            lambda: self.actualizar_producto(servicio_producto, formulario_nuevo_producto,
+            lambda: self.actualizar_producto(servicios["producto"], formulario_nuevo_producto,
                                              self.lineEdit_buscar_producto_por_id)
         )
 
         self.pushButton_cargar_producto_desde_id.clicked.connect(
-            lambda: self.cargar_producto_desde_id(servicio_producto, self.lineEdit_buscar_producto_por_id,
+            lambda: self.cargar_producto_desde_id(servicios["producto"], self.lineEdit_buscar_producto_por_id,
                                                   formulario_nuevo_producto)
         )
 
         self.btn_mostrar_todos_clientes.clicked.connect(
-            lambda: self.mostrar_todos_clientes(servicio_cliente, self.tableListaCliente)
+            lambda: self.mostrar_todos_clientes(servicios["cliente"], self.tableListaCliente)
         )
 
         self.pushButton_guardarCliente.clicked.connect(
-            lambda: self.guardar_cliente(servicio_cliente, formulario_nuevo_cliente)
+            lambda: self.guardar_cliente(servicios["cliente"], formulario_nuevo_cliente)
         )
 
         self.btn_buscar_cliente.clicked.connect(
-            lambda: self.busqueda_cliente_handler(servicio_cliente, self.comboBox_atributo_busqueda_cliente,
+            lambda: self.busqueda_cliente_handler(servicios["cliente"], self.comboBox_atributo_busqueda_cliente,
                                                   self.lineEdit_buscar_cliente, self.tableListaCliente)
         )
 
         self.pushButton_cargar_cliente_desde_id.clicked.connect(
-            lambda: self.cargar_cliente_desde_id(servicio_cliente, self.lineEdit_buscar_cliente_por_id,
+            lambda: self.cargar_cliente_desde_id(servicios["cliente"], self.lineEdit_buscar_cliente_por_id,
                                                  formulario_nuevo_cliente)
         )
 
         self.pushButton_actualizarCliente.clicked.connect(
-            lambda: self.actualizar_cliente(servicio_cliente, formulario_nuevo_cliente,
+            lambda: self.actualizar_cliente(servicios["cliente"], formulario_nuevo_cliente,
                                             self.lineEdit_buscar_cliente_por_id)
         )
 
         self.pushButton_eliminarCliente.clicked.connect(
-            lambda: self.eliminar_cliente(servicio_cliente, self.lineEdit_eliminar_idCliente)
+            lambda: self.eliminar_cliente(servicios["cliente"], self.lineEdit_eliminar_idCliente)
         )
 
         self.btn_mostrar_todos_proveedores.clicked.connect(
-            lambda: self.mostrar_todos_proveedores(servicio_proveedor, self.tableListaProveedor)
+            lambda: self.mostrar_todos_proveedores(servicios["proveedor"], self.tableListaProveedor)
         )
 
         self.btn_buscar_proveedor.clicked.connect(
-            lambda: self.busqueda_proveedor_handler(servicio_proveedor, self.comboBox_atributo_busqueda_proveedor,
+            lambda: self.busqueda_proveedor_handler(servicios["proveedor"], self.comboBox_atributo_busqueda_proveedor,
                                                     self.lineEdit_buscar_proveedor, self.tableListaProveedor)
         )
 
         self.pushButton_eliminarProveedor.clicked.connect(
-            lambda: self.eliminar_proveedor(servicio_proveedor, self.lineEdit_eliminar_idProveedor)
+            lambda: self.eliminar_proveedor(servicios["proveedor"], self.lineEdit_eliminar_idProveedor)
         )
 
         self.pushButton_cargar_proveedor_desde_id.clicked.connect(
-            lambda: self.cargar_proveedor_desde_id(servicio_proveedor, self.lineEdit_buscar_proveedor_por_id,
+            lambda: self.cargar_proveedor_desde_id(servicios["proveedor"], self.lineEdit_buscar_proveedor_por_id,
                                                    formulario_nuevo_proveedor)
         )
 
         self.pushButton_actualizarProveedor.clicked.connect(
-            lambda: self.actualizar_proveedor(servicio_proveedor, formulario_nuevo_proveedor,
+            lambda: self.actualizar_proveedor(servicios["proveedor"], formulario_nuevo_proveedor,
                                               self.lineEdit_buscar_proveedor_por_id)
         )
 
         self.pushButton_guardarProveedor.clicked.connect(
-            lambda: self.guardar_proveedor(servicio_proveedor, formulario_nuevo_proveedor)
+            lambda: self.guardar_proveedor(servicios["proveedor"], formulario_nuevo_proveedor)
         )
 
         self.pushButton_guardarCategoria.clicked.connect(
-            lambda: self.guardar_categoria(servicio_categoria, formulario_nueva_categoria)
+            lambda: self.guardar_categoria(servicios["categoria"], formulario_nueva_categoria)
         )
 
         self.btn_mostrar_todos_categorias.clicked.connect(
-            lambda: self.mostrar_todas_categorias(servicio_categoria, self.tableListaCategoria)
+            lambda: self.mostrar_todas_categorias(servicios["categoria"], self.tableListaCategoria)
         )
 
         self.btn_buscar_categoria.clicked.connect(
-            lambda: self.buscar_categoria(servicio_categoria, self.lineEdit_buscar_categoria, self.tableListaCategoria)
+            lambda: self.buscar_categoria(servicios["categoria"], self.lineEdit_buscar_categoria, self.tableListaCategoria)
         )
 
         self.pushButton_cargar_categoria_desde_id.clicked.connect(
-            lambda: self.cargar_categoria_desde_id(servicio_categoria, self.lineEdit_buscar_categoria_por_id,
+            lambda: self.cargar_categoria_desde_id(servicios["categoria"], self.lineEdit_buscar_categoria_por_id,
                                                    formulario_nueva_categoria)
         )
 
         self.pushButton_actualizarCategoria.clicked.connect(
-            lambda: self.actualizar_categoria(servicio_categoria, formulario_nueva_categoria,
+            lambda: self.actualizar_categoria(servicios["categoria"], formulario_nueva_categoria,
                                               self.lineEdit_buscar_categoria_por_id)
         )
 
         self.pushButton_eliminarCategoria.clicked.connect(
-            lambda: self.eliminar_categoria(servicio_categoria, self.lineEdit_eliminar_idCategoria)
+            lambda: self.eliminar_categoria(servicios["categoria"], self.lineEdit_eliminar_idCategoria)
         )
 
         self.btn_mostrar_todos_localidad.clicked.connect(
-            lambda: self.mostrar_todas_localidades(servicio_localidad, self.tableListaLocalidad)
+            lambda: self.mostrar_todas_localidades(servicios["localidad"], self.tableListaLocalidad)
         )
 
         self.btn_buscar_localidad.clicked.connect(
-            lambda: self.busqueda_localidades_handler(servicio_localidad, self.comboBox_atributo_busqueda_cliente_2,
+            lambda: self.busqueda_localidades_handler(servicios["localidad"], self.comboBox_atributo_busqueda_cliente_2,
                                                       self.lineEdit_buscar_localidad, self.tableListaLocalidad)
         )
 
         self.pushButton_cargar_localidad_desde_id.clicked.connect(
-            lambda: self.cargar_localidad_desde_id(servicio_localidad, self.lineEdit_buscar_localidad_por_id,
+            lambda: self.cargar_localidad_desde_id(servicios["localidad"], self.lineEdit_buscar_localidad_por_id,
                                                    formulario_nueva_localidad)
         )
 
         self.pushButton_guardarLocalidad.clicked.connect(
-            lambda: self.guardar_localidad(servicio_localidad, formulario_nueva_localidad)
+            lambda: self.guardar_localidad(servicios["localidad"], formulario_nueva_localidad)
         )
 
         self.pushButton_actualizarLocalidad.clicked.connect(
-            lambda: self.actualizar_localidad(servicio_localidad, formulario_nueva_localidad,
+            lambda: self.actualizar_localidad(servicios["localidad"], formulario_nueva_localidad,
                                               self.lineEdit_buscar_localidad_por_id)
         )
 
         self.pushButton_eliminarLocalidad.clicked.connect(
-            lambda: self.eliminar_localidad(servicio_localidad, self.lineEdit_eliminar_idLocalidad)
+            lambda: self.eliminar_localidad(servicios["localidad"], self.lineEdit_eliminar_idLocalidad)
         )
 
         self.btn_mostrar_todos_banco.clicked.connect(
-            lambda: self.mostrar_todos_bancos(servicio_banco, self.tableListaBanco)
+            lambda: self.mostrar_todos_bancos(servicios["banco"], self.tableListaBanco)
         )
 
         self.pushButton_eliminarBanco.clicked.connect(
-            lambda: self.eliminar_banco(servicio_banco, self.lineEdit_eliminar_idBanco)
+            lambda: self.eliminar_banco(servicios["banco"], self.lineEdit_eliminar_idBanco)
         )
 
         self.pushButton_guardarBanco.clicked.connect(
-            lambda: self.guardar_banco(servicio_banco, fomulario_nuevo_banco)
+            lambda: self.guardar_banco(servicios["banco"], fomulario_nuevo_banco)
         )
 
         self.pushButton_cargar_banco_desde_id.clicked.connect(
-            lambda: self.cargar_banco_desde_id(servicio_banco, self.lineEdit_buscar_banco_por_id, fomulario_nuevo_banco)
+            lambda: self.cargar_banco_desde_id(servicios["banco"], self.lineEdit_buscar_banco_por_id, fomulario_nuevo_banco)
         )
 
         self.pushButton_actualizarBanco.clicked.connect(
-            lambda: self.actualizar_banco(servicio_banco, fomulario_nuevo_banco, self.lineEdit_buscar_banco_por_id)
+            lambda: self.actualizar_banco(servicios["banco"], fomulario_nuevo_banco, self.lineEdit_buscar_banco_por_id)
         )
 
         self.btn_buscar_banco.clicked.connect(
-            lambda: self.buscar_banco(servicio_banco, self.lineEdit_buscar_banco, self.tableListaBanco)
+            lambda: self.buscar_banco(servicios["banco"], self.lineEdit_buscar_banco, self.tableListaBanco)
         )
 
         self.pushButton_agregar_detalle_venta.clicked.connect(
-            lambda: self.agregar_detalle_venta(servicio_detalle_venta, formulario_detalle_venta,
+            lambda: self.agregar_detalle_venta(servicios["detalle_venta"], formulario_detalle_venta,
                                                self.tableLista_detalle_venta)
         )
 
         self.pushButton_guardar_detalle_venta.clicked.connect(
-            lambda: self.guardar_detalle_venta(servicio_detalle_venta, formulario_detalle_venta,
+            lambda: self.guardar_detalle_venta(servicios["detalle_venta"], formulario_detalle_venta,
                                                self.tableLista_detalle_venta)
         )
 
         self.btn_mostrar_todas_ventas.clicked.connect(
-            lambda: self.mostrar_todos_ventas(servicio_venta, self.tableListaVenta)
+            lambda: self.mostrar_todos_ventas(servicios["venta"], self.tableListaVenta)
         )
 
         self.btn_buscar_detalle_de_venta.clicked.connect(
-            lambda: self.mostrar_venta_detallada_por_venta_id(servicio_detalle_venta, self.tableLista_detalle_venta_3,
+            lambda: self.mostrar_venta_detallada_por_venta_id(servicios["detalle_venta"], self.tableLista_detalle_venta_3,
                                                               self.lineEdit_id_buscar_venta)
         )
 
         self.pushButton_agregar_detalle_compra.clicked.connect(
-            lambda: self.agregar_detalle_compra(servicio_detalle_compra, formulario_detalle_compra,
+            lambda: self.agregar_detalle_compra(servicios["detalle_compra"], formulario_detalle_compra,
                                                 self.tableLista_detalle_compra)
         )
 
         self.pushButton_guardar_detalle_compra.clicked.connect(
-            lambda: self.guardar_detalle_compra(servicio_detalle_compra, formulario_detalle_compra,
+            lambda: self.guardar_detalle_compra(servicios["detalle_compra"], formulario_detalle_compra,
                                                 self.tableLista_detalle_compra)
         )
 
         self.btn_mostrar_todas_compras.clicked.connect(
-            lambda: self.mostrar_todos_compras(servicio_compra, self.tableListaCompra)
+            lambda: self.mostrar_todos_compras(servicios["compra"], self.tableListaCompra)
         )
 
         self.btn_buscar_detalle_de_compra.clicked.connect(
-            lambda: self.mostrar_compra_detallada_por_compra_id(servicio_detalle_compra,
+            lambda: self.mostrar_compra_detallada_por_compra_id(servicios["detalle_compra"],
                                                                 self.tableLista_detalle_compra_6,
                                                                 self.lineEdit_id_buscar_compra)
         )

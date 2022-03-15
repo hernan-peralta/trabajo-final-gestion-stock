@@ -80,7 +80,11 @@ servicioDetalleCompra = ServicioDetalleCompra(repositorioDetalleCompra, reposito
 
 servicioCompra = ServicioCompra(repositorioCompra, repositorioFormaPago, repositorioProveedor, repositorioDetalleCompra)
 
-crear_aplicacion(servicioProducto, servicioCliente, servicioProveedor, servicioCategoria, servicioLocalidad,
-                 servicioBanco, servicioDetalleVenta, servicioVenta, servicioDetalleCompra, servicioCompra)
+servicios = {"banco": servicioBanco, "localidad": servicioLocalidad, "detalle_venta": servicioDetalleVenta,
+             "detalle_compra": servicioDetalleCompra, "venta": servicioVenta, "compra": servicioCompra,
+             "producto": servicioProducto, "categoria": servicioCategoria, "proveedor": servicioProveedor,
+             "cliente": servicioCliente, }
+
+crear_aplicacion(servicios)
 
 atexit.register(lambda: cursor.close(), cnx.close())
