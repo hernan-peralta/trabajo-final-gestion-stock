@@ -17,7 +17,7 @@ class ServicioCompra:
             for detalle in lista_detalle_compras:
                 cantidad = detalle[1]
                 precio_compra = detalle[2]
-                total_compra = cantidad * precio_compra
+                total_compra += cantidad * precio_compra
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             proveedor = self.repositorioProveedor.buscar_por_id(q[2])
             lista_compras.append(CompraDTO(q[0], q[1], forma_pago[1], total_compra, proveedor[0]))
