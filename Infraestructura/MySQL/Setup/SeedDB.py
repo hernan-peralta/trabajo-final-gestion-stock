@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import mysql.connector
-from mysql.connector import errorcode
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -129,54 +128,24 @@ def use_database(cursor, db_name):
         exit(1)
 
 
-# def seed_database(cursor):
-#     try:
-#         cursor.execute("USE {}".format(db_name))
-#     except mysql.connector.Error as err:
-#         print("La base de datos {} no existe.".format(db_name))
-#         if err.errno == errorcode.ER_BAD_DB_ERROR:
-#             print(err)
-#             exit(1)
+def seed_database(lista_elementos, sentencia_sql):
+    for elemento in lista_elementos:
+        cursor.execute(sentencia_sql, elemento)
+    cnx.commit()
 
 
 use_database(cursor, DB_NAME)
-# seed_database(TABLES)
 
-for provincia in lista_provincias:
-    cursor.execute(agrega_provincias, provincia)
-
-for localidad in lista_localidades:
-    cursor.execute(agrega_localidades, localidad)
-cnx.commit()
-
-for categoria_iva in lista_categoria_iva:
-    cursor.execute(agrega_categoria_iva, categoria_iva)
-cnx.commit()
-
-for categoria in lista_categorias:
-    cursor.execute(agrega_categorias, categoria)
-
-for producto in lista_productos:
-    cursor.execute(agrega_productos, producto)
-cnx.commit()
-
-for categoria_producto in lista_categorias_productos:
-    cursor.execute(agrega_categorias_productos, categoria_producto)
-
-for cliente in lista_clientes:
-    cursor.execute(agrega_clientes, cliente)
-
-for banco in lista_bancos:
-    cursor.execute(agrega_bancos, banco)
-cnx.commit()
-
-for proveedor in lista_proveedores:
-    cursor.execute(agrega_proveedores, proveedor)
-cnx.commit()
-
-for forma_pago in lista_forma_pago:
-    cursor.execute(agrega_forma_pagos, forma_pago)
-cnx.commit()
+seed_database(lista_provincias, agrega_provincias)
+seed_database(lista_localidades, agrega_localidades)
+seed_database(lista_categoria_iva, agrega_categoria_iva)
+seed_database(lista_categorias, agrega_categorias)
+seed_database(lista_productos, agrega_productos)
+seed_database(lista_categorias_productos, agrega_categorias_productos)
+seed_database(lista_clientes, agrega_clientes)
+seed_database(lista_bancos, agrega_bancos)
+seed_database(lista_proveedores, agrega_proveedores)
+seed_database(lista_forma_pago, agrega_forma_pagos)
 
 cursor.close()
 cnx.close()
