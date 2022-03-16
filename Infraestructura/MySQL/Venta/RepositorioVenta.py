@@ -18,3 +18,7 @@ class RepositorioVenta:
     def obtener_todos(self):
         self.cursor.execute("SELECT * FROM ventas")
         return self.cursor.fetchall()
+
+    def buscar_por_cliente(self, id_cliente):
+        self.cursor.execute("SELECT * FROM ventas WHERE id_cliente LIKE %s", (id_cliente,))
+        return self.cursor.fetchall()

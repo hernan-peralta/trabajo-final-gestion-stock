@@ -1856,6 +1856,11 @@ class Ui_MainWindow(object):
             lambda: self.mostrar_todos_ventas(servicios["venta"], self.tableListaVenta)
         )
 
+        self.btn_buscar_venta.clicked.connect(
+            lambda: self.busqueda_ventas_handler(servicios["venta"], self.comboBox_atributo_busqueda_venta,
+                                                 self.lineEdit_buscar_venta, self.tableListaVenta)
+        )
+
         self.btn_buscar_detalle_de_venta.clicked.connect(
             lambda: self.mostrar_venta_detallada_por_venta_id(servicios["detalle_venta"],
                                                               self.tableLista_detalle_venta_3,
@@ -2469,6 +2474,18 @@ class Ui_MainWindow(object):
             for j in range(Ui_MainWindow.cantidad_elementos_ventas):
                 item = widget.item(i, j)
                 item.setText(_translate("MainWindow", ""))
+
+    def busqueda_ventas_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_ventas(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_ventas = []
+        if criterio_busqueda == "Cliente":
+            lista_ventas = servicio.buscar_por_cliente(texto_busqueda)
+        elif criterio_busqueda == "Fecha":
+            lista_ventas = servicio.buscar_por_fecha(texto_busqueda)
+
+        self.mostrar_lista_ventas(widget_lista, lista_ventas)
 
     '''
     DETALLE COMPRAS
