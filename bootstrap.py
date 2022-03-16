@@ -63,7 +63,7 @@ repositorioCategoriasProductos = RepositorioCategoriasProductos(cnx)
 servicioCategoriasProductos = ServicioCategoriasProductos(repositorioCategoriasProductos)
 
 repositorioProducto = RepositorioProducto(cnx)
-servicioProducto = ServicioProducto(repositorioProducto, servicioCategoria, servicioCategoriasProductos)
+servicioProducto = ServicioProducto(repositorioProducto, servicioCategoria, repositorioCategoriasProductos)
 
 repositorioFormaPago = RepositorioFormaPago(cnx)
 repositorioDetalleVenta = RepositorioDetalleVenta(cnx)

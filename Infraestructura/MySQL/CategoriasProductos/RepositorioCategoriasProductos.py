@@ -10,3 +10,6 @@ class RepositorioCategoriasProductos:
         datos_categorias_productos = (id_producto, id_categoria)
         self.cursor.execute(agregar_categorias_productos, datos_categorias_productos)
         self.cnx.commit()
+
+    def eliminar(self, id_producto):
+        self.cursor.execute("DELETE FROM categorias_productos WHERE id_producto = %s", (id_producto,))

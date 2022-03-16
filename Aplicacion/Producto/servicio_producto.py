@@ -3,10 +3,10 @@ from Dominio.producto import Producto
 
 
 class ServicioProducto:
-    def __init__(self, repositorio_producto, servicio_categoria, servicio_producto_categoria):
+    def __init__(self, repositorio_producto, servicio_categoria, repositorio_categorias_productos):
         self.repositorioProducto = repositorio_producto
         self.servicio_categoria = servicio_categoria
-        self.servicio_producto_categoria = servicio_producto_categoria
+        self.repositorio_categorias_productos = repositorio_categorias_productos
 
 
     def guardar(self, producto_request):
@@ -17,7 +17,7 @@ class ServicioProducto:
         producto_id = self.repositorioProducto.guardar(producto)
         for categoria_nombre in producto_request["categoria"]:
             categoria = self.servicio_categoria.buscar_por_nombre(categoria_nombre)
-            self.servicio_producto_categoria.guardar(producto_id, categoria[0].id)
+            self.repositorio_categorias_productos.guardar(producto_id, categoria[0].id)
 
     def actualizar(self, producto_request):
         id_producto = int(producto_request["id"])
@@ -66,6 +66,7 @@ class ServicioProducto:
         return lista_productos
 
     def eliminar(self, id_producto):
+        self.repositorio_categorias_productos.eliminar(id_producto)
         self.repositorioProducto.eliminar(id_producto)
 
     def obtener_categorias_producto(self, id_producto):
