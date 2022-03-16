@@ -23,3 +23,7 @@ class RepositorioCompra:
     def buscar_por_proveedor(self, id_proveedor):
         self.cursor.execute("SELECT * FROM compras WHERE id_proveedor LIKE %s", (id_proveedor,))
         return self.cursor.fetchall()
+
+    def buscar_por_fecha(self, fecha):
+        self.cursor.execute("SELECT * FROM compras WHERE fecha LIKE %s", (fecha,))
+        return self.cursor.fetchall()
