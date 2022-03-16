@@ -1,3 +1,5 @@
+from Dominio.detalle_venta import DetalleVenta
+
 class RepositorioDetalleVenta:
     def __init__(self, cnx):
         self.cnx = cnx
@@ -14,4 +16,7 @@ class RepositorioDetalleVenta:
 
     def obtener_por_venta_id(self, venta_id):
         self.cursor.execute("SELECT * FROM detalle_venta WHERE id_venta = %s", (venta_id,))
-        return self.cursor.fetchall()
+        detalle_ventas = []
+        for atributo in self.cursor.fetchall():
+            detalle_ventas.append(DetalleVenta(atributo[0], atributo[1], atributo[2], atributo[3]))
+        return detalle_ventas

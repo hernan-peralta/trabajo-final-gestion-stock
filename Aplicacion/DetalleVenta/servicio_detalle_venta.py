@@ -31,8 +31,6 @@ class ServicioDetalleVenta:
         resultado_query = self.repositorio_detalle_venta.obtener_por_venta_id(venta_id)
         for (q) in resultado_query:
             producto = self.repositorio_producto.obtener(q[4])
-            precio_detalle_venta = q[2]
-            cantidad = q[1]
-            total_item = precio_detalle_venta * cantidad
+            total_item = q.calcular_total_item()
             lista_detalle_ventas.append(DetalleVentaDTO(q[0], q[1], q[2], producto[1], total_item))
         return lista_detalle_ventas

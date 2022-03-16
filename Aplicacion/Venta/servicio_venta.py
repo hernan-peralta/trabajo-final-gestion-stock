@@ -14,10 +14,8 @@ class ServicioVenta:
         for (q) in lista_query:
             total_venta = 0
             lista_detalle_ventas = self.repositorioDetalleVenta.obtener_por_venta_id(q[0])
-            for detalle in lista_detalle_ventas:
-                cantidad = detalle[1]
-                precio_venta = detalle[2]
-                total_venta += cantidad * precio_venta
+            for detalle_ventas in lista_detalle_ventas:
+                total_venta += detalle_ventas.calcular_total_item()
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             cliente = self.repositorioCliente.buscar_por_id(q[2])
             cliente_nombre_apellido = " ".join([cliente[1], cliente[2]])
@@ -30,10 +28,8 @@ class ServicioVenta:
         for (q) in lista_query:
             total_venta = 0
             lista_detalle_ventas = self.repositorioDetalleVenta.obtener_por_venta_id(q[0])
-            for detalle in lista_detalle_ventas:
-                cantidad = detalle[1]
-                precio_venta = detalle[2]
-                total_venta += cantidad * precio_venta
+            for detalle_ventas in lista_detalle_ventas:
+                total_venta += detalle_ventas.calcular_total_item()
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             cliente = self.repositorioCliente.buscar_por_id(q[2])
             lista_ventas.append(VentaDTO(q[0], q[1], forma_pago[1], total_venta, cliente[1]))
@@ -45,10 +41,8 @@ class ServicioVenta:
         for (q) in lista_query:
             total_venta = 0
             lista_detalle_ventas = self.repositorioDetalleVenta.obtener_por_venta_id(q[0])
-            for detalle in lista_detalle_ventas:
-                cantidad = detalle[1]
-                precio_venta = detalle[2]
-                total_venta += cantidad * precio_venta
+            for detalle_ventas in lista_detalle_ventas:
+                total_venta += detalle_ventas.calcular_total_item()
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             cliente = self.repositorioCliente.buscar_por_id(q[2])
             lista_ventas.append(VentaDTO(q[0], q[1], forma_pago[1], total_venta, cliente[1]))

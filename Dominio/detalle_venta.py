@@ -4,3 +4,6 @@ class DetalleVenta:
         self.precio = precio
         self.cantidad = cantidad
         self.id_venta = id_venta
+
+    def calcular_total_item(self):
+        return self.precio * self.cantidad
