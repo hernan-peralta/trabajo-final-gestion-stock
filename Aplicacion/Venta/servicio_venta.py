@@ -20,7 +20,8 @@ class ServicioVenta:
                 total_venta += cantidad * precio_venta
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             cliente = self.repositorioCliente.buscar_por_id(q[2])
-            lista_ventas.append(VentaDTO(q[0], q[1], forma_pago[1], total_venta, cliente[0]))
+            cliente_nombre_apellido = " ".join([cliente[1], cliente[2]])
+            lista_ventas.append(VentaDTO(q[0], q[1], forma_pago[1], total_venta, cliente_nombre_apellido))
         return lista_ventas
 
     def buscar_por_cliente(self):
