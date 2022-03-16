@@ -20,7 +20,7 @@ class ServicioCompra:
                 total_compra += cantidad * precio_compra
             forma_pago = self.repositorioFormaPago.obtener_por_id(q[3])
             proveedor = self.repositorioProveedor.buscar_por_id(q[2])
-            lista_compras.append(CompraDTO(q[0], q[1], forma_pago[1], total_compra, proveedor[0]))
+            lista_compras.append(CompraDTO(q[0], q[1], forma_pago[1], total_compra, proveedor[1]))
         return lista_compras
 
     def buscar_por_proveedor(self):
