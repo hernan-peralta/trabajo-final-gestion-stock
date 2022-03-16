@@ -2371,7 +2371,7 @@ class Ui_MainWindow(object):
     def agregar_detalle_venta(self, servicio, formulario, widget_lista):
         lista_detalle_ventas = self.obtener_elementos_lista(widget_lista)
         detalle_venta = {"producto": formulario["producto"].text(), "cantidad": formulario["cantidad"].text(),
-                         "precio": formulario["precio"].text()}
+                         "precio": formulario["precio"].text(), "total_item": int(formulario["cantidad"].text()) * int(formulario["precio"].text())}
         lista_detalle_ventas.append(detalle_venta)
         self.mostrar_lista_detalle_venta(widget_lista, lista_detalle_ventas)
         formulario["producto"].setText("")
@@ -2402,6 +2402,8 @@ class Ui_MainWindow(object):
             item.setText(_translate("MainWindow", detalle_venta["cantidad"]))
             item = widget.item(index, 2)
             item.setText(_translate("MainWindow", detalle_venta["precio"]))
+            item = widget.item(index, 3)
+            item.setText(_translate("MainWindow", str(detalle_venta["total_item"])))
 
     def obtener_elementos_lista(self, widget_lista):
         lista_detalle_ventas = []
