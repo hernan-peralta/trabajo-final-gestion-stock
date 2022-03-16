@@ -1,5 +1,6 @@
 from datetime import date
 
+
 class RepositorioCompra:
     def __init__(self, cnx):
         self.cnx = cnx
@@ -7,8 +8,8 @@ class RepositorioCompra:
 
     def crear(self, id_proveedor, id_forma_pago):
         agregar_compra = ("INSERT INTO compras "
-                             "(fecha, id_proveedor, id_forma_pago) "
-                             "VALUES (%s, %s, %s)")
+                          "(fecha, id_proveedor, id_forma_pago) "
+                          "VALUES (%s, %s, %s)")
         datos_compra = (
             date.today(), id_proveedor, id_forma_pago)
         self.cursor.execute(agregar_compra, datos_compra)
@@ -17,4 +18,8 @@ class RepositorioCompra:
 
     def obtener_todos(self):
         self.cursor.execute("SELECT * FROM compras")
+        return self.cursor.fetchall()
+
+    def buscar_por_proveedor(self, id_proveedor):
+        self.cursor.execute("SELECT * FROM compras WHERE id_proveedor LIKE %s", (id_proveedor,))
         return self.cursor.fetchall()

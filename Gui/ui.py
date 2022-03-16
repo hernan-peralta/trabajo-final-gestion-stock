@@ -1882,6 +1882,11 @@ class Ui_MainWindow(object):
                                                                 self.lineEdit_id_buscar_compra)
         )
 
+        self.btn_buscar_compra.clicked.connect(
+            lambda: self.busqueda_compras_handler(servicios["compra"], self.comboBox_atributo_busqueda_compra,
+                                                  self.lineEdit_buscar_compra, self.tableListaCompra)
+        )
+
     '''
     PRODUCTOS
     '''
@@ -2575,3 +2580,15 @@ class Ui_MainWindow(object):
             for j in range(Ui_MainWindow.cantidad_elementos_compras):
                 item = widget.item(i, j)
                 item.setText(_translate("MainWindow", ""))
+
+    def busqueda_compras_handler(self, servicio, combobox, input_busqueda, widget_lista):
+        self.limpiar_lista_compras(widget_lista)
+        criterio_busqueda = combobox.currentText()
+        texto_busqueda = input_busqueda.text()
+        lista_compras = []
+        if criterio_busqueda == "Proveedor":
+            lista_compras = servicio.buscar_por_proveedor(texto_busqueda)
+        elif criterio_busqueda == "Fecha":
+            lista_compras = servicio.buscar_por_fecha(texto_busqueda)
+
+        self.mostrar_lista_compras(widget_lista, lista_compras)
