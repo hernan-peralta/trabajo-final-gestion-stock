@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'untitled.ui'
+# Form implementation generated from reading ui file 'gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -46,7 +46,6 @@ class Ui_MainWindow(object):
         self.comboBox_atributo_busqueda_producto = QtWidgets.QComboBox(self.frame_buscar_producto)
         self.comboBox_atributo_busqueda_producto.setGeometry(QtCore.QRect(70, 30, 106, 28))
         self.comboBox_atributo_busqueda_producto.setObjectName("comboBox_atributo_busqueda_producto")
-        self.comboBox_atributo_busqueda_producto.addItem("")
         self.comboBox_atributo_busqueda_producto.addItem("")
         self.comboBox_atributo_busqueda_producto.addItem("")
         self.comboBox_atributo_busqueda_producto.addItem("")
@@ -1244,7 +1243,6 @@ class Ui_MainWindow(object):
         self.comboBox_atributo_busqueda_producto.setItemText(0, _translate("MainWindow", "Nombre"))
         self.comboBox_atributo_busqueda_producto.setItemText(1, _translate("MainWindow", "Marca"))
         self.comboBox_atributo_busqueda_producto.setItemText(2, _translate("MainWindow", "Categoria"))
-        self.comboBox_atributo_busqueda_producto.setItemText(3, _translate("MainWindow", "Proveedor"))
         self.btn_buscar_producto.setText(_translate("MainWindow", "Buscar"))
         self.tableResultadoBusquedaProducto.setSortingEnabled(False)
         item = self.tableResultadoBusquedaProducto.horizontalHeaderItem(0)
@@ -1568,7 +1566,7 @@ class Ui_MainWindow(object):
         self.tabWidgetCompra.setTabText(self.tabWidgetCompra.indexOf(self.tab_2),
                                         _translate("MainWindow", "Detalle de compra"))
         self.tabWidgetAplicacion.setTabText(self.tabWidgetAplicacion.indexOf(self.tab_compras),
-                                            _translate("MainWindow", "Detalle de compra"))
+                                            _translate("MainWindow", "Compras"))
         self.acercaDe.setTitle(_translate("MainWindow", "Ayuda"))
         self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de"))
 
@@ -1774,7 +1772,8 @@ class Ui_MainWindow(object):
         )
 
         self.btn_buscar_categoria.clicked.connect(
-            lambda: self.buscar_categoria(servicios["categoria"], self.lineEdit_buscar_categoria, self.tableListaCategoria)
+            lambda: self.buscar_categoria(servicios["categoria"], self.lineEdit_buscar_categoria,
+                                          self.tableListaCategoria)
         )
 
         self.pushButton_cargar_categoria_desde_id.clicked.connect(
@@ -1831,7 +1830,8 @@ class Ui_MainWindow(object):
         )
 
         self.pushButton_cargar_banco_desde_id.clicked.connect(
-            lambda: self.cargar_banco_desde_id(servicios["banco"], self.lineEdit_buscar_banco_por_id, fomulario_nuevo_banco)
+            lambda: self.cargar_banco_desde_id(servicios["banco"], self.lineEdit_buscar_banco_por_id,
+                                               fomulario_nuevo_banco)
         )
 
         self.pushButton_actualizarBanco.clicked.connect(
@@ -1857,7 +1857,8 @@ class Ui_MainWindow(object):
         )
 
         self.btn_buscar_detalle_de_venta.clicked.connect(
-            lambda: self.mostrar_venta_detallada_por_venta_id(servicios["detalle_venta"], self.tableLista_detalle_venta_3,
+            lambda: self.mostrar_venta_detallada_por_venta_id(servicios["detalle_venta"],
+                                                              self.tableLista_detalle_venta_3,
                                                               self.lineEdit_id_buscar_venta)
         )
 
