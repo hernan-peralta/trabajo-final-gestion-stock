@@ -1,4 +1,4 @@
-# Trabajo final Programación I / Base de datos I
+# Trabajo final Programación II / Base de datos II
 
 ## Descripción
 Sistema de gestión de stock de productos, proveedores, clientes, compras y ventas escrito en Python, Qt y MySQL
